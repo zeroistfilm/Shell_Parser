@@ -8,12 +8,13 @@ import datetime
 class ShellLog:
     def __init__(self, data):
         self.data = data
-        self.parseKey = ['detected_protocol_name',
+        self.parseKey = ['detected_application_name',
+                         'detected_protocol_name',
                          'host_server_name',
                          'dns_host_name',
                          'local_ip',
-                         'other_ip',
                          'local_port',
+                         'other_ip',
                          'other_port',
                          'first_seen_at',
                          'first_update_at',
@@ -102,7 +103,6 @@ class PacketWatchDog:
     # CSV columns: date, host_server_name, other_ip, duration
     # 파일명 local_ip.csv
     # 날짜 변경을 기준으로 짜르기
-
     def __init__(self, watch_ip, local_ip):
         self.watch_ip = watch_ip
         self.local_ip = local_ip
@@ -121,6 +121,14 @@ class PacketWatchDog:
         self.packetTimeList = []
 
 
+
+    def addPacket(self, host_server_name, other_ip, packetTime):
+        if host_server_name not in self.DESTINATION_FILTER and other_ip not in self.DESTINATION_FILTER:
+            self.host_server_name = host_server_name
+            self.other_ip = other_ip
+            appendedPacketTime = self.getTimeKSTFromTimeStamp(packetTime)
+            self.packetTimeList.append(appendedPacketTime)
+
     def getTimeKSTFromTimeStamp(self, timestamp):
         from datetime import timezone
         utctime = datetime.datetime.now(timezone.utc).strftime("%Y%m%d_%H:%M:%S")
@@ -131,13 +139,6 @@ class PacketWatchDog:
             return datetime.datetime.fromtimestamp(timestamp) + datetime.timedelta(hours=9)
         else:
             return datetime.datetime.fromtimestamp(timestamp)
-
-    def addPacket(self, host_server_name, other_ip, packetTime):
-        if host_server_name not in self.DESTINATION_FILTER and other_ip not in self.DESTINATION_FILTER:
-            self.host_server_name = host_server_name
-            self.other_ip = other_ip
-            appendedPacketTime = self.getTimeKSTFromTimeStamp(packetTime)
-            self.packetTimeList.append(appendedPacketTime)
 
     def calcDuration(self):
         if self.isTimeToSave():
@@ -195,6 +196,7 @@ if __name__ == "__main__":
 
         # Save packet data
         shelllog = ShellLog(line)
+
         if shelllog.isWg0Format():
             shelllog.parseData()
             shelllog.reformatTime()
