@@ -19,9 +19,31 @@ class ShellLog:
                          'first_seen_at',
                          'first_update_at',
                          'last_seen_at',
+                         'game',
+                         'game_company',
                          ]
 
         self.resultData = {}
+        self.gameDB={}
+        self.loadGameDB()
+
+    #text파일을 읽어서 host_server_name를 기준으로 game 필터링
+    def loadGameDB(self):
+        with open("game_db.txt", "r") as f:
+            gameList = f.read().splitlines()
+            for game in gameList:
+                game_company, game, host_server_name, other_ip = [i.strip() for i in game.split(',')]
+                if host_server_name not in self.gameDB:
+                    self.gameDB[host_server_name] = {}
+                self.gameDB[host_server_name][other_ip]={'game_company': game_company, 'game': game}
+
+    def getGameInfo(self):
+        if self.resultData['host_server_name'] in self.gameDB:
+            if self.resultData['other_ip'] in self.gameDB[self.resultData['host_server_name']]:
+                self.resultData['game_company'] = self.gameDB[self.resultData['host_server_name']][self.resultData['other_ip']]['game_company']
+                self.resultData['game'] = self.gameDB[self.resultData['host_server_name']][self.resultData['other_ip']]['game']
+
+
 
     def isWg0Format(self):
         if 'interface' in self.data.keys():
@@ -40,6 +62,9 @@ class ShellLog:
 
             except Exception as e:
                 self.resultData[key] = 'NULL'
+
+
+
 
 
     def reformatTime(self):
@@ -72,8 +97,6 @@ class ShellLog:
 
     def getHost_server_nameAndOther_ip(self):
         return self.resultData['host_server_name'], self.resultData['other_ip']
-
-
 
     def getLastSeenAtDatetime(self):
         if type(self.resultData['last_seen_at']) == datetime.datetime:
@@ -109,7 +132,7 @@ class PacketWatchDog:
         self.MIN_WATCH_COUNT = 2
         self.WATCH_TIME_MINUTES = 30
         self.DESTINATION_FILTER = ['IP', 'DNS', 'others....']
-        self.CSV_COLUMNS = ['date', 'host_server_name', 'other_ip', 'duration']
+        self.CSV_COLUMNS = ['date', 'start_time', 'end_time','host_server_name', 'other_ip', 'duration']
         self.FILENAME = f"./csv/duration/{self.local_ip}.csv"
 
         self.host_server_name = 'NULL'
@@ -119,8 +142,6 @@ class PacketWatchDog:
         self.watchEnd = self.getTimeKSTFromTimeStamp(
             (datetime.datetime.now() + datetime.timedelta(minutes=self.WATCH_TIME_MINUTES)).timestamp())
         self.packetTimeList = []
-
-
 
     def addPacket(self, host_server_name, other_ip, packetTime):
         if host_server_name not in self.DESTINATION_FILTER and other_ip not in self.DESTINATION_FILTER:
@@ -158,6 +179,8 @@ class PacketWatchDog:
 
     def getDataForSave(self):
         return {'date': self.watchStart.strftime('%Y-%m-%d'),
+                'start_time': self.watchStart.strftime('%H:%M:%S.%f'),
+                'end_time': self.packetTimeList[-1].strftime('%H:%M:%S.%f'),
                 'host_server_name': self.host_server_name,
                 'other_ip': self.other_ip,
                 'duration': round(float(self.calcDuration().total_seconds()), 4)}
@@ -199,21 +222,22 @@ if __name__ == "__main__":
 
         if shelllog.isWg0Format():
             shelllog.parseData()
+            shelllog.getGameInfo()
             shelllog.reformatTime()
 
             if shelllog.hasLocalIP():
                 shelllog.save()
+                print(shelllog)
 
             # Packet WatchDog
             if shelllog.getOtherIP() not in activeWatchDog:
                 activeWatchDog[shelllog.getOtherIP()] = PacketWatchDog(shelllog.getOtherIP(), shelllog.getLocalIP())
 
-            activeWatchDog[shelllog.getOtherIP()].addPacket(*shelllog.getHost_server_nameAndOther_ip(), datetime.datetime.now().timestamp())
+            activeWatchDog[shelllog.getOtherIP()].addPacket(*shelllog.getHost_server_nameAndOther_ip(),
+                                                            datetime.datetime.now().timestamp())
 
             for key, packetWatchdog in list(activeWatchDog.items()):
                 if packetWatchdog.isTimeToSave() or packetWatchdog.isEndofDay():
                     packetWatchdog.save()
                     print(f"saved {packetWatchdog.getDataForSave()}")
                     del activeWatchDog[key]
-
-
