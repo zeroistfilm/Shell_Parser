@@ -1,6 +1,6 @@
 ### how to run the project  
 ```bash
-chmod 777 json_cache.sh
+chmod 777 json_capture.sh
 ```
 
 ```python
