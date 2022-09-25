@@ -1,0 +1,128 @@
+# Ensemble Stars
+30,Happy Elements Limited, Ensemble Stars, *.happyelements.com
+30,Happy Elements Limited, Ensemble Stars, *.happyelements.kr
+30,Happy Elements Limited, Ensemble Stars, *.he-games.com
+30,Happy Elements Limited, Ensemble Stars, dyconfigkr.happyelements.kr, 150.109.248.200
+30,Happy Elements Limited, Ensemble Stars, twdclog.he-games.com, 104.17.247.49
+30,Happy Elements Limited, Ensemble Stars, es2kr.happyelements.kr, 104.17.12.57
+30,Happy Elements Limited, Ensemble Stars, staticsaki.happyelements.kr, 101.33.17.154, 150.109.207.99, 150.109.207.113
+30,Happy Elements Limited, Ensemble Stars, account.happyelements.com, 104.18.210.75
+30,Happy Elements Limited, Ensemble Stars, pushkr.happyelements.kr, 104.19.178.67
+30,Happy Elements Limited, Ensemble Stars, twdclog.he-games.com.cdn.cloudflare.net, 104.17.247.49
+30,Happy Elements Limited, Ensemble Stars, etlog.he-games.com, 104.17.163.181
+
+# Sky Warriors
+30,Wildlife Studios, Sky Warriors, chat.broker.skywarriors.us-east-1.general.prod.wildlife.io, 44.197.75.180, 44.198.46.134, 50.19.244.11
+
+# Tennis Clash
+30,Wildlife Studios, Tennis Clash, tennis-assets.fungames-forfree.com, 52.71.4.148, 143.204.126.89
+30,Wildlife Studios, Tennis Clash, remote-assets-api-tennis.tfgapps.com, 52.71.4.148, 54.147.182.32
+30,Wildlife Studios, Tennis Clash, tennis-connector.fungames-forfree.com, 52.71.4.148
+30,Wildlife Studios, Tennis Clash, mailbox-tennis.tfgapps.com, 34.228.114.140, 54.147.182.32, 54.163.108.121
+
+# SimCity BuildIt
+30,Maxis(EA), SimCity BuildIt, *.simcitybuildit.com
+30,Maxis(EA), SimCity BuildIt, live.simcitybuildit.com, 107.23.36.85
+30,Maxis(EA), SimCity BuildIt, cdn.simcitybuildit.com, 23.32.241.19, 23.32.241.24, 23.195.119.91
+
+# Sonic Forces
+30,Sega, Sonic Forces, social.sega.com, 52.31.11.118
+30,Sega, Sonic Forces, gatekeeper.hardlightgames.com, 52.73.48.218
+30,Sega, Sonic Forces, s17-a.hardlightgames.com, 34.238.221.93, 54.243.44.114
+30,Sega, Sonic Forces, analytics.hardlightgames.com, 3.83.28.231, 3.93.210.158, 54.208.11.242
+30,Sega, Sonic Forces, sfsb.hardlightcdn.com, 18.65.168.46, 18.65.168.64
+30,Sega, Sonic Forces, networksdk.ssacdn.com, 13.249.162.88
+
+# Modern Warships
+30,Cube Software, Modern Warships, f7659.playfabapi.com, 34.215.62.206, 44.231.46.80, 54.148.64.184
+30,Cube Software, Modern Warships, mwapi.artstorm.com, 52.42.192.27, 52.42.244.238, 54.202.82.150
+30,Cube Software, Modern Warships, NULL, 52.27.45.1
+
+# Mario Kart Tour
+30,Nintendo, Mario Kart Tour, *.mariokarttour.com
+30,Nintendo, Mario Kart Tour, a6913b7b80402974409b47079c29d775.baas.nintendo.com, 172.217.160.81, 172.217.175.17
+30,Nintendo, Mario Kart Tour, api.mariokarttour.com, 13.33.174.73, 13.33.174.77, 13.33.174.111, 13.33.174.98, 13.249.167.20, 18.65.185.3, 18.65.185.32, 18.65.185.66, 18.65.185.123, 99.84.50.5
+30,Nintendo, Mario Kart Tour, download-cdn-mariokarttour.akamaized.net, 184.27.185.73, 184.27.185.90
+
+# Super Mario Run
+30,Nintendo, Super Mario Run, *.supermariorun.com
+30,Nintendo, Super Mario Run, 1d73367a8bc4b849f5286dc68416acfd.baas.nintendo.com, 142.251.43.17
+30,Nintendo, Super Mario Run, api.supermariorun.com, 34.197.225.115, 67.202.8.153, 107.22.15.96
+30,Nintendo, Super Mario Run, download-cdn-supermariorun.akamaized.net, 23.44.51.24, 23.44.51.33
+30,Nintendo, Super Mario Run, support.supermariorun.com, 3.214.179.148
+
+# Mech Arena
+30,Plarium, Mech Arena, arnint1s07.plrm.zone, 104.20.46.206
+30,Plarium, Mech Arena, cdnl.x-plarium.com, 152.195.37.98
+,
+# Massive Warfare
+30,TinyBytes, Massive Warfare, b009.playfabapi.com, 34.215.213.155, 52.27.210.49, 100.21.77.114
+30,TinyBytes, Massive Warfare, www.tinybytes.space, 52.26.181.244, 54.203.120.146
+30,TinyBytes, Massive Warfare, cdn.tinybytes.games, 104.26.4.215
+
+# Boom Beach
+30,Supercell, Boom Beach, *.boombeach.com
+30,Supercell, Boom Beach, inbox.boombeach.com, 13.227.62.106, 18.65.168.107, 99.84.140.87, 99.84.140.90, 99.84.140.103
+30,Supercell, Boom Beach, game-assets.boombeach.com, 18.65.185.75
+
+# Clash of Clan
+30,Supercell, Clash of Clan, *.clashofclans.com
+30,Supercell, Clash of Clan, inbox.clashofclans.com, 13.33.174.50, 13.225.112.93, 54.192.175.18
+30,Supercell, Clash of Clan, event-assets.clashofclans.com, 13.33.174.27, 13.225.121.85
+30,Supercell, Clash of Clan, gamea.clashofclans.com, 54.166.237.225, 34.203.218.157, 18.212.59.187
+
+# Clash Royale
+30,Supercell, Clash Royale, *.clashroyale.com
+30,Supercell, Clash Royale, inbox.clashroyale.com, 13.32.50.3, 18.65.202.2, 18.65.202.5, 18.65.202.120
+30,Supercell, Clash Royale, inbox-production.esports.clashroyale.com, 18.65.168.23, 18.65.168.27, 18.65.168.56, 99.84.140.81, 99.84.140.4
+
+# Hay Day
+30,Supercell, Hay Day, *.haydaygame.com
+30,Supercell, Hay Day, gamea.haydaygame.com, 34.205.69.135
+30,Supercell, Hay Day, hayday.inbox.supercell.com, 13.35.49.23, 13.249.146.43
+30,Supercell, Hay Day, game-assets.haydaygame.com, 65.9.42.21, 99.84.140.2
+
+# Brawl Stars
+30,Supercell, Brawl Stars, *.brawlstars.com
+30,Supercell, Brawl Stars, inbox.brawlstars.com, 18.65.185.59, 18.65.185.72, 18.65.185.114, 99.84.140.2
+30,Supercell, Brawl Stars, game-assets.brawlstarsgame.com, 18.65.216.80
+
+# Diablo Immortal
+30,Blizzard, Diablo Immortal, *.easebar.com
+30,Blizzard, Diablo Immortal, g0.gsf.easebar.com, 23.59.252.192
+30,Blizzard, Diablo Immortal, who.nie.easebar.com, 54.219.239.141
+30,Blizzard, Diablo Immortal, drpf-overseaua.proxima.nie.easebar.com, 54.253.4.238
+30,Blizzard, Diablo Immortal, drpf-overseaua.proxima.nie.easebar.com, 52.15.68.102
+30,Blizzard, Diablo Immortal, drpf-overseaua.proxima.nie.easebar.com, 13.115.207.236
+30,Blizzard, Diablo Immortal, easebar.s.llnwi.net, 111.119.27.166
+30,Blizzard, Diablo Immortal, easebar.s.llnwi.net, 111.119.27.78
+30,Blizzard, Diablo Immortal, login.g67ena.easebar.com, 3.138.218.218
+30,Blizzard, Diablo Immortal, login.g67ena.easebar.com, 3.16.20.222
+30,Blizzard, Diablo Immortal, netlink-sigma.proxima.nie.easebar.com, 35.79.30.36
+30,Blizzard, Diablo Immortal, sigma-orbit-impression.proxima.nie.easebar.com, 18.221.15.82
+30,Blizzard, Diablo Immortal, oxima-nlb-omega01-easebar-ap2-614a2e60c0d2be9c.elb.ap-southeast-2.amazonaws.com
+30,Blizzard, Diablo Immortal, g67ena-nlb-omega01-ohio-6c17fcff886d01ae.elb.us-east-2.amazonaws.com
+30,Blizzard, Diablo Immortal, g67ena-nlb-sigma01-easebar-sa-7f00ee6d1a6e94e5.elb.us-east-2.amazonaws.com
+30,Blizzard, Diablo Immortal, g67ena-nlb-omega01-tokyo-b5251f28f193bd2a.elb.ap-northeast-1.amazonaws.com
+30,Blizzard, Diablo Immortal, g67ena.appdump.nie.easebar.com
+30,Blizzard, Diablo Immortal, g67ena.update.easebar.com
+30,Blizzard, Diablo Immortal, g67ena-12.gph.easebar.com
+30,Blizzard, Diablo Immortal, g67ena-13.gph.easebar.com
+30,Blizzard, Diablo Immortal, g67ena-15.gph.easebar.com
+30,Blizzard, Diablo Immortal, g67ena.gdl.easebar.com
+30,Blizzard, Diablo Immortal, mbdl.update.easebar.com
+30,Blizzard, Diablo Immortal, dns.update.easebar.com
+30,Blizzard, Diablo Immortal, impression.update.easebar.com
+30,Blizzard, Diablo Immortal, sdkgate.pushv3.easebar.com
+30,Blizzard, Diablo Immortal, whoami.nie.easebar.com
+
+# New State Mobile
+30,KRAFTON (PUBG), New State Mobile, *.pubg-ns-gate.com
+30,KRAFTON (PUBG), New State Mobile, *.enter-pubg-new-state.com
+30,KRAFTON (PUBG), New State Mobile, cdn.enter-pubg-new-state.com, 23.43.165.64, 23.43.165.35
+30,KRAFTON (PUBG), New State Mobile, country-code.pubg-ns-gate.com, 54.230.61.58
+30,KRAFTON (PUBG), New State Mobile, maintenance-prod-gate.pubg-ns-gate.com, 174.129.29.147
+30,KRAFTON (PUBG), New State Mobile, event-img.enter-pubg-new-state.com, 23.43.165.43, 23.43.165.104
+30,KRAFTON (PUBG), New State Mobile, lobby.pubg-ns-gate.com, 52.3.128.184
+30,KRAFTON (PUBG), New State Mobile, video.enter-pubg-new-state.com, 23.43.165.34
+30,KRAFTON (PUBG), New State Mobile, trace.pubg-ns-gate.com, 3.211.176.112
