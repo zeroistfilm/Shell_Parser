@@ -31,7 +31,6 @@
 30,Sega, Sonic Forces, s17-a.hardlightgames.com, 34.238.221.93, 54.243.44.114
 30,Sega, Sonic Forces, analytics.hardlightgames.com, 3.83.28.231, 3.93.210.158, 54.208.11.242
 30,Sega, Sonic Forces, sfsb.hardlightcdn.com, 18.65.168.46, 18.65.168.64
-30,Sega, Sonic Forces, networksdk.ssacdn.com, 13.249.162.88
 
 # Modern Warships
 30,Cube Software, Modern Warships, f7659.playfabapi.com, 34.215.62.206, 44.231.46.80, 54.148.64.184
@@ -132,6 +131,7 @@
 
 # NBA LIVE Mobile
 30,Electronic Arts, NBA LIVE Mobile, nm22.prod.fuel.ddns.ea.com, 54.83.185.6, 35.173.71.17
+30,Electronic Arts, NBA LIVE Mobile, nm22-prod-public-48860753.us-east-1.elb.amazonaws.com, 35.173.71.17, 54.83.185.6
 
 # Roblox
 30,Roblox, Roblox, *.roblox.com
@@ -177,3 +177,32 @@
 30,Nexon, KartRider Rush+, kartm.dn.nexoncdn.co.kr, 23.43.165.74, 23.43.165.83, 23.43.165.88
 30,Nexon, KartRider Rush+, ktmkr-timeattack-mov-1300776466.cos.ap-seoul.myqcloud.com, 119.28.148.150, 119.28.148.172
 30,Nexon, KartRider Rush+, ktmkr-share-image-1300776466.cos.ap-seoul.myqcloud.com, 119.28.148.172
+
+# DEEMO II
+30,Rayark, DEEMO II, cdn-aussetzen-deemo2.rayark.net, 34.95.112.246
+30,Rayark, DEEMO II, deemo2.rayark.download, 35.244.210.45
+30,Rayark, DEEMO II, deemo2-resource.rayark.download, 34.120.16.167
+30,Rayark, DEEMO II, 2x0-api-deemo2.rayark.net, 34.95.112.246
+
+# NBA NOW 23
+30,Com2uS, NBA NOW 23, activeuser.qpyou.cn, 184.29.59.42
+30,Com2uS, NBA NOW 23, analytics-ccu.qpyou.cn, 216.239.34.21, 216.239.36.21
+30,Com2uS, NBA NOW 23, analytics-log.withhive.com, 112.175.143.130
+30,Com2uS, NBA NOW 23, api-gspus.qpyou.cn, 34.117.168.124
+30,Com2uS, NBA NOW 23, api-profile.qpyou.cn, 112.175.143.224
+30,Com2uS, NBA NOW 23, auth.qpyou.cn, 112.175.229.121
+30,Com2uS, NBA NOW 23, gspapi-fn.qpyou.cn, 23.45.51.115
+30,Com2uS, NBA NOW 23, hiveiap.qpyou.cn, 112.175.60.150
+30,Com2uS, NBA NOW 23, hive-fn.qpyou.cn, 184.29.59.42
+30,Com2uS, NBA NOW 23, nss-fn.qpyou.cn, 23.45.51.128
+30,Com2uS, NBA NOW 23, nss.qpyou.cn, 35.241.33.45
+30,Com2uS, NBA NOW 23, promotion.qpyou.cn, 203.245.25.191
+30,Com2uS, NBA NOW 23, provision.qpyou.cn, 112.175.143.86
+30,Com2uS, NBA NOW 23, timezone.qpyou.cn, 183.111.229.25
+
+# World of Tanks
+30,Wargaming, World of Tanks, asia.wotblitz.com, 92.223.29.20
+30,Wargaming, World of Tanks, cdn.static.wotb.app, 34.117.103.161
+30,Wargaming, World of Tanks, dl-wotblitz-gc.wargaming.net, 92.223.95.95
+30,Wargaming, World of Tanks, roaster.wotb.app, 34.120.204.93
+30,Wargaming, World of Tanks, wotblitz-gc.gcdn.co, 92.223.95.95
