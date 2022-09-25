@@ -40,7 +40,14 @@ class FlowLog:
             gameList = f.read().splitlines()
             for game in gameList:
                 try:
-                    game_company, game, host_server_name, other_ip = [i.strip() for i in game.split(',')]
+                    parseData = [i.strip() for i in game.split(',')]
+                    if len(parseData) < 3:
+                        continue
+                    if len(parseData) == 3:
+                        game_company, game, host_server_name = parseData
+                        other_ip = 'NULL'
+                    if len(parseData) == 4:
+                        game_company, game, host_server_name, other_ip = parseData
                 except Exception as e:
                     continue
                 if host_server_name not in self.gameDB:
