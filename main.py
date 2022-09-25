@@ -13,8 +13,12 @@ class GameDB:
 
         self.loadGameDB()
 
+    def getGameDB(self):
+        return self.gameDB
 
     def getWatchTime(self, game):
+        if game == 'NULL':
+            return 0
         return int(self.gameWatchTime[game])
 
     def loadGameDB(self):
@@ -24,20 +28,25 @@ class GameDB:
                 # key parsing
                 try:
                     parseData = [i.strip() for i in game.split(',')]
+                    if len(parseData) < 5:
+                        continue
                     if len(parseData) >= 5:
                         watchTime, game_company, game, host_server_name, *other_ip = parseData
+                        other_ip = [i.strip() for i in other_ip if i.strip()]
+                        if watchTime == '' or game_company == '' or game == '' or host_server_name == '':
+                            continue
+
+
                 except Exception as e:
                     continue
-                # print(game_company, game, host_server_name, other_ip)
-
                 print(watchTime, game_company, game, host_server_name, other_ip)
+
                 # set gameDB
                 if len(other_ip) == 1:
                     if other_ip[0] == 'NULL': continue
                     self.gameDB[other_ip[0]] = {'game_company': game_company, 'game': game}
                 elif len(other_ip) > 1:
                     for ip in other_ip:
-                        if ip == '': continue
                         self.gameDB[ip] = {'game_company': game_company, 'game': game}
 
                 if not host_server_name == 'NULL':
@@ -84,15 +93,16 @@ class FlowLog:
         otherIP = self.resultData['other_ip']
         whilCard = gameDB.getWildCard(hostServerName)
 
-        if hostServerName in gameDB:
-            self.resultData['game_company'] = gameDB[hostServerName]['game_company']
-            self.resultData['game'] = gameDB[hostServerName]['game']
-        elif whilCard in gameDB:
-            self.resultData['game_company'] = gameDB[whilCard]['game_company']
-            self.resultData['game'] = gameDB[whilCard]['game']
-        elif otherIP in gameDB:
-            self.resultData['game_company'] = gameDB[otherIP]['game_company']
-            self.resultData['game'] = gameDB[otherIP]['game']
+
+        if hostServerName in gameDB.getGameDB():
+            self.resultData['game_company'] = gameDB.getGameDB()[hostServerName]['game_company']
+            self.resultData['game'] = gameDB.getGameDB()[hostServerName]['game']
+        elif whilCard in gameDB.getGameDB():
+            self.resultData['game_company'] = gameDB.getGameDB()[whilCard]['game_company']
+            self.resultData['game'] = gameDB.getGameDB()[whilCard]['game']
+        elif otherIP in gameDB.getGameDB():
+            self.resultData['game_company'] = gameDB.getGameDB()[otherIP]['game_company']
+            self.resultData['game'] = gameDB.getGameDB()[otherIP]['game']
 
     def isWg0FlowFormat(self):
         if 'interface' in self.data.keys():
@@ -187,7 +197,7 @@ class FlowLog:
             f_object.close()
 
     def __str__(self):
-        return f'game_company: {self.resultData["game_company"]}, game: {self.resultData["game"]}, host_name_server: {self.resultData["host_server_name"]}'
+        return f'local_ip:{self.resultData["local_ip"]} game_company: {self.resultData["game_company"]}, game: {self.resultData["game"]}, host_name_server: {self.resultData["host_server_name"]}'
 
 
 class FlowPurgeLog:
@@ -343,51 +353,48 @@ if __name__ == "__main__":
     activeWatchDog = {}
     activeFlow = {}
     while True:
+
+        line = proc.stdout.readline().decode('utf-8').strip()
+        if not line:
+            break
+
         try:
-            line = proc.stdout.readline().decode('utf-8').strip()
-            if not line:
-                break
+            line = dict(json.loads(line))
+        except json.decoder.JSONDecodeError:
+            continue
 
-            try:
-                line = dict(json.loads(line))
-            except json.decoder.JSONDecodeError:
-                continue
+        # Save packet data
+        flow = FlowLog(line)
 
-            # Save packet data
-            flow = FlowLog(line)
+        if flow.isWg0FlowFormat():
+            flow.parseData()
+            flow.getGameInfo(gameDB)
+            flow.reformatTime()
+            activeFlow[flow.getDigest()] = flow
 
-            if flow.isWg0FlowFormat():
-                flow.parseData()
-                flow.getGameInfo(gameDB)
-                flow.reformatTime()
-                activeFlow[flow.getDigest()] = flow
+        purgeFlow = FlowPurgeLog(line)
+        if purgeFlow.isWg0FlowPurgeFormat():
+            purgeFlow.parseData()
+            if purgeFlow.getDigest() in activeFlow:
+                flow = activeFlow.pop(purgeFlow.getDigest())
+                flow.insertPurgeData(purgeFlow.getFlowPurgeData())
 
-            purgeFlow = FlowPurgeLog(line)
-            if purgeFlow.isWg0FlowPurgeFormat():
-                purgeFlow.parseData()
-                if purgeFlow.getDigest() in activeFlow:
-                    flow = activeFlow.pop(purgeFlow.getDigest())
-                    flow.insertPurgeData(purgeFlow.getFlowPurgeData())
+                if flow.hasLocalIP():
+                    flow.save()
+                    print('flow', flow)
 
-                    if flow.hasLocalIP():
-                        flow.save()
-                        print('flow', flow)
-
-                    # Packet WatchDog
+                # Packet WatchDog
+                if flow.getWatchKey() is not 'NULL':
                     if flow.getWatchKey() not in activeWatchDog:
                         activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(),
                                                                             gameDB.getWatchTime(flow.getWatchKey()))
-
                     activeWatchDog[flow.getWatchKey()].addPacket(*flow.getHost_server_nameAndOther_ip(),
                                                                  datetime.datetime.now().timestamp(),
                                                                  flow.getGame(), flow.getGameCompany(),
                                                                  flow.getBytes(), flow.getPackets())
 
-                    for key, packetWatchdog in list(activeWatchDog.items()):
-                        if packetWatchdog.isTimeToSave() or packetWatchdog.isEndofDay():
-                            packetWatchdog.save()
-                            print(f"saved {packetWatchdog.getDataForSave()}")
-                            del activeWatchDog[key]
-        except Exception as e:
-            print(e)
-            continue
+                for key, packetWatchdog in list(activeWatchDog.items()):
+                    if packetWatchdog.isTimeToSave() or packetWatchdog.isEndofDay():
+                        packetWatchdog.save()
+                        print(f"saved {packetWatchdog.getDataForSave()}")
+                        del activeWatchDog[key]
