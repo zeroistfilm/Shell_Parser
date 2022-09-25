@@ -353,48 +353,54 @@ if __name__ == "__main__":
     activeWatchDog = {}
     activeFlow = {}
     while True:
-
-        line = proc.stdout.readline().decode('utf-8').strip()
-        if not line:
-            break
-
         try:
-            line = dict(json.loads(line))
-        except json.decoder.JSONDecodeError:
+            line = proc.stdout.readline().decode('utf-8').strip()
+            if not line:
+                break
+
+            try:
+                line = dict(json.loads(line))
+            except json.decoder.JSONDecodeError:
+                continue
+
+            # Save packet data
+            flow = FlowLog(line)
+
+            if flow.isWg0FlowFormat():
+                flow.parseData()
+                flow.getGameInfo(gameDB)
+                flow.reformatTime()
+                activeFlow[flow.getDigest()] = flow
+
+            purgeFlow = FlowPurgeLog(line)
+            if purgeFlow.isWg0FlowPurgeFormat():
+                purgeFlow.parseData()
+                if purgeFlow.getDigest() in activeFlow:
+                    flow = activeFlow.pop(purgeFlow.getDigest())
+                    flow.insertPurgeData(purgeFlow.getFlowPurgeData())
+
+                    if flow.hasLocalIP():
+                        flow.save()
+                        print('flow', flow)
+
+                    # Packet WatchDog
+                    if flow.getWatchKey() is not 'NULL':
+                        if flow.getWatchKey() not in activeWatchDog:
+                            activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(),
+                                                                                gameDB.getWatchTime(flow.getWatchKey()))
+                        activeWatchDog[flow.getWatchKey()].addPacket(*flow.getHost_server_nameAndOther_ip(),
+                                                                     datetime.datetime.now().timestamp(),
+                                                                     flow.getGame(), flow.getGameCompany(),
+                                                                     flow.getBytes(), flow.getPackets())
+
+                    for key, packetWatchdog in list(activeWatchDog.items()):
+                        if packetWatchdog.isTimeToSave() or packetWatchdog.isEndofDay():
+                            packetWatchdog.save()
+                            print(f"saved {packetWatchdog.getDataForSave()}")
+                            del activeWatchDog[key]
+        except Exception as e:
+            print(e)
             continue
-
-        # Save packet data
-        flow = FlowLog(line)
-
-        if flow.isWg0FlowFormat():
-            flow.parseData()
-            flow.getGameInfo(gameDB)
-            flow.reformatTime()
-            activeFlow[flow.getDigest()] = flow
-
-        purgeFlow = FlowPurgeLog(line)
-        if purgeFlow.isWg0FlowPurgeFormat():
-            purgeFlow.parseData()
-            if purgeFlow.getDigest() in activeFlow:
-                flow = activeFlow.pop(purgeFlow.getDigest())
-                flow.insertPurgeData(purgeFlow.getFlowPurgeData())
-
-                if flow.hasLocalIP():
-                    flow.save()
-                    print('flow', flow)
-
-                # Packet WatchDog
-                if flow.getWatchKey() is not 'NULL':
-                    if flow.getWatchKey() not in activeWatchDog:
-                        activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(),
-                                                                            gameDB.getWatchTime(flow.getWatchKey()))
-                    activeWatchDog[flow.getWatchKey()].addPacket(*flow.getHost_server_nameAndOther_ip(),
-                                                                 datetime.datetime.now().timestamp(),
-                                                                 flow.getGame(), flow.getGameCompany(),
-                                                                 flow.getBytes(), flow.getPackets())
-
-                for key, packetWatchdog in list(activeWatchDog.items()):
-                    if packetWatchdog.isTimeToSave() or packetWatchdog.isEndofDay():
-                        packetWatchdog.save()
-                        print(f"saved {packetWatchdog.getDataForSave()}")
-                        del activeWatchDog[key]
+        except KeyboardInterrupt:
+            print('KeyboardInterrupt')
+            break
