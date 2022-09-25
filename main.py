@@ -10,7 +10,7 @@ class GameDB:
         self.gameDB = {}
         self.gameDBPath = 'game_db.csv'
         self.loadGameDB()
-        self.gameWatchTime={}
+        self.gameWatchTime = {}
 
     def getWatchTime(self, game):
         return int(self.gameWatchTime[game])
@@ -29,9 +29,9 @@ class GameDB:
                 # print(game_company, game, host_server_name, other_ip)
 
                 # set gameDB
-                if other_ip[0] == 'NULL':
-                    pass
-                elif len(other_ip) == 1:
+
+                if len(other_ip) == 1:
+                    if other_ip[0] == 'NULL': continue
                     self.gameDB[other_ip[0]] = {'game_company': game_company, 'game': game}
                 elif len(other_ip) > 1:
                     for ip in other_ip:
@@ -372,7 +372,8 @@ if __name__ == "__main__":
 
                     # Packet WatchDog
                     if flow.getWatchKey() not in activeWatchDog:
-                        activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(), gameDB.getWatchTime(flow.getWatchKey()))
+                        activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(),
+                                                                            gameDB.getWatchTime(flow.getWatchKey()))
 
                     activeWatchDog[flow.getWatchKey()].addPacket(*flow.getHost_server_nameAndOther_ip(),
                                                                  datetime.datetime.now().timestamp(),
