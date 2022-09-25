@@ -136,21 +136,40 @@
 # Roblox
 30,Roblox, Roblox, *.roblox.com
 30,Roblox, Roblox, *.rbxcdn.com
+30,Roblox, Roblox, accountsettings.roblox.com, 128.116.120.3
+30,Roblox, Roblox, apis.rbxcdn.com, 23.61.252.139
 30,Roblox, Roblox, apis.roblox.com, 128.116.120.4, 128.116.118.3
-30,Roblox, Roblox, ephemeralcounters.api.roblox.com, 128.116.120.3
-30,Roblox, Roblox, avatar.roblox.com, 128.116.120.3
-30,Roblox, Roblox, locale.roblox.com, 128.116.120.3
-30,Roblox, Roblox, thumbnails.roblox.com, 128.116.120.3
 30,Roblox, Roblox, assetdelivery.roblox.com, 128.116.120.3
-30,Roblox, Roblox, clientsettings.roblox.com, 128.116.120.3
-30,Roblox, Roblox, ecsv2.roblox.com, 128.116.120.4
-30,Roblox, Roblox, www.roblox.com, 128.116.120.3
 30,Roblox, Roblox, assetgame.roblox.com, 128.116.120.3
 30,Roblox, Roblox, auth.roblox.com, 128.116.120.3
-30,Roblox, Roblox, economy.roblox.com, 128.116.120.3
-30,Roblox, Roblox, metrics.roblox.com, 128.116.119.3
+30,Roblox, Roblox, avatar.roblox.com, 128.116.120.3
+30,Roblox, Roblox, badges.roblox.com, 128.116.120.3
+30,Roblox, Roblox, clientsettings.roblox.com, 128.116.120.3
 30,Roblox, Roblox, client-telemetry.roblox.com, 128.116.120.3
 30,Roblox, Roblox, css.rbxcdn.com, 23.62.106.72
-30,Roblox, Roblox, js.rbxcdn.com, 23.62.106.35
-30,Roblox, Roblox, apis.rbxcdn.com, 23.61.252.139
+30,Roblox, Roblox, c3.rbxcdn.com, 205.185.216.10
+30,Roblox, Roblox, economy.roblox.com, 128.116.120.3
+30,Roblox, Roblox, ecsv2.roblox.com, 128.116.120.4
+30,Roblox, Roblox, ephemeralcounters.api.roblox.com, 128.116.120.3
+30,Roblox, Roblox, followings.roblox.com, 128.116.120.3
+30,Roblox, Roblox, friends.roblox.com, 128.116.120.3
+30,Roblox, Roblox (Adopt Me!), gamejoin.roblox.com, 128.116.120.3
+30,Roblox, Roblox (Adopt Me!), gameinternationalization.roblox.com, 128.116.120.3
+30,Roblox, Roblox (Adopt Me!), games.roblox.com, 128.116.120.3
 30,Roblox, Roblox, images.rbxcdn.com, 23.62.106.65
+30,Roblox, Roblox, js.rbxcdn.com, 23.62.106.35
+30,Roblox, Roblox, locale.roblox.com, 128.116.120.3
+30,Roblox, Roblox, metrics.roblox.com, 128.116.119.3
+30,Roblox, Roblox, presence.roblox.com, 128.116.120.3
+30,Roblox, Roblox, realtime.roblox.com, 128.116.120.3
+30,Roblox, Roblox, roblox-api.arkoselabs.com, 104.18.42.229
+30,Roblox, Roblox, thumbnails.roblox.com, 128.116.120.3
+30,Roblox, Roblox, tr.rbxcdn.com, 23.192.45.90
+30,Roblox, Roblox, users.roblox.com, 128.116.120.3
+30,Roblox, Roblox, voice.roblox.com, 128.116.120.3
+30,Roblox, Roblox, www.roblox.com, 128.116.120.3
+
+# KartRider Rush+
+30,Nexon, KartRider Rush+, stamp.mp.nexon.com, 54.95.204.59, 52.193.27.139
+30,Nexon, KartRider Rush+, sg.tdatamaster.com, 150.109.0.77, 101.32.110.253, 101.32.110.254, 150.109.0.77, 101.32.110.253, 101.32.171.191
+30,Nexon, KartRider Rush+, m-api.nexon.com, 13.230.151.186, 52.198.174.106
