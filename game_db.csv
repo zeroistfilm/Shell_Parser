@@ -119,10 +119,38 @@
 # New State Mobile
 30,KRAFTON (PUBG), New State Mobile, *.pubg-ns-gate.com
 30,KRAFTON (PUBG), New State Mobile, *.enter-pubg-new-state.com
-30,KRAFTON (PUBG), New State Mobile, cdn.enter-pubg-new-state.com, 23.43.165.64, 23.43.165.35
-30,KRAFTON (PUBG), New State Mobile, country-code.pubg-ns-gate.com, 54.230.61.58
-30,KRAFTON (PUBG), New State Mobile, maintenance-prod-gate.pubg-ns-gate.com, 174.129.29.147
-30,KRAFTON (PUBG), New State Mobile, event-img.enter-pubg-new-state.com, 23.43.165.43, 23.43.165.104
+30,KRAFTON (PUBG), New State Mobile, cdn.enter-pubg-new-state.com, 23.43.165.64, 23.43.165.35, 101.33.17.154, 150.109.207.116, 150.109.207.99
+30,KRAFTON (PUBG), New State Mobile, country-code.pubg-ns-gate.com, 54.230.61.58, 18.65.168.106
+30,KRAFTON (PUBG), New State Mobile, maintenance-prod-gate.pubg-ns-gate.com, 174.129.29.147, 52.86.26.224
+30,KRAFTON (PUBG), New State Mobile, event-img.enter-pubg-new-state.com, 23.43.165.43, 23.43.165.104, 101.33.17.154
 30,KRAFTON (PUBG), New State Mobile, lobby.pubg-ns-gate.com, 52.3.128.184
 30,KRAFTON (PUBG), New State Mobile, video.enter-pubg-new-state.com, 23.43.165.34
 30,KRAFTON (PUBG), New State Mobile, trace.pubg-ns-gate.com, 3.211.176.112
+30,api-a99cee34-08a5-4baa-903d-1e259ee8f6e9.sendbird.com, 122.248.196.16
+30,ebdsw.enter-pubg-new-state.com, 43.132.80.52, 
+30,new-state.ovslegodl.sched.ovscdns.com, 150.109.207.99
+
+# NBA LIVE Mobile
+30,Electronic Arts, NBA LIVE Mobile, nm22.prod.fuel.ddns.ea.com, 54.83.185.6, 35.173.71.17
+
+# Roblox
+30,Roblox, Roblox, *.roblox.com
+30,Roblox, Roblox, *.rbxcdn.com
+30,Roblox, Roblox, apis.roblox.com, 128.116.120.4, 128.116.118.3
+30,Roblox, Roblox, ephemeralcounters.api.roblox.com, 128.116.120.3
+30,Roblox, Roblox, avatar.roblox.com, 128.116.120.3
+30,Roblox, Roblox, locale.roblox.com, 128.116.120.3
+30,Roblox, Roblox, thumbnails.roblox.com, 128.116.120.3
+30,Roblox, Roblox, assetdelivery.roblox.com, 128.116.120.3
+30,Roblox, Roblox, clientsettings.roblox.com, 128.116.120.3
+30,Roblox, Roblox, ecsv2.roblox.com, 128.116.120.4
+30,Roblox, Roblox, www.roblox.com, 128.116.120.3
+30,Roblox, Roblox, assetgame.roblox.com, 128.116.120.3
+30,Roblox, Roblox, auth.roblox.com, 128.116.120.3
+30,Roblox, Roblox, economy.roblox.com, 128.116.120.3
+30,Roblox, Roblox, metrics.roblox.com, 128.116.119.3
+30,Roblox, Roblox, client-telemetry.roblox.com, 128.116.120.3
+30,Roblox, Roblox, css.rbxcdn.com, 23.62.106.72
+30,Roblox, Roblox, js.rbxcdn.com, 23.62.106.35
+30,Roblox, Roblox, apis.rbxcdn.com, 23.61.252.139
+30,Roblox, Roblox, images.rbxcdn.com, 23.62.106.65
