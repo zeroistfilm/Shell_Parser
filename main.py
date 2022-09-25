@@ -5,6 +5,50 @@ from csv import DictWriter
 import datetime
 
 
+class GameDB:
+    def __init__(self):
+        self.gameDB = {}
+        self.gameDBPath = 'game_db.csv'
+        self.loadGameDB()
+        self.gameWatchTime={}
+
+    def getWatchTime(self, game):
+        return int(self.gameWatchTime[game])
+
+    def loadGameDB(self):
+        with open(self.gameDBPath, "r") as f:
+            gameList = f.read().splitlines()
+            for game in gameList:
+                # key parsing
+                try:
+                    parseData = [i.strip() for i in game.split(',')]
+                    if len(parseData) >= 5:
+                        watchTime, game_company, game, host_server_name, *other_ip = parseData
+                except Exception as e:
+                    continue
+                # print(game_company, game, host_server_name, other_ip)
+
+                # set gameDB
+                if other_ip[0] == 'NULL':
+                    pass
+                elif len(other_ip) == 1:
+                    self.gameDB[other_ip[0]] = {'game_company': game_company, 'game': game}
+                elif len(other_ip) > 1:
+                    for ip in other_ip:
+                        self.gameDB[ip] = {'game_company': game_company, 'game': game}
+
+                if not host_server_name == 'NULL':
+                    self.gameDB[host_server_name] = {'game_company': game_company, 'game': game}
+
+                self.gameWatchTime[game] = watchTime
+
+    def getWildCard(self, host_server_name):
+        if host_server_name == 'NULL':
+            return 'NULL'
+        else:
+            return '.'.join(map(str, ['*', *host_server_name.split('.')[-2:]]))
+
+
 class FlowLog:
     def __init__(self, data):
         self.data = data
@@ -31,40 +75,26 @@ class FlowLog:
                          ]
 
         self.resultData = {}
-        self.gameDB = {}
-        self.loadGameDB()
 
-    # text파일을 읽어서 host_server_name를 기준으로 game 필터링
-    def loadGameDB(self):
-        with open("game_db.txt", "r") as f:
-            gameList = f.read().splitlines()
-            for game in gameList:
-                try:
-                    parseData = [i.strip() for i in game.split(',')]
-                    if len(parseData) < 3:
-                        continue
-                    if len(parseData) == 3:
-                        game_company, game, host_server_name = parseData
-                        other_ip = 'NULL'
-                    if len(parseData) == 4:
-                        game_company, game, host_server_name, other_ip = parseData
-                except Exception as e:
-                    continue
-                if host_server_name not in self.gameDB:
-                    self.gameDB[host_server_name] = {}
-                self.gameDB[host_server_name] = {'game_company': game_company, 'game': game}
-
-    def getGameInfo(self):
+    def getGameInfo(self, gameDB):
         hostServerName = self.resultData['host_server_name']
-        if hostServerName in self.gameDB:
+        otherIP = self.resultData['other_ip']
+        whilCard = gameDB.getWildCard(hostServerName)
 
-            self.resultData['game_company'] = self.gameDB[hostServerName]['game_company']
-            self.resultData['game'] = self.gameDB[hostServerName]['game']
+        if hostServerName in gameDB:
+            self.resultData['game_company'] = gameDB[hostServerName]['game_company']
+            self.resultData['game'] = gameDB[hostServerName]['game']
+        elif whilCard in gameDB:
+            self.resultData['game_company'] = gameDB[whilCard]['game_company']
+            self.resultData['game'] = gameDB[whilCard]['game']
+        elif otherIP in gameDB:
+            self.resultData['game_company'] = gameDB[otherIP]['game_company']
+            self.resultData['game'] = gameDB[otherIP]['game']
 
     def isWg0FlowFormat(self):
         if 'interface' in self.data.keys():
             if self.data['interface'] == "wg0":
-                if self.data['type']=='flow':
+                if self.data['type'] == 'flow':
                     return True
         return False
 
@@ -101,10 +131,13 @@ class FlowLog:
 
     def getGame(self):
         return self.resultData['game']
+
     def getGameCompany(self):
         return self.resultData['game_company']
+
     def getBytes(self):
         return self.resultData['total_bytes']
+
     def getPackets(self):
         return self.resultData['total_packets']
 
@@ -128,6 +161,9 @@ class FlowLog:
         elif type(self.resultData['last_seen_at']) == str:
             return datetime.datetime.strptime(self.resultData['last_seen_at'], '%Y-%m-%d %H:%M:%S.%f')
 
+    def getWatchKey(self):
+        return self.resultData['game']
+
     def getFilename(self):
         return f"./csv/{self.resultData['local_ip']}.csv"
 
@@ -139,7 +175,6 @@ class FlowLog:
         self.resultData['total_bytes'] = purgeData['total_bytes']
         self.resultData['total_packets'] = purgeData['total_packets']
 
-
     def save(self):
         with open(self.getFilename(), 'a', newline='') as f_object:
             dictwriter_object = DictWriter(f_object, fieldnames=self.parseKey)
@@ -150,8 +185,6 @@ class FlowLog:
 
     def __str__(self):
         return f'game_company: {self.resultData["game_company"]}, game: {self.resultData["game"]}, host_name_server: {self.resultData["host_server_name"]}'
-
-
 
 
 class FlowPurgeLog:
@@ -209,11 +242,11 @@ class PacketWatchDog:
     # CSV columns: date, host_server_name, other_ip, duration
     # 파일명 local_ip.csv
     # 날짜 변경을 기준으로 짜르기
-    def __init__(self, watch_ip, local_ip):
-        self.watch_ip = watch_ip
+    def __init__(self, local_ip, watchTimeMin):
+
         self.local_ip = local_ip
         self.MIN_WATCH_COUNT = 2
-        self.WATCH_TIME_MINUTES = 2
+        self.WATCH_TIME_MINUTES = int(watchTimeMin)
         self.DESTINATION_FILTER = ['IP', 'DNS', 'others....']
         self.CSV_COLUMNS = ['date', 'start_time', 'end_time', 'host_server_name', 'other_ip', 'duration', 'game',
                             'game_company', 'bytes', 'packets']
@@ -227,10 +260,10 @@ class PacketWatchDog:
             (datetime.datetime.now() + datetime.timedelta(minutes=self.WATCH_TIME_MINUTES)).timestamp())
 
         self.packetTimeList = []
-        self.game='NULL'
-        self.game_company='NULL'
-        self.bytesList=[]
-        self.packetsList=[]
+        self.game = 'NULL'
+        self.game_company = 'NULL'
+        self.bytesList = []
+        self.packetsList = []
 
     def addPacket(self, host_server_name, other_ip, packetTime, game, gameCompany, eachBytes, eachPackets):
         if host_server_name not in self.DESTINATION_FILTER and other_ip not in self.DESTINATION_FILTER:
@@ -303,7 +336,7 @@ class PacketWatchDog:
 
 if __name__ == "__main__":
     proc = subprocess.Popen(['./json_capture.sh'], stdout=subprocess.PIPE)
-
+    gameDB = GameDB()
     activeWatchDog = {}
     activeFlow = {}
     while True:
@@ -322,10 +355,9 @@ if __name__ == "__main__":
 
             if flow.isWg0FlowFormat():
                 flow.parseData()
-                flow.getGameInfo()
+                flow.getGameInfo(gameDB)
                 flow.reformatTime()
                 activeFlow[flow.getDigest()] = flow
-
 
             purgeFlow = FlowPurgeLog(line)
             if purgeFlow.isWg0FlowPurgeFormat():
@@ -338,17 +370,14 @@ if __name__ == "__main__":
                         flow.save()
                         print('flow', flow)
 
-
                     # Packet WatchDog
-                    if flow.getOtherIP() not in activeWatchDog:
-                        activeWatchDog[flow.getOtherIP()] = PacketWatchDog(flow.getOtherIP(), flow.getLocalIP())
+                    if flow.getWatchKey() not in activeWatchDog:
+                        activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(), gameDB.getWatchTime(flow.getWatchKey()))
 
-                    activeWatchDog[flow.getOtherIP()].addPacket(*flow.getHost_server_nameAndOther_ip(),
-                                                                    datetime.datetime.now().timestamp(),
-                                                                    flow.getGame(), flow.getGameCompany(),
-                                                                    flow.getBytes(), flow.getPackets())
-
-
+                    activeWatchDog[flow.getWatchKey()].addPacket(*flow.getHost_server_nameAndOther_ip(),
+                                                                 datetime.datetime.now().timestamp(),
+                                                                 flow.getGame(), flow.getGameCompany(),
+                                                                 flow.getBytes(), flow.getPackets())
 
                     for key, packetWatchdog in list(activeWatchDog.items()):
                         if packetWatchdog.isTimeToSave() or packetWatchdog.isEndofDay():
