@@ -150,7 +150,9 @@ class FlowLog:
             f_object.close()
 
     def __str__(self):
-        return f"{self.resultData}"
+        return f'game_company: {self.resultData["game_company"]}, game: {self.resultData["game"]}, host_name_server: {self.resultData["host_server_name"]}'
+
+
 
 
 class FlowPurgeLog:
