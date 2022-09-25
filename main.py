@@ -8,9 +8,11 @@ import datetime
 class GameDB:
     def __init__(self):
         self.gameDB = {}
-        self.gameDBPath = 'game_db.csv'
-        self.loadGameDB()
         self.gameWatchTime = {}
+        self.gameDBPath = 'game_db.csv'
+
+        self.loadGameDB()
+
 
     def getWatchTime(self, game):
         return int(self.gameWatchTime[game])
@@ -35,12 +37,13 @@ class GameDB:
                     self.gameDB[other_ip[0]] = {'game_company': game_company, 'game': game}
                 elif len(other_ip) > 1:
                     for ip in other_ip:
+                        if ip == '': continue
                         self.gameDB[ip] = {'game_company': game_company, 'game': game}
 
                 if not host_server_name == 'NULL':
                     self.gameDB[host_server_name] = {'game_company': game_company, 'game': game}
 
-                self.gameWatchTime[game] = watchTime
+                self.gameWatchTime[game] = int(watchTime)
 
     def getWildCard(self, host_server_name):
         if host_server_name == 'NULL':
