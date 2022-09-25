@@ -28,8 +28,8 @@ class GameDB:
                     continue
                 # print(game_company, game, host_server_name, other_ip)
 
+                print(watchTime, game_company, game, host_server_name, other_ip)
                 # set gameDB
-
                 if len(other_ip) == 1:
                     if other_ip[0] == 'NULL': continue
                     self.gameDB[other_ip[0]] = {'game_company': game_company, 'game': game}
