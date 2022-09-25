@@ -56,11 +56,10 @@ class FlowLog:
 
     def getGameInfo(self):
         hostServerName = self.resultData['host_server_name']
-        otherIP = self.resultData['other_ip']
         if hostServerName in self.gameDB:
-            if otherIP in self.gameDB[hostServerName]:
-                self.resultData['game_company'] = self.gameDB[hostServerName]['game_company']
-                self.resultData['game'] = self.gameDB[hostServerName]['game']
+
+            self.resultData['game_company'] = self.gameDB[hostServerName]['game_company']
+            self.resultData['game'] = self.gameDB[hostServerName]['game']
 
     def isWg0FlowFormat(self):
         if 'interface' in self.data.keys():
