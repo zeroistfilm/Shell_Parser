@@ -93,16 +93,18 @@ class FlowLog:
         otherIP = self.resultData['other_ip']
         whilCard = gameDB.getWildCard(hostServerName)
 
+        if hostServerName != 'NULL':
+            if hostServerName in gameDB.getGameDB():
+                self.resultData['game_company'] = gameDB.getGameDB()[hostServerName]['game_company']
+                self.resultData['game'] = gameDB.getGameDB()[hostServerName]['game']
+            elif whilCard in gameDB.getGameDB():
+                self.resultData['game_company'] = gameDB.getGameDB()[whilCard]['game_company']
+                self.resultData['game'] = gameDB.getGameDB()[whilCard]['game']
 
-        if hostServerName in gameDB.getGameDB():
-            self.resultData['game_company'] = gameDB.getGameDB()[hostServerName]['game_company']
-            self.resultData['game'] = gameDB.getGameDB()[hostServerName]['game']
-        elif whilCard in gameDB.getGameDB():
-            self.resultData['game_company'] = gameDB.getGameDB()[whilCard]['game_company']
-            self.resultData['game'] = gameDB.getGameDB()[whilCard]['game']
-        elif otherIP in gameDB.getGameDB():
-            self.resultData['game_company'] = gameDB.getGameDB()[otherIP]['game_company']
-            self.resultData['game'] = gameDB.getGameDB()[otherIP]['game']
+        else: #hostServerName == 'NULL'
+            if otherIP in gameDB.getGameDB():
+                self.resultData['game_company'] = gameDB.getGameDB()[otherIP]['game_company']
+                self.resultData['game'] = gameDB.getGameDB()[otherIP]['game']
 
     def isWg0FlowFormat(self):
         if 'interface' in self.data.keys():
