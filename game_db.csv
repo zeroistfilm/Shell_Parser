@@ -171,9 +171,7 @@
 
 # KartRider Rush+
 30,Nexon, KartRider Rush+, stamp.mp.nexon.com, 54.95.204.59, 52.193.27.139
-30,Nexon, KartRider Rush+, sg.tdatamaster.com, 150.109.0.77, 101.32.110.253, 101.32.110.254, 150.109.0.77, 101.32.171.191, 101.32.110.252, 101.32.171.190
 30,Nexon, KartRider Rush+, m-api.nexon.com, 13.230.151.186, 52.198.174.106
-30,Nexon, KartRider Rush+, dl.listdl.com, 23.43.165.75
 30,Nexon, KartRider Rush+, kartm.dn.nexoncdn.co.kr, 23.43.165.74, 23.43.165.83, 23.43.165.88
 30,Nexon, KartRider Rush+, ktmkr-timeattack-mov-1300776466.cos.ap-seoul.myqcloud.com, 119.28.148.150, 119.28.148.172
 30,Nexon, KartRider Rush+, ktmkr-share-image-1300776466.cos.ap-seoul.myqcloud.com, 119.28.148.172
@@ -201,8 +199,64 @@
 30,Com2uS, NBA NOW 23, timezone.qpyou.cn, 183.111.229.25
 
 # World of Tanks
+30,Wargaming, World of Tanks, *.wotb.app
 30,Wargaming, World of Tanks, asia.wotblitz.com, 92.223.29.20
 30,Wargaming, World of Tanks, cdn.static.wotb.app, 34.117.103.161
 30,Wargaming, World of Tanks, dl-wotblitz-gc.wargaming.net, 92.223.95.95
 30,Wargaming, World of Tanks, roaster.wotb.app, 34.120.204.93
 30,Wargaming, World of Tanks, wotblitz-gc.gcdn.co, 92.223.95.95
+
+# Minecraft
+30,Mojang (Xbox Game Studios), Minecraft, *.minecraft-services.net
+30,Mojang (Xbox Game Studios), Minecraft, *.minecraft.net
+30,Mojang (Xbox Game Studios), Minecraft, authorization-secondary.franchise.minecraft-services.net, 13.107.246.49
+30,Mojang (Xbox Game Studios), Minecraft, client.discovery.minecraft-services.net, 13.107.246.49
+30,Mojang (Xbox Game Studios), Minecraft, client.support-files.minecraft-services.net, 13.107.246.49
+30,Mojang (Xbox Game Studios), Minecraft, messaging.mktpl.minecraft-services.net, 13.107.246.49
+30,Mojang (Xbox Game Studios), Minecraft, minecraftprod.rtep.msgamestudios.com, 40.122.249.123, 20.9.9.229, 40.86.127.82
+30,Mojang (Xbox Game Studios), Minecraft, payments.realms.minecraft.net	52.247.18.233
+30,Mojang (Xbox Game Studios), Minecraft, persona.franchise.minecraft-services.net, 13.107.246.49
+30,Mojang (Xbox Game Studios), Minecraft, pocket.realms.minecraft.net, 52.247.18.223
+30,Mojang (Xbox Game Studios), Minecraft, store.mktpl.minecraft-services.netm, 13.107.246.49
+
+# Apex Legends Mobile
+30,Electronic Arts, Apex Legends Mobile, *.mgapex.com
+30,Electronic Arts, Apex Legends Mobile, bugly-android.mgapex.com, 52.48.2.26
+30,Electronic Arts, Apex Legends Mobile, cloudctrl.mgapex.com, 34.248.230.69
+30,Electronic Arts, Apex Legends Mobile, file.mgapex.com, 96.16.99.204, 23.59.151.249, 23.206.175.155, 23.206.175.227, 23.200.75.29, 23.200.75.28
+30,Electronic Arts, Apex Legends Mobile, itop.mgapex.com, 63.35.66.64, 34.250.194.169
+30,Electronic Arts, Apex Legends Mobile, pay.mgapex.com	54.229.254.151
+30,Electronic Arts, Apex Legends Mobile, tab-mobile-cache-ireland.mgapex.com, 46.51.202.168, 54.154.190.40, 54.154.194.43
+30,Electronic Arts, Apex Legends Mobile, tdm.mgapex.com, 54.220.99.191, 52.211.49.166
+30,Electronic Arts, Apex Legends Mobile, tgpa.mgapex.com, 54.194.215.98
+30,Electronic Arts, Apex Legends Mobile, tgpa.mgapex.com, 52.209.127.213
+30,Electronic Arts, Apex Legends Mobile, rsd.mgapex.com	23.200.75.29
+
+# Cookie Run: Kingdom
+30,Devsisters, Cookie Run: Kingdom, *.devsisters.cloud
+30,Devsisters, Cookie Run: Kingdom, account.devplay.com, 3.33.232.224, 15.197.193.90
+30,Devsisters, Cookie Run: Kingdom, dc-server.live.prod.devsjelly.cloud	99.83.165.235
+30,Devsisters, Cookie Run: Kingdom, game.devplay.com, 54.192.175.48, 13.225.121.89
+30,Devsisters, Cookie Run: Kingdom, gateway.devsisters.cloud, 15.197.197.107
+30,Devsisters, Cookie Run: Kingdom, logging.prod.devsisters.cloud, 54.168.167.150, 54.249.115.208, 13.230.199.76
+30,Devsisters, Cookie Run: Kingdom, static.devscdn.com	23.200.75.21, 23.200.75.27
+30,Devsisters, Cookie Run: Kingdom, route.live.prod.devsjelly.cloud	99.83.165.235
+30,Devsisters, Cookie Run: Kingdom, NULL, 54.192.175.48
+30,Devsisters, Cookie Run: Kingdom, NULL, 13.225.121.89
+
+# League of Legends: Wild Rift
+30,Riot games, League of Legends: Wild Rift, *.wr.pvp.net
+30,Riot games, League of Legends: Wild Rift, astat.bugly.cros.wr.pvp.net, 170.106.135.32
+30,Riot games, League of Legends: Wild Rift, cloudctrl.cros.wr.pvp.net, 49.51.177.11
+30,Riot games, League of Legends: Wild Rift, msdk.cros.wr.pvp.net, 150.109.27.46
+30,Riot games, League of Legends: Wild Rift, geoconfig.wr.pvp.net, 104.18.40.5
+30,Riot games, League of Legends: Wild Rift, lgame-alpha-1300955520.file.myqcloud.com, 211.152.132.56, 211.152.132.85, 211.152.132.26, 211.152.132.109
+30,Riot games, League of Legends: Wild Rift, lolstatic-a.akamaihd.net, 23.216.159.98
+30,Riot games, League of Legends: Wild Rift, lol.secure.dyn.riotcdn.net, 8.255.193.252
+30,Riot games, League of Legends: Wild Rift, tdm.prod01.row.cros.wr.pvp.net, 49.51.65.64, 49.51.185.200
+30,Riot games, League of Legends: Wild Rift, tgpa.prod1.row.cros.wr.pvp.net, 101.32.106.191
+30,Riot games, League of Legends: Wild Rift, wildrift.secure.dyn.riotcdn.net, 8.255.192.124
+30,Riot games, League of Legends: Wild Rift, wildrift-na.akamaized.net, 23.216.159.144
+
+# PUBG Mobile
+Tencent Games
