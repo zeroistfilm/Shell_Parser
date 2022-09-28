@@ -387,10 +387,17 @@ if __name__ == "__main__":
 
                     # Packet WatchDog
                     if flow.getWatchKey() is not 'NULL':
+
                         if flow.getWatchKey() not in activeWatchDog:
                             activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(),
                                                                                 gameDB.getWatchTime(flow.getWatchKey()))
+
                         activeWatchDog[flow.getWatchKey()].addPacket(*flow.getHost_server_nameAndOther_ip(),
+                                                                     datetime.datetime.now().timestamp(),
+                                                                     flow.getGame(), flow.getGameCompany(),
+                                                                     flow.getBytes(), flow.getPackets())
+
+                        print('add packet', *flow.getHost_server_nameAndOther_ip(),
                                                                      datetime.datetime.now().timestamp(),
                                                                      flow.getGame(), flow.getGameCompany(),
                                                                      flow.getBytes(), flow.getPackets())
