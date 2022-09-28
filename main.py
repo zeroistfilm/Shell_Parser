@@ -279,6 +279,7 @@ class PacketWatchDog:
         self.game_company = 'NULL'
         self.bytesList = []
         self.packetsList = []
+        print(f"watchStart: {self.watchStart}, watchEnd: {self.watchEnd}")
 
     def addPacket(self, host_server_name, other_ip, packetTime, game, gameCompany, eachBytes, eachPackets):
         if host_server_name not in self.DESTINATION_FILTER and other_ip not in self.DESTINATION_FILTER:
@@ -402,11 +403,12 @@ if __name__ == "__main__":
                                                                      flow.getGame(), flow.getGameCompany(),
                                                                      flow.getBytes(), flow.getPackets())
 
-                    for key, packetWatchdog in list(activeWatchDog.items()):
-                        if packetWatchdog.isTimeToSave() or packetWatchdog.isEndofDay():
-                            packetWatchdog.save()
-                            print(f"saved {packetWatchdog.getDataForSave()}")
-                            del activeWatchDog[key]
+
+            for key, packetWatchdog in list(activeWatchDog.items()):
+                if packetWatchdog.isTimeToSave() or packetWatchdog.isEndofDay():
+                    packetWatchdog.save()
+                    print(f"saved {packetWatchdog.getDataForSave()}")
+                    del activeWatchDog[key]
         except Exception as e:
             print(e)
             continue
