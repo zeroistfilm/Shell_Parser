@@ -1,7 +1,7 @@
 # Ensemble Stars
-30,Happy Elements Limited, Ensemble Stars, *.happyelements.com
-30,Happy Elements Limited, Ensemble Stars, *.happyelements.kr
-30,Happy Elements Limited, Ensemble Stars, *.he-games.com
+30,Happy Elements Limited, Ensemble Stars, *.happyelements.com, NULL
+30,Happy Elements Limited, Ensemble Stars, *.happyelements.kr, NULL
+30,Happy Elements Limited, Ensemble Stars, *.he-games.com, NULL
 30,Happy Elements Limited, Ensemble Stars, dyconfigkr.happyelements.kr, 150.109.248.200
 30,Happy Elements Limited, Ensemble Stars, twdclog.he-games.com, 104.17.247.49
 30,Happy Elements Limited, Ensemble Stars, es2kr.happyelements.kr, 104.17.12.57
@@ -21,7 +21,7 @@
 30,Wildlife Studios, Tennis Clash, mailbox-tennis.tfgapps.com, 34.228.114.140, 54.147.182.32, 54.163.108.121
 
 # SimCity BuildIt
-30,Maxis(EA), SimCity BuildIt, *.simcitybuildit.com
+30,Maxis(EA), SimCity BuildIt, *.simcitybuildit.com, NULL
 30,Maxis(EA), SimCity BuildIt, live.simcitybuildit.com, 107.23.36.85
 30,Maxis(EA), SimCity BuildIt, cdn.simcitybuildit.com, 23.32.241.19, 23.32.241.24, 23.195.119.91
 
@@ -38,13 +38,13 @@
 30,Cube Software, Modern Warships, NULL, 52.27.45.1, 54.230.167.89, 54.230.167.83
 
 # Mario Kart Tour
-30,Nintendo, Mario Kart Tour, *.mariokarttour.com
+30,Nintendo, Mario Kart Tour, *.mariokarttour.com, NULL
 30,Nintendo, Mario Kart Tour, a6913b7b80402974409b47079c29d775.baas.nintendo.com, 172.217.160.81, 172.217.175.17
 30,Nintendo, Mario Kart Tour, api.mariokarttour.com, 13.33.174.73, 13.33.174.77, 13.33.174.111, 13.33.174.98, 13.249.167.20, 18.65.185.3, 18.65.185.32, 18.65.185.66, 18.65.185.123, 99.84.50.5
 30,Nintendo, Mario Kart Tour, download-cdn-mariokarttour.akamaized.net, 184.27.185.73, 184.27.185.90
 
 # Super Mario Run
-30,Nintendo, Super Mario Run, *.supermariorun.com
+30,Nintendo, Super Mario Run, *.supermariorun.com, NULL
 30,Nintendo, Super Mario Run, 1d73367a8bc4b849f5286dc68416acfd.baas.nintendo.com, 142.251.43.17
 30,Nintendo, Super Mario Run, api.supermariorun.com, 34.197.225.115, 67.202.8.153, 107.22.15.96
 30,Nintendo, Super Mario Run, download-cdn-supermariorun.akamaized.net, 23.44.51.24, 23.44.51.33
@@ -60,35 +60,35 @@
 30,TinyBytes, Massive Warfare, cdn.tinybytes.games, 104.26.4.215
 
 # Boom Beach
-30,Supercell, Boom Beach, *.boombeach.com
+30,Supercell, Boom Beach, *.boombeach.com, NULL
 30,Supercell, Boom Beach, inbox.boombeach.com, 13.227.62.106, 18.65.168.107, 99.84.140.87, 99.84.140.90, 99.84.140.103
 30,Supercell, Boom Beach, game-assets.boombeach.com, 18.65.185.75
 
 # Clash of Clan
-30,Supercell, Clash of Clan, *.clashofclans.com
+30,Supercell, Clash of Clan, *.clashofclans.com, NULL
 30,Supercell, Clash of Clan, inbox.clashofclans.com, 13.33.174.50, 13.225.112.93, 54.192.175.18, 54.192.175.14
 30,Supercell, Clash of Clan, event-assets.clashofclans.com, 13.33.174.27, 13.225.121.85
 30,Supercell, Clash of Clan, gamea.clashofclans.com, 54.166.237.225, 34.203.218.157, 18.212.59.187, 35.170.56.255
 30,Supercell, Clash of Clan, NULL, 35.186.218.215, 35.190.5.180, 35.227.244.186, 35.241.52.229
 
 # Clash Royale
-30,Supercell, Clash Royale, *.clashroyale.com
+30,Supercell, Clash Royale, *.clashroyale.com, NULL
 30,Supercell, Clash Royale, inbox.clashroyale.com, 13.32.50.3, 18.65.202.2, 18.65.202.5, 18.65.202.120
 30,Supercell, Clash Royale, inbox-production.esports.clashroyale.com, 18.65.168.23, 18.65.168.27, 18.65.168.56, 99.84.140.81, 99.84.140.4
 
 # Hay Day
-30,Supercell, Hay Day, *.haydaygame.com
+30,Supercell, Hay Day, *.haydaygame.com, NULL
 30,Supercell, Hay Day, gamea.haydaygame.com, 34.205.69.135
 30,Supercell, Hay Day, hayday.inbox.supercell.com, 13.35.49.23, 13.249.146.43
 30,Supercell, Hay Day, game-assets.haydaygame.com, 65.9.42.21, 99.84.140.2
 
 # Brawl Stars
-30,Supercell, Brawl Stars, *.brawlstars.com
+30,Supercell, Brawl Stars, *.brawlstars.com, NULL
 30,Supercell, Brawl Stars, inbox.brawlstars.com, 18.65.185.59, 18.65.185.72, 18.65.185.114, 99.84.140.2
 30,Supercell, Brawl Stars, game-assets.brawlstarsgame.com, 18.65.216.80
 
 # Diablo Immortal
-30,Blizzard, Diablo Immortal, *.easebar.com
+30,Blizzard, Diablo Immortal, *.easebar.com, NULL
 30,Blizzard, Diablo Immortal, g0.gsf.easebar.com, 23.59.252.192
 30,Blizzard, Diablo Immortal, who.nie.easebar.com, 54.219.239.141
 30,Blizzard, Diablo Immortal, drpf-overseaua.proxima.nie.easebar.com, 54.253.4.238
@@ -117,8 +117,8 @@
 30,Blizzard, Diablo Immortal, whoami.nie.easebar.com, NULL
 
 # New State Mobile
-30,KRAFTON (PUBG), New State Mobile, *.pubg-ns-gate.com
-30,KRAFTON (PUBG), New State Mobile, *.enter-pubg-new-state.com
+30,KRAFTON (PUBG), New State Mobile, *.pubg-ns-gate.com, NULL
+30,KRAFTON (PUBG), New State Mobile, *.enter-pubg-new-state.com, NULL
 30,KRAFTON (PUBG), New State Mobile, api-a99cee34-08a5-4baa-903d-1e259ee8f6e9.sendbird.com, 122.248.196.16
 30,KRAFTON (PUBG), New State Mobile, cdn.enter-pubg-new-state.com, 23.43.165.64, 23.43.165.35, 101.33.17.154, 150.109.207.116, 150.109.207.99
 30,KRAFTON (PUBG), New State Mobile, country-code.pubg-ns-gate.com, 54.230.61.58, 18.65.168.106
@@ -136,8 +136,8 @@
 30,Electronic Arts, NBA LIVE Mobile, nm22-prod-public-48860753.us-east-1.elb.amazonaws.com, 35.173.71.17, 54.83.185.6
 
 # Roblox
-30,Roblox, Roblox, *.roblox.com
-30,Roblox, Roblox, *.rbxcdn.com
+30,Roblox, Roblox, *.roblox.com, NULL
+30,Roblox, Roblox, *.rbxcdn.com, NULL
 30,Roblox, Roblox, accountsettings.roblox.com, 128.116.120.3
 30,Roblox, Roblox, apis.rbxcdn.com, 23.61.252.139
 30,Roblox, Roblox, apis.roblox.com, 128.116.120.4, 128.116.118.3
@@ -199,7 +199,7 @@
 30,Com2uS, NBA NOW 23, timezone.qpyou.cn, 183.111.229.25
 
 # World of Tanks
-30,Wargaming, World of Tanks, *.wotb.app
+30,Wargaming, World of Tanks, *.wotb.app, NULL
 30,Wargaming, World of Tanks, asia.wotblitz.com, 92.223.29.20
 30,Wargaming, World of Tanks, cdn.static.wotb.app, 34.117.103.161
 30,Wargaming, World of Tanks, dl-wotblitz-gc.wargaming.net, 92.223.95.95
@@ -207,8 +207,8 @@
 30,Wargaming, World of Tanks, wotblitz-gc.gcdn.co, 92.223.95.95
 
 # Minecraft
-30,Mojang (Xbox Game Studios), Minecraft, *.minecraft-services.net
-30,Mojang (Xbox Game Studios), Minecraft, *.minecraft.net
+30,Mojang (Xbox Game Studios), Minecraft, *.minecraft-services.net, NULL
+30,Mojang (Xbox Game Studios), Minecraft, *.minecraft.net, NULL
 30,Mojang (Xbox Game Studios), Minecraft, authorization-secondary.franchise.minecraft-services.net, 13.107.246.49
 30,Mojang (Xbox Game Studios), Minecraft, client.discovery.minecraft-services.net, 13.107.246.49
 30,Mojang (Xbox Game Studios), Minecraft, client.support-files.minecraft-services.net, 13.107.246.49
@@ -220,7 +220,7 @@
 30,Mojang (Xbox Game Studios), Minecraft, store.mktpl.minecraft-services.netm, 13.107.246.49
 
 # Apex Legends Mobile
-30,Electronic Arts, Apex Legends Mobile, *.mgapex.com
+30,Electronic Arts, Apex Legends Mobile, *.mgapex.com, NULL
 30,Electronic Arts, Apex Legends Mobile, bugly-android.mgapex.com, 52.48.2.26
 30,Electronic Arts, Apex Legends Mobile, cloudctrl.mgapex.com, 34.248.230.69
 30,Electronic Arts, Apex Legends Mobile, file.mgapex.com, 96.16.99.204, 23.59.151.249, 23.206.175.155, 23.206.175.227, 23.200.75.29, 23.200.75.28
@@ -233,7 +233,7 @@
 30,Electronic Arts, Apex Legends Mobile, rsd.mgapex.com	23.200.75.29
 
 # Cookie Run: Kingdom
-30,Devsisters, Cookie Run: Kingdom, *.devsisters.cloud
+30,Devsisters, Cookie Run: Kingdom, *.devsisters.cloud, NULL
 30,Devsisters, Cookie Run: Kingdom, account.devplay.com, 3.33.232.224, 15.197.193.90
 30,Devsisters, Cookie Run: Kingdom, dc-server.live.prod.devsjelly.cloud	99.83.165.235
 30,Devsisters, Cookie Run: Kingdom, game.devplay.com, 54.192.175.48, 13.225.121.89
@@ -244,7 +244,7 @@
 30,Devsisters, Cookie Run: Kingdom, NULL, 54.192.175.48, 13.225.121.89
 
 # League of Legends: Wild Rift
-30,Riot games, League of Legends: Wild Rift, *.wr.pvp.net
+30,Riot games, League of Legends: Wild Rift, *.wr.pvp.net, NULL
 30,Riot games, League of Legends: Wild Rift, astat.bugly.cros.wr.pvp.net, 170.106.135.32
 30,Riot games, League of Legends: Wild Rift, cloudctrl.cros.wr.pvp.net, 49.51.177.11
 30,Riot games, League of Legends: Wild Rift, msdk.cros.wr.pvp.net, 150.109.27.46
@@ -268,7 +268,7 @@
 30,Tencent Games, PUBG Mobile, www.pubgmobile.com, 96.16.99.204
 
 # Call of Duty: Mobile
-30,Activision, Call of Duty: Mobile, *.cmkrmobile.com
+30,Activision, Call of Duty: Mobile, *.cmkrmobile.com, NULL
 30,Activision, Call of Duty: Mobile, file.gcloud.cmkrmobile.com, 211.152.132.101, 211.152.132.17, 211.152.132.73
 30,Activision, Call of Duty: Mobile, codm-kr-cos-1259490257.cos.ap-seoul.myqcloud.com, 119.28.148.128, 119.28.148.150
 30,Activision, Call of Duty: Mobile, NULL, 211.152.132.73, 211.152.132.101, 211.152.132.17
@@ -285,8 +285,8 @@
 30,Niantic, Pokémon GO, niantic.helpshift.com, 52.86.16.40
 
 # Genshin Impact
-30,miHoYo, Genshin Impact, *.yuanshen.com
-30,miHoYo, Genshin Impact, *.hoyoverse.com
+30,miHoYo, Genshin Impact, *.yuanshen.com, NULL
+30,miHoYo, Genshin Impact, *.hoyoverse.com, NULL
 30,miHoYo, Genshin Impact, autopatchhk.yuanshen.com, 34.149.5.86
 30,miHoYo, Genshin Impact, dispatchosglobal.yuanshen.com, 172.65.240.113
 30,miHoYo, Genshin Impact, hk4e-sdk-os.hoyoverse.com, 54.230.167.26, 54.230.167.116
@@ -327,11 +327,11 @@
 # 컴투스프로야구2022
 30,Com2uS, 컴투스프로야구2022, cpb2015-h.com2us.net, 117.52.25.6
 30,Com2uS, 컴투스프로야구2022, cpb2015-fn.qpyou.cn, 23.209.45.50, 23.209.45.74
-30,Com2uS, 컴투스프로야구2022, cpb2015-frontend.qpyou.cn, 0.0.0.0
+30,Com2uS, 컴투스프로야구2022, cpb2015-frontend.qpyou.cn, NULL
 
 # MLB Perfect Inning 2022
 30,Com2uS, MLB Perfect Inning 2022, mlb2-fn.qpyou.cn, 23.209.45.73
-30,Com2uS, MLB Perfect Inning 2022, mlbpi.qpyou.cn, 0.0.0.0
+30,Com2uS, MLB Perfect Inning 2022, mlbpi.qpyou.cn, NULL
 
 # Seven Knights 2
 Netmarble
