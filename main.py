@@ -5,8 +5,8 @@ from csv import DictWriter
 import datetime
 import requests
 
-class ServerInfo:
 
+class ServerInfo:
     def get_ip(self):
         response = requests.get('https://api.ipify.org?format=json').json()
         return response["ip"]
@@ -21,7 +21,6 @@ class ServerInfo:
             "country": response.get("country_name")
         }
         return location_data
-
 
 
 class GameDB:
@@ -81,9 +80,13 @@ class GameDB:
 
 
 class FlowLog:
-    def __init__(self, data):
+    def __init__(self, data, server_ip, country):
+        self.server_ip = server_ip
+        self.country = country
         self.data = data
-        self.parseKey = ['detected_application_name',
+        self.parseKey = ['server_ip',
+                         'country',
+                         'detected_application_name',
                          'detected_protocol_name',
                          'host_server_name',
                          'dns_host_name',
@@ -106,6 +109,8 @@ class FlowLog:
 
         self.resultData = {}
 
+        # print(self.resultData)
+
     def getGameInfo(self, gameDB):
         hostServerName = self.resultData['host_server_name']
         otherIP = self.resultData['other_ip']
@@ -119,7 +124,7 @@ class FlowLog:
                 self.resultData['game_company'] = gameDB.getGameDB()[whilCard]['game_company']
                 self.resultData['game'] = gameDB.getGameDB()[whilCard]['game']
 
-        else: #hostServerName == 'NULL'
+        else:  # hostServerName == 'NULL'
             if otherIP in gameDB.getGameDB():
                 self.resultData['game_company'] = gameDB.getGameDB()[otherIP]['game_company']
                 self.resultData['game'] = gameDB.getGameDB()[otherIP]['game']
@@ -137,10 +142,30 @@ class FlowLog:
             try:
                 if key.split('_')[-1] == "at":
                     self.resultData[key] = self.getTimeKSTFromTimeStamp(int(self.data[key]) / 1000)
+
                 else:
                     self.resultData[key] = self.data[key]
             except Exception as e:
                 self.resultData[key] = 'NULL'
+
+        self.resultData['local_ip'] = self.convertIPv4(self.resultData['local_ip'])
+        self.resultData['server_ip'] = self.server_ip
+        self.resultData['country'] = self.country
+
+    def convertIPv4(self, ip):
+
+        if len(ip.split('.')) == 4:
+            return ip
+
+        if len(ip.split(':')) == 6:
+
+
+            number = int(ip.split(':')[-1], base=16)
+            retval = [str(number >> i & 0xFF) for i in (24, 16, 8, 0)]
+            retval[0] = '10'
+
+            print('==============================',ip, '.'.join(retval),'==============================')
+            return '.'.join(retval)
 
     def reformatTime(self):
         for key in ['first_seen_at', 'first_update_at', 'last_seen_at']:
@@ -209,6 +234,7 @@ class FlowLog:
         self.resultData['total_packets'] = purgeData['total_packets']
 
     def save(self):
+        print(self.resultData)
         with open(self.getFilename(), 'a', newline='') as f_object:
             dictwriter_object = DictWriter(f_object, fieldnames=self.parseKey)
             if os.path.getsize(self.getFilename()) == 0:
@@ -260,6 +286,7 @@ class FlowPurgeLog:
         return self.resultData
 
     def save(self):
+
         with open(self.getFilename(), 'a', newline='') as f_object:
             dictwriter_object = DictWriter(f_object, fieldnames=self.parseKey)
             if os.path.getsize(self.getFilename()) == 0:
@@ -281,7 +308,8 @@ class PacketWatchDog:
         self.MIN_WATCH_COUNT = 2
         self.WATCH_TIME_MINUTES = int(watchTimeMin)
         self.DESTINATION_FILTER = ['IP', 'DNS', 'others....']
-        self.CSV_COLUMNS = ['date', 'start_time', 'end_time', 'host_server_name', 'other_ip', 'duration', 'game',
+        self.CSV_COLUMNS = ['server_ip', 'country', 'date', 'start_time', 'end_time', 'host_server_name', 'other_ip',
+                            'duration', 'game',
                             'game_company', 'bytes', 'packets']
         self.FILENAME = f"./csv/duration/{self.local_ip}.csv"
 
@@ -339,7 +367,9 @@ class PacketWatchDog:
             return False
 
     def getDataForSave(self):
-        return {'date': self.watchStart.strftime('%Y-%m-%d'),
+        return {'server_ip': ServerInfo().get_location()['ip'],
+                'country': ServerInfo().get_location()['country'],
+                'date': self.watchStart.strftime('%Y-%m-%d'),
                 'start_time': self.watchStart.strftime('%H:%M:%S.%f'),
                 'end_time': self.packetTimeList[-1].strftime('%H:%M:%S.%f'),
                 'host_server_name': self.host_server_name,
@@ -373,6 +403,9 @@ if __name__ == "__main__":
     gameDB = GameDB()
     activeWatchDog = {}
     activeFlow = {}
+
+    serverInfo = ServerInfo().get_location()
+
     while True:
         try:
             line = proc.stdout.readline().decode('utf-8').strip()
@@ -385,7 +418,7 @@ if __name__ == "__main__":
                 continue
 
             # Save packet data
-            flow = FlowLog(line)
+            flow = FlowLog(line, serverInfo['ip'], serverInfo['country'])
 
             if flow.isWg0FlowFormat():
                 flow.parseData()
@@ -402,7 +435,7 @@ if __name__ == "__main__":
 
                     if flow.hasLocalIP():
                         flow.save()
-                        print('flow', flow)
+                    print('flow', flow)
 
                     # Packet WatchDog
                     if flow.getWatchKey() is not 'NULL':
@@ -417,16 +450,16 @@ if __name__ == "__main__":
                                                                      flow.getBytes(), flow.getPackets())
 
                         print('add packet', *flow.getHost_server_nameAndOther_ip(),
-                                                                     datetime.datetime.now().timestamp(),
-                                                                     flow.getGame(), flow.getGameCompany(),
-                                                                     flow.getBytes(), flow.getPackets())
-
+                              datetime.datetime.now().timestamp(),
+                              flow.getGame(), flow.getGameCompany(),
+                              flow.getBytes(), flow.getPackets())
 
             for key, packetWatchdog in list(activeWatchDog.items()):
                 if packetWatchdog.isTimeToSave() or packetWatchdog.isEndofDay():
                     packetWatchdog.save()
                     print(f"saved {packetWatchdog.getDataForSave()}")
                     del activeWatchDog[key]
+
         except Exception as e:
             print(e)
             continue
