@@ -35,7 +35,7 @@
 # Modern Warships
 30,Cube Software, Modern Warships, f7659.playfabapi.com, 34.215.62.206, 44.231.46.80, 54.148.64.184
 30,Cube Software, Modern Warships, mwapi.artstorm.com, 52.42.192.27, 52.42.244.238, 54.202.82.150
-30,Cube Software, Modern Warships, NULL, 52.27.45.1
+30,Cube Software, Modern Warships, NULL, 52.27.45.1, 54.230.167.89, 54.230.167.83
 
 # Mario Kart Tour
 30,Nintendo, Mario Kart Tour, *.mariokarttour.com
@@ -66,9 +66,10 @@
 
 # Clash of Clan
 30,Supercell, Clash of Clan, *.clashofclans.com
-30,Supercell, Clash of Clan, inbox.clashofclans.com, 13.33.174.50, 13.225.112.93, 54.192.175.18
+30,Supercell, Clash of Clan, inbox.clashofclans.com, 13.33.174.50, 13.225.112.93, 54.192.175.18, 54.192.175.14
 30,Supercell, Clash of Clan, event-assets.clashofclans.com, 13.33.174.27, 13.225.121.85
-30,Supercell, Clash of Clan, gamea.clashofclans.com, 54.166.237.225, 34.203.218.157, 18.212.59.187
+30,Supercell, Clash of Clan, gamea.clashofclans.com, 54.166.237.225, 34.203.218.157, 18.212.59.187, 35.170.56.255
+30,Supercell, Clash of Clan, NULL, 35.186.218.215, 35.190.5.180, 35.227.244.186, 35.241.52.229
 
 # Clash Royale
 30,Supercell, Clash Royale, *.clashroyale.com
@@ -118,16 +119,17 @@
 # New State Mobile
 30,KRAFTON (PUBG), New State Mobile, *.pubg-ns-gate.com
 30,KRAFTON (PUBG), New State Mobile, *.enter-pubg-new-state.com
+30,KRAFTON (PUBG), New State Mobile, api-a99cee34-08a5-4baa-903d-1e259ee8f6e9.sendbird.com, 122.248.196.16
 30,KRAFTON (PUBG), New State Mobile, cdn.enter-pubg-new-state.com, 23.43.165.64, 23.43.165.35, 101.33.17.154, 150.109.207.116, 150.109.207.99
 30,KRAFTON (PUBG), New State Mobile, country-code.pubg-ns-gate.com, 54.230.61.58, 18.65.168.106
-30,KRAFTON (PUBG), New State Mobile, maintenance-prod-gate.pubg-ns-gate.com, 174.129.29.147, 52.86.26.224
+30,KRAFTON (PUBG), New State Mobile, ebdsw.enter-pubg-new-state.com, 43.132.80.52
 30,KRAFTON (PUBG), New State Mobile, event-img.enter-pubg-new-state.com, 23.43.165.43, 23.43.165.104, 101.33.17.154
+30,KRAFTON (PUBG), New State Mobile, maintenance-prod-gate.pubg-ns-gate.com, 174.129.29.147, 52.86.26.224
+30,KRAFTON (PUBG), New State Mobile, new-state.ovslegodl.sched.ovscdns.com, 150.109.207.99
 30,KRAFTON (PUBG), New State Mobile, lobby.pubg-ns-gate.com, 52.3.128.184
-30,KRAFTON (PUBG), New State Mobile, video.enter-pubg-new-state.com, 23.43.165.34
 30,KRAFTON (PUBG), New State Mobile, trace.pubg-ns-gate.com, 3.211.176.112
-30,api-a99cee34-08a5-4baa-903d-1e259ee8f6e9.sendbird.com, 122.248.196.16
-30,ebdsw.enter-pubg-new-state.com, 43.132.80.52, 
-30,new-state.ovslegodl.sched.ovscdns.com, 150.109.207.99
+30,KRAFTON (PUBG), New State Mobile, video.enter-pubg-new-state.com, 23.43.165.34
+30,KRAFTON (PUBG), New State Mobile, NULL, 23.216.159.16
 
 # NBA LIVE Mobile
 30,Electronic Arts, NBA LIVE Mobile, nm22.prod.fuel.ddns.ea.com, 54.83.185.6, 35.173.71.17
@@ -170,8 +172,6 @@
 30,Roblox, Roblox, www.roblox.com, 128.116.120.3
 
 # KartRider Rush+
-30,Nexon, KartRider Rush+, stamp.mp.nexon.com, 54.95.204.59, 52.193.27.139
-30,Nexon, KartRider Rush+, m-api.nexon.com, 13.230.151.186, 52.198.174.106
 30,Nexon, KartRider Rush+, kartm.dn.nexoncdn.co.kr, 23.43.165.74, 23.43.165.83, 23.43.165.88
 30,Nexon, KartRider Rush+, ktmkr-timeattack-mov-1300776466.cos.ap-seoul.myqcloud.com, 119.28.148.150, 119.28.148.172
 30,Nexon, KartRider Rush+, ktmkr-share-image-1300776466.cos.ap-seoul.myqcloud.com, 119.28.148.172
@@ -241,8 +241,7 @@
 30,Devsisters, Cookie Run: Kingdom, logging.prod.devsisters.cloud, 54.168.167.150, 54.249.115.208, 13.230.199.76
 30,Devsisters, Cookie Run: Kingdom, static.devscdn.com	23.200.75.21, 23.200.75.27
 30,Devsisters, Cookie Run: Kingdom, route.live.prod.devsjelly.cloud	99.83.165.235
-30,Devsisters, Cookie Run: Kingdom, NULL, 54.192.175.48
-30,Devsisters, Cookie Run: Kingdom, NULL, 13.225.121.89
+30,Devsisters, Cookie Run: Kingdom, NULL, 54.192.175.48, 13.225.121.89
 
 # League of Legends: Wild Rift
 30,Riot games, League of Legends: Wild Rift, *.wr.pvp.net
@@ -272,9 +271,7 @@
 30,Activision, Call of Duty: Mobile, *.cmkrmobile.com
 30,Activision, Call of Duty: Mobile, file.gcloud.cmkrmobile.com, 211.152.132.101, 211.152.132.17, 211.152.132.73
 30,Activision, Call of Duty: Mobile, codm-kr-cos-1259490257.cos.ap-seoul.myqcloud.com, 119.28.148.128, 119.28.148.150
-30,Activision, Call of Duty: Mobile, NULL, 211.152.132.73
-30,Activision, Call of Duty: Mobile, NULL, 211.152.132.101
-30,Activision, Call of Duty: Mobile, NULL, 211.152.132.17
+30,Activision, Call of Duty: Mobile, NULL, 211.152.132.73, 211.152.132.101, 211.152.132.17
 
 # Pokémon Unite
 30,The Pokémon Company, Pokémon Unite, pokemon-webapi.appspot.com, 142.250.207.52
@@ -306,6 +303,35 @@
 30,miHoYo, Genshin Impact, sg-hk4e-api-static.hoyoverse.com, 54.192.175.118, 54.192.175.60
 30,miHoYo, Genshin Impact, webstatic.hoyoverse.com, 54.230.61.56, 54.230.61.66
 30,miHoYo, Genshin Impact, NULL, 8.211.157.181
+
+# Cover Fire
+30,VIVA STUDIOS, Cover Fire, coverfire.s3.dualstack.us-east-1.amazonaws.com, 52.217.92.216, 52.217.229.146, 52.216.146.198, 52.217.106.192, 52.217.193.194
+
+# Modern Combat
+30,Gameloft, Modern Combat, a314.gameloft.com, 208.71.185.246
+30,Gameloft, Modern Combat, eur-hermes.gameloft.com, 208.71.185.241
+30,Gameloft, Modern Combat, eur-iris.gameloft.com, 208.71.185.241
+30,Gameloft, Modern Combat, eur-janus.gameloft.com, 208.71.185.241
+30,Gameloft, Modern Combat, eur-olympus.gameloft.com, 208.71.185.241
+30,Gameloft, Modern Combat, eur-osiris.gameloft.com, 208.71.185.241
+30,Gameloft, Modern Combat, gdid.datalake.gameloft.com, 52.54.189.240
+30,Gameloft, Modern Combat, iris07-gold-ssl.gameloft.com, 23.45.56.30
+30,Gameloft, Modern Combat, mt2p.www.vivox.com, 74.201.106.168
+30,Gameloft, Modern Combat, vgold-eur.gameloft.com, 208.71.185.241
+
+# The Wolf
+30,Swift Apps Sp z o.o., The Wolf, rest.wolf.ragequitservices.com, 35.224.219.147
+30,Swift Apps Sp z o.o., The Wolf, cdn.wolf-2.ragequitservices.com, 89.187.160.28
+30,Swift Apps Sp z o.o., The Wolf, api.wolf.ragequitservices.com, 146.148.89.183
+
+# 컴투스프로야구2022
+30,Com2uS, 컴투스프로야구2022, cpb2015-h.com2us.net, 117.52.25.6
+30,Com2uS, 컴투스프로야구2022, cpb2015-fn.qpyou.cn, 23.209.45.50, 23.209.45.74
+30,Com2uS, 컴투스프로야구2022, cpb2015-frontend.qpyou.cn, 0.0.0.0
+
+# MLB Perfect Inning 2022
+30,Com2uS, MLB Perfect Inning 2022, mlb2-fn.qpyou.cn, 23.209.45.73
+30,Com2uS, MLB Perfect Inning 2022, mlbpi.qpyou.cn, 0.0.0.0
 
 # Seven Knights 2
 Netmarble

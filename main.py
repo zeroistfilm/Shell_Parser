@@ -3,6 +3,25 @@ import subprocess
 import json
 from csv import DictWriter
 import datetime
+import requests
+
+class ServerInfo:
+
+    def get_ip(self):
+        response = requests.get('https://api.ipify.org?format=json').json()
+        return response["ip"]
+
+    def get_location(self):
+        ip_address = self.get_ip()
+        response = requests.get(f'https://ipapi.co/{ip_address}/json/').json()
+        location_data = {
+            "ip": ip_address,
+            "city": response.get("city"),
+            "region": response.get("region"),
+            "country": response.get("country_name")
+        }
+        return location_data
+
 
 
 class GameDB:
@@ -83,8 +102,7 @@ class FlowLog:
                          'other_bytes',
                          'other_packets',
                          'total_bytes',
-                         'total_packets'
-                         ]
+                         'total_packets']
 
         self.resultData = {}
 
@@ -279,6 +297,7 @@ class PacketWatchDog:
         self.game_company = 'NULL'
         self.bytesList = []
         self.packetsList = []
+        print(f"watchStart: {self.watchStart}, watchEnd: {self.watchEnd}")
 
     def addPacket(self, host_server_name, other_ip, packetTime, game, gameCompany, eachBytes, eachPackets):
         if host_server_name not in self.DESTINATION_FILTER and other_ip not in self.DESTINATION_FILTER:
@@ -387,19 +406,27 @@ if __name__ == "__main__":
 
                     # Packet WatchDog
                     if flow.getWatchKey() is not 'NULL':
+
                         if flow.getWatchKey() not in activeWatchDog:
                             activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(),
                                                                                 gameDB.getWatchTime(flow.getWatchKey()))
+
                         activeWatchDog[flow.getWatchKey()].addPacket(*flow.getHost_server_nameAndOther_ip(),
                                                                      datetime.datetime.now().timestamp(),
                                                                      flow.getGame(), flow.getGameCompany(),
                                                                      flow.getBytes(), flow.getPackets())
 
-                    for key, packetWatchdog in list(activeWatchDog.items()):
-                        if packetWatchdog.isTimeToSave() or packetWatchdog.isEndofDay():
-                            packetWatchdog.save()
-                            print(f"saved {packetWatchdog.getDataForSave()}")
-                            del activeWatchDog[key]
+                        print('add packet', *flow.getHost_server_nameAndOther_ip(),
+                                                                     datetime.datetime.now().timestamp(),
+                                                                     flow.getGame(), flow.getGameCompany(),
+                                                                     flow.getBytes(), flow.getPackets())
+
+
+            for key, packetWatchdog in list(activeWatchDog.items()):
+                if packetWatchdog.isTimeToSave() or packetWatchdog.isEndofDay():
+                    packetWatchdog.save()
+                    print(f"saved {packetWatchdog.getDataForSave()}")
+                    del activeWatchDog[key]
         except Exception as e:
             print(e)
             continue
