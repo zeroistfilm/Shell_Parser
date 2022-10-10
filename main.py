@@ -61,7 +61,10 @@ class GameDB:
 
                 # set gameDB
                 if len(other_ip) == 1:
-                    if other_ip[0] == 'NULL': continue
+                    if other_ip[0] == 'NULL':
+                        if not host_server_name == 'NULL':
+                            self.gameDB[host_server_name] = {'game_company': game_company, 'game': game}
+
                     self.gameDB[other_ip[0]] = {'game_company': game_company, 'game': game}
                 elif len(other_ip) > 1:
                     for ip in other_ip:
@@ -71,6 +74,10 @@ class GameDB:
                     self.gameDB[host_server_name] = {'game_company': game_company, 'game': game}
 
                 self.gameWatchTime[game] = int(watchTime)
+
+        for key in self.gameDB.keys():
+            print(key, self.gameDB[key])
+
 
     def getWildCard(self, host_server_name):
         if host_server_name == 'NULL':
