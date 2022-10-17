@@ -40,7 +40,7 @@ class GameDB:
         return int(self.gameWatchTime[game])
 
     def loadGameDB(self):
-        with open(self.gameDBPath, "r") as f:
+        with open(self.gameDBPath, "rt",encoding='UTF8') as f:
             gameList = f.read().splitlines()
             for game in gameList:
                 # key parsing
@@ -66,6 +66,7 @@ class GameDB:
                             self.gameDB[host_server_name] = {'game_company': game_company, 'game': game}
 
                     self.gameDB[other_ip[0]] = {'game_company': game_company, 'game': game}
+
                 elif len(other_ip) > 1:
                     for ip in other_ip:
                         self.gameDB[ip] = {'game_company': game_company, 'game': game}
@@ -74,6 +75,10 @@ class GameDB:
                     self.gameDB[host_server_name] = {'game_company': game_company, 'game': game}
 
                 self.gameWatchTime[game] = int(watchTime)
+
+            del self.gameDB['NULL']
+            del self.gameDB['0.0.0.0']
+
 
         for key in self.gameDB.keys():
             print(key, self.gameDB[key])
@@ -122,6 +127,7 @@ class FlowLog:
         hostServerName = self.resultData['host_server_name']
         otherIP = self.resultData['other_ip']
         whilCard = gameDB.getWildCard(hostServerName)
+
 
         if hostServerName != 'NULL':
             if hostServerName in gameDB.getGameDB():
@@ -445,7 +451,7 @@ if __name__ == "__main__":
                     print('flow', flow)
 
                     # Packet WatchDog
-                    if flow.getWatchKey() is not 'NULL':
+                    if flow.getWatchKey() != 'NULL':
 
                         if flow.getWatchKey() not in activeWatchDog:
                             activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(),
