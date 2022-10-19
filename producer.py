@@ -1,26 +1,17 @@
 import asyncio
-
-import cv2
 import aiokafka
-from fastapi import FastAPI
-import websockets
-import json
-
-app = FastAPI()
 
 
-
-
-
-async def producer():
-    producer = aiokafka.AIOKafkaProducer(bootstrap_servers='146.56.145.179:29092')
+async def test():
+    producer = aiokafka.AIOKafkaProducer(bootstrap_servers='ec2-3-34-16-150.ap-northeast-2.compute.amazonaws.com:29092')
     await producer.start()
     data = 'test'
-    try:
-        await producer.send_and_wait(topic='test', value=data)
-        await asyncio.sleep(1)
-    finally:
-        await producer.stop()
+    while True:
+        try:
+            await producer.send_and_wait(topic='test', value=data)
+            await asyncio.sleep(1)
+        finally:
+            await producer.stop()
 
 
-asyncio.create_task(producer())
+asyncio.run(asyncio.create_task(test()))
