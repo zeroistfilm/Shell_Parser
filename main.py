@@ -76,8 +76,11 @@ class GameDB:
 
                 self.gameWatchTime[game] = int(watchTime)
 
-            del self.gameDB['NULL']
-            del self.gameDB['0.0.0.0']
+            try:
+                del self.gameDB['NULL']
+                del self.gameDB['0.0.0.0']
+            except Exception as e:
+                print(e)
 
 
         for key in self.gameDB.keys():
