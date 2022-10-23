@@ -25,7 +25,7 @@ class mareelDB():
 def createDurationTable(serviceName):
     class duration(Base):
         __tablename__ = serviceName
-
+        __table_args__ = {'extend_existing': True}
         id = Column(Integer, primary_key=True)
         server_ip = Column(String(50))
         local_ip = Column(String(50))
@@ -73,7 +73,7 @@ def createDurationTable(serviceName):
 def createRawTable(serviceName):
     class raw(Base):
         __tablename__ = serviceName
-
+        __table_args__ = {'extend_existing': True}
         id = Column(Integer, primary_key=True)
         local_ip = Column(String(50))
         server_ip = Column(String(50))
