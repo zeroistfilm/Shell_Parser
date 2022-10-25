@@ -22,7 +22,7 @@ async def consume(service, topic):
             data = table(msg.value)
             mareeldb.session.add(data)
             mareeldb.session.commit()
-
+            await asyncio.sleep(0.1)
     except Exception as e:
         print(e)
     finally:

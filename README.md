@@ -18,7 +18,6 @@ init
 ```bash
 apt install python3-pip -y
 pip3 install aiokafka
-그 외 기타 다른 필요한 라이브러리 설치 서버마다 상황 다름
 ```
 
 run
