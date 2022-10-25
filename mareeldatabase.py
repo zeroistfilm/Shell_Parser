@@ -26,6 +26,7 @@ def createDurationTable(serviceName):
     class duration(Base):
         __tablename__ = serviceName
         __table_args__ = {'extend_existing': True}
+        managed = True
         id = Column(Integer, primary_key=True)
         server_ip = Column(String(50))
         local_ip = Column(String(50))
@@ -74,6 +75,7 @@ def createRawTable(serviceName):
     class raw(Base):
         __tablename__ = serviceName
         __table_args__ = {'extend_existing': True}
+        managed=True
         id = Column(Integer, primary_key=True)
         local_ip = Column(String(50))
         server_ip = Column(String(50))
@@ -145,8 +147,8 @@ if __name__ == '__main__':
     Session.configure(bind=DATABASES)
     session = Session()
 
-    raw = createRawTable('Mareel_VPN_Raw')
-    duration = createDurationTable('Mareel_GO_Duration')
+    raw = createRawTable('Mareel_GO_Test_Raw')
+    duration = createDurationTable('Mareel_GO_Test_Duration')
     while True:
         rawdata = b'{"local_ip": "10.0.0.5", "server_ip": "146.56.145.179", "country": "South Korea", "detected_application_name": "Unknown", "detected_protocol_name": "HTTP/S", "host_server_name": "NULL", "dns_host_name": "NULL", "local_port": 58676, "other_ip": "211.114.66.12", "other_port": 443, "first_seen_at": "2022-10-22 23:30:30.224", "first_update_at": "2022-10-22 23:30:30.224", "last_seen_at": "2022-10-22 23:30:30.224", "game": "NULL", "game_company": "NULL", "digest": "79dc2320023a6c2c1ef73e148e83cfebc01480c4", "local_bytes": 52, "local_packets": 1, "other_bytes": 0, "other_packets": 0, "total_bytes": 52, "total_packets": 1}'
         durationdata = {'server_ip': '146.56.145.179', 'country': 'South Korea', 'date': '2022-10-23',

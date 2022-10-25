@@ -7,6 +7,7 @@ import json
 from shellpaser import ServerInfo, GameDB, FlowLog, FlowPurgeLog, PacketWatchDog
 
 
+
 async def crawl(rawQueue, durationQueue):
     proc = subprocess.Popen(['./json_capture.sh'], stdout=subprocess.PIPE)
     serverInfo = ServerInfo().get_location()
@@ -15,7 +16,7 @@ async def crawl(rawQueue, durationQueue):
     activeFlow = {}
 
     while True:
-
+        gameDB.updateGameDB()
         line = proc.stdout.readline().decode('utf-8').strip()
         try:
             line = dict(json.loads(line))

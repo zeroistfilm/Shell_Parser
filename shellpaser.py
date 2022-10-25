@@ -6,6 +6,7 @@ import datetime
 import requests
 import time
 
+
 class ServerInfo:
     def get_ip(self):
         response = requests.get('https://api.ipify.org?format=json').json()
@@ -33,8 +34,15 @@ class GameDB:
         self.gameDB = {}
         self.gameWatchTime = {}
         self.gameDBPath = 'game_db.csv'
-
         self.loadGameDB()
+        self.updateInterval = 5
+        self.dueUpdateTime = datetime.datetime.now() + datetime.timedelta(minutes=self.updateInterval)
+
+    def updateGameDB(self):
+        if datetime.datetime.now() > self.dueUpdateTime:
+            self.now = datetime.datetime.now()
+            self.loadGameDB()
+            self.dueUpdateTime = self.now + datetime.timedelta(minutes=self.updateInterval)
 
     def getGameDB(self):
         return self.gameDB
@@ -45,6 +53,7 @@ class GameDB:
         return int(self.gameWatchTime[game])
 
     def loadGameDB(self):
+        self.gameDB = {}
         with open(self.gameDBPath, "rt", encoding='UTF8') as f:
             gameList = f.read().splitlines()
             for game in gameList:
