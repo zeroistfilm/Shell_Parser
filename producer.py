@@ -90,10 +90,13 @@ async def main():
     duration = asyncio.Queue()
     serverInfo = ServerInfo().get_location()
     while True:
-        await asyncio.gather(*[crawl(raw, duration),
-                               message_send(serverInfo, 'raw', raw),
-                               message_send(serverInfo, 'duration', duration)])
-
+        try:
+            await asyncio.gather(*[crawl(raw, duration),
+                                   message_send(serverInfo, 'raw', raw),
+                                   message_send(serverInfo, 'duration', duration)])
+        except Exception as e:
+            print(e)
+            await asyncio.sleep(1)
 
 if __name__ == "__main__":
     asyncio.run(main())
