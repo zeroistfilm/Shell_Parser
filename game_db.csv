@@ -333,6 +333,69 @@
 30,Com2uS, MLB Perfect Inning 2022, mlb2-fn.qpyou.cn, 23.209.45.73
 30,Com2uS, MLB Perfect Inning 2022, mlbpi.qpyou.cn, NULL
 
+# FIFA ONLINE 4 M
+30,Nexon, FIFA ONLINE 4 M, fo4m.dn.nexoncdn.co.kr, 23.59.252.187
+30,Nexon, FIFA ONLINE 4 M, fo4.dn.nexoncdn.co.kr, 23.67.53.154, 23.67.53.138, 23.53.228.19, 182.162.14.41, 221.168.66.99
+30,Nexon, FIFA ONLINE 4 M, fo4m-gw.nexon.com, 183.110.1.196
+30,Nexon, FIFA ONLINE 4 M, fo4m.dn.nexoncdn.co.kr, 23.33.33.56, 23.67.53.153, 54.230.167.99
+30,Nexon, FIFA ONLINE 4 M, fo4news.dn.nexoncdn.co.kr, 183.110.66.34
+30,Nexon, FIFA ONLINE 4 M, fo4news.nexon.com, 183.110.1.209
+30,Nexon, FIFA ONLINE 4 M, fo4-log.nexon.com, 183.110.1.199
+30,Nexon, FIFA ONLINE 4 M, fo4-staticdata.nexon.com, 183.110.1.200
+
+# FIFA Mobile
+30,Nexon, FIFA Mobile, fmk-game.nexon.com, 3.37.67.217
+30,Nexon, FIFA Mobile, fmk-hygeia.nexon.com, 43.200.123.201
+30,Nexon, FIFA Mobile, fmk-perrier.nexon.com, 43.200.128.134, 54.180.167.246
+30,Nexon, FIFA Mobile, mfmk.dn.nexoncdn.co.kr, 23.43.165.32, 54.192.175.38
+
+# HIT 2
+30,Nexon, HIT 2, hit2.dn.nexoncdn.co.kr, 110.45.216.89, 110.45.217.95, 114.108.156.79, 114.108.156.80, 114.108.156.88, 114.108.157.72, 114.108.157.90, 114.108.158.159, 114.108.158.161, 114.108.158.162, 182.162.14.41, 182.162.14.42, 182.162.14.43, 182.162.15.35, 182.162.15.37, 183.110.27.27, 183.110.27.61, 183.110.27.125, 183.110.27.221, 183.110.28.125, 183.110.28.188, 183.110.28.189, 183.110.66.2, 183.110.66.3, 183.110.66.99, 183.110.66.130, 183.110.66.34, 183.110.66.35, 183.110.66.66, 183.110.66.162, 183.110.66.163, 183.110.66.195, 183.111.45.124, 183.111.45.29, 183.111.45.93, 221.168.66.2, 221.168.66.3, 221.168.66.35, 221.168.66.67, 221.168.66.99
+30,Nexon, HIT 2, hit2m.bd-31.ktcdn.co.kr, 183.110.27.27
+30,Nexon, HIT 2, hit2m.bd-61.ktcdn.co.kr, 183.110.66.162
+30,Nexon, HIT 2, hit2m.lgucdn.com, 110.45.216.89, 114.108.156.79, 114.108.157.90, 182.162.14.43
+30,Nexon, HIT 2, hit2-p-gw.nexon.com, NULL
+
+# Odin: Valhalla Rising
+30,Kakao Games, Odin: Valhalla Rising, accounts-ec2avpvy.kgslb.com, 211.231.99.67
+30,Kakao Games, Odin: Valhalla Rising, infodesk-zinny3.game.kakao.com, 3.37.91.178, 3.39.178.184
+30,Kakao Games, Odin: Valhalla Rising, openapi-zinny3.game.kakao.com, 13.124.74.10
+30,Kakao Games, Odin: Valhalla Rising, session-zinny3.game.kakao.com, 13.125.89.241
+30,Kakao Games, Odin: Valhalla Rising, stat.tiara.kakao.com, 211.249.220.83
+30,Kakao Games, Odin: Valhalla Rising, stat-tiara-5mka6y7y.kgslb.com, 211.249.220.83
+
+# GUNS UP! Mobile
+30,NHN, GUNS UP! Mobile, adam.gslb.toastoven.net, 23.209.45.57
+30,NHN, GUNS UP! Mobile, gslb-gamebase-lh.cloud.toast.com, 43.227.116.95
+30,NHN, GUNS UP! Mobile, gum.gslb.toastoven.net, 23.200.75.114
+30,NHN, GUNS UP! Mobile, real-gum-game01.hangame.com, 115.88.123.76
+
+# 탕탕특공대
+30,HABBY PTE. LTD., 탕탕특공대, mail.survivorio.com, 54.192.175.82, 54.192.175.117, 143.204.86.10, 143.204.86.23
+30,HABBY PTE. LTD., 탕탕특공대, dataupdate.survivorio.com, 54.192.175.45
+30,HABBY PTE. LTD., 탕탕특공대, prod-game.survivorio.com, 54.230.167.38, 54.230.167.97, 143.204.126.120
+
+# Blue Archive
+30,Nexon, Blue Archive, ba.dn.nexoncdn.co.kr, 23.43.165.19, 23.43.165.26, 23.43.165.57
+30,Nexon, Blue Archive, nxm-kr-bagl.nexon.com, 3.38.59.102
+30,Nexon, Blue Archive, bagl-prd-kr-pub-lb-1372170582.ap-northeast-2.elb.a, 3.38.59.102
+
+# Lineage W
+30,NCSOFT, Lineage W, lw-lobby.mg.nc.com, NULL
+30,NCSOFT, Lineage W, lw-world-s210.mg.nc.com, 52.79.128.148
+30,NCSOFT, Lineage W, mgs-lw.ncupdate.com, NULL
+30,NCSOFT, Lineage W, mgs-lw.ncupdate.com.service3.gscdn.net, NULL
+30,NCSOFT, Lineage W, qos-api.g.nc.com, 216.107.244.65
+
+# Lineage M
+30,NCSOFT, Lineage M, cli-lms.kr.nc.com, 112.175.209.96
+30,NCSOFT, Lineage M, mkr-linm.ncupdate.com, 1.255.60.10, 61.74.67.79, 210.94.120.205, 211.110.15.206, 211.110.86.7
+30,NCSOFT, Lineage M, linm-lobby.mg.nc.com, NULL
+
+# Lineage 2M
+30,NCSOFT, Lineage 2M, mkr-l2m.ncupdate.com, 110.45.216.206, 110.45.217.197, 114.108.156.199, 114.108.156.200, 114.108.158.198, 116.120.4.218, 117.52.178.67, 211.47.29.2, 211.109.1.143, 211.109.1.144
+30,NCSOFT, Lineage 2M, mkr-l2m.ncupdate.com.service1.gscdn.net, NULL
+30,NCSOFT, Lineage 2M, l2m-ncupdate.cache.cdn.cloudn.co.kr, NULL
 
 # Seven Knights 2
 Netmarble
@@ -340,14 +403,8 @@ Netmarble
 # Seven Knights: Revolution
 Netmarble
 
-# Odin: Valhalla Rising
-Kakao Games
-
 # Dungeon & Fighter Mobile
 Nexon
-
-# Lineage W
-NCSOFT
 
 # MapleStory M
 Nexon
