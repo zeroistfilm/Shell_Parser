@@ -53,7 +53,7 @@
 # Mech Arena
 30,Plarium, Mech Arena, arnint1s07.plrm.zone, 104.20.46.206
 30,Plarium, Mech Arena, cdnl.x-plarium.com, 152.195.37.98
-,
+
 # Massive Warfare
 30,TinyBytes, Massive Warfare, b009.playfabapi.com, 34.215.213.155, 52.27.210.49, 100.21.77.114
 30,TinyBytes, Massive Warfare, www.tinybytes.space, 52.26.181.244, 54.203.120.146
@@ -214,7 +214,7 @@
 30,Mojang (Xbox Game Studios), Minecraft, client.support-files.minecraft-services.net, 13.107.246.49
 30,Mojang (Xbox Game Studios), Minecraft, messaging.mktpl.minecraft-services.net, 13.107.246.49
 30,Mojang (Xbox Game Studios), Minecraft, minecraftprod.rtep.msgamestudios.com, 40.122.249.123, 20.9.9.229, 40.86.127.82
-30,Mojang (Xbox Game Studios), Minecraft, payments.realms.minecraft.net	52.247.18.233
+30,Mojang (Xbox Game Studios), Minecraft, payments.realms.minecraft.net, 52.247.18.233
 30,Mojang (Xbox Game Studios), Minecraft, persona.franchise.minecraft-services.net, 13.107.246.49
 30,Mojang (Xbox Game Studios), Minecraft, pocket.realms.minecraft.net, 52.247.18.223
 30,Mojang (Xbox Game Studios), Minecraft, store.mktpl.minecraft-services.netm, 13.107.246.49
@@ -225,22 +225,22 @@
 30,Electronic Arts, Apex Legends Mobile, cloudctrl.mgapex.com, 34.248.230.69
 30,Electronic Arts, Apex Legends Mobile, file.mgapex.com, 96.16.99.204, 23.59.151.249, 23.206.175.155, 23.206.175.227, 23.200.75.29, 23.200.75.28
 30,Electronic Arts, Apex Legends Mobile, itop.mgapex.com, 63.35.66.64, 34.250.194.169
-30,Electronic Arts, Apex Legends Mobile, pay.mgapex.com	54.229.254.151
+30,Electronic Arts, Apex Legends Mobile, pay.mgapex.com, 54.229.254.151
 30,Electronic Arts, Apex Legends Mobile, tab-mobile-cache-ireland.mgapex.com, 46.51.202.168, 54.154.190.40, 54.154.194.43
 30,Electronic Arts, Apex Legends Mobile, tdm.mgapex.com, 54.220.99.191, 52.211.49.166
 30,Electronic Arts, Apex Legends Mobile, tgpa.mgapex.com, 54.194.215.98
 30,Electronic Arts, Apex Legends Mobile, tgpa.mgapex.com, 52.209.127.213
-30,Electronic Arts, Apex Legends Mobile, rsd.mgapex.com	23.200.75.29
+30,Electronic Arts, Apex Legends Mobile, rsd.mgapex.com, 23.200.75.29
 
 # Cookie Run: Kingdom
 30,Devsisters, Cookie Run: Kingdom, *.devsisters.cloud, NULL
 30,Devsisters, Cookie Run: Kingdom, account.devplay.com, 3.33.232.224, 15.197.193.90
-30,Devsisters, Cookie Run: Kingdom, dc-server.live.prod.devsjelly.cloud	99.83.165.235
+30,Devsisters, Cookie Run: Kingdom, dc-server.live.prod.devsjelly.cloud, 99.83.165.235
 30,Devsisters, Cookie Run: Kingdom, game.devplay.com, 54.192.175.48, 13.225.121.89
 30,Devsisters, Cookie Run: Kingdom, gateway.devsisters.cloud, 15.197.197.107
 30,Devsisters, Cookie Run: Kingdom, logging.prod.devsisters.cloud, 54.168.167.150, 54.249.115.208, 13.230.199.76
-30,Devsisters, Cookie Run: Kingdom, static.devscdn.com	23.200.75.21, 23.200.75.27
-30,Devsisters, Cookie Run: Kingdom, route.live.prod.devsjelly.cloud	99.83.165.235
+30,Devsisters, Cookie Run: Kingdom, static.devscdn.com, 23.200.75.21, 23.200.75.27
+30,Devsisters, Cookie Run: Kingdom, route.live.prod.devsjelly.cloud, 99.83.165.235
 30,Devsisters, Cookie Run: Kingdom, NULL, 54.192.175.48, 13.225.121.89
 
 # League of Legends: Wild Rift
