@@ -308,14 +308,11 @@
 30,VIVA STUDIOS, Cover Fire, coverfire.s3.dualstack.us-east-1.amazonaws.com, 52.217.92.216, 52.217.229.146, 52.216.146.198, 52.217.106.192, 52.217.193.194
 
 # Modern Combat
-30,Gameloft, Modern Combat, a314.gameloft.com, 208.71.185.246
 30,Gameloft, Modern Combat, eur-hermes.gameloft.com, 208.71.185.241
 30,Gameloft, Modern Combat, eur-iris.gameloft.com, 208.71.185.241
 30,Gameloft, Modern Combat, eur-janus.gameloft.com, 208.71.185.241
 30,Gameloft, Modern Combat, eur-olympus.gameloft.com, 208.71.185.241
 30,Gameloft, Modern Combat, eur-osiris.gameloft.com, 208.71.185.241
-30,Gameloft, Modern Combat, gdid.datalake.gameloft.com, 52.54.189.240
-30,Gameloft, Modern Combat, iris07-gold-ssl.gameloft.com, 23.45.56.30
 30,Gameloft, Modern Combat, mt2p.www.vivox.com, 74.201.106.168
 30,Gameloft, Modern Combat, vgold-eur.gameloft.com, 208.71.185.241
 
@@ -397,14 +394,37 @@
 30,NCSOFT, Lineage 2M, mkr-l2m.ncupdate.com.service1.gscdn.net, NULL
 30,NCSOFT, Lineage 2M, l2m-ncupdate.cache.cdn.cloudn.co.kr, NULL
 
+# Asphalt 9: Legends
+30,Gameloft, Asphalt 9: Legends, asa-anubisfinder.gameloft.com, 208.71.185.243
+30,Gameloft, Asphalt 9: Legends, asa-fed.gameloft.com, NULL
+30,Gameloft, Asphalt 9: Legends, asa-hermes.gameloft.com, 208.71.185.243
+30,Gameloft, Asphalt 9: Legends, asa-iris.gameloft.com, 208.71.185.243
+30,Gameloft, Asphalt 9: Legends, asa-janus.gameloft.com, 208.71.185.243
+30,Gameloft, Asphalt 9: Legends, asa-lobby-fsg001.gameloft.com, 198.136.45.114
+30,Gameloft, Asphalt 9: Legends, asa-olympus.gameloft.com, 208.71.185.243
+30,Gameloft, Asphalt 9: Legends, asa-osiris.gameloft.com, 208.71.185.243
+30,Gameloft, Asphalt 9: Legends, iap-asa.gameloft.com, 198.136.45.127
+30,Gameloft, Asphalt 9: Legends, ip-3-35-6-195-ext.a9.gold0010.gameloft.com, NULL
+30,Gameloft, Asphalt 9: Legends, ip-3-38-188-161-ext.a9.gold0010.gameloft.com, 3.38.188.161
+30,Gameloft, Asphalt 9: Legends, ip-3-93-246-235-ext.a9.gold0010.gameloft.com, NULL
+30,Gameloft, Asphalt 9: Legends, ip-35-170-59-24-ext.a9.gold0010.gameloft.com, NULL
+30,Gameloft, Asphalt 9: Legends, ip-63-35-220-117-ext.a9.gold0010.gameloft.com, NULL
+30,Gameloft, Asphalt 9: Legends, *.a9.gold0010.gameloft.com, NULL
+30,Gameloft, Asphalt 9: Legends, vgold-asa.gameloft.com, 208.71.185.243
+
+# Dungeon & Fighter Mobile
+30,Nexon, Dungeon & Fighter Mobile, dnfkr-prd-gl-guideweb-1105876858.ap-northeast-2.el, NULL
+30,Nexon, Dungeon & Fighter Mobile, dnfkr-prd-guideweb.nexon.com, 43.200.50.205
+30,Nexon, Dungeon & Fighter Mobile, dnfkr-prd-w1-login.nexon.com, NULL
+30,Nexon, Dungeon & Fighter Mobile, dnfkr-prd-w1-login-7af9588195003bc4.elb.ap-northea, 3.35.92.183
+30,Nexon, Dungeon & Fighter Mobile, mdnf.dn.nexoncdn.co.kr, 183.111.45.125
+30,Nexon, Dungeon & Fighter Mobile, mdnf.gn-81.ktcdn.co.kr, NULL
+
 # Seven Knights 2
 Netmarble
 
 # Seven Knights: Revolution
 Netmarble
-
-# Dungeon & Fighter Mobile
-Nexon
 
 # MapleStory M
 Nexon
