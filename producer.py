@@ -16,58 +16,60 @@ async def crawl(rawQueue, durationQueue):
     activeFlow = {}
 
     while True:
-        gameDB.updateGameDB()
-        line = proc.stdout.readline().decode('utf-8').strip()
         try:
-            line = dict(json.loads(line))
-        except json.decoder.JSONDecodeError:
-            continue
+            gameDB.updateGameDB()
+            line = proc.stdout.readline().decode('utf-8').strip()
+            try:
+                line = dict(json.loads(line))
+            except json.decoder.JSONDecodeError:
+                continue
 
-        flow = FlowLog(line, serverInfo['ip'], serverInfo['country'])
-        if flow.isWg0FlowFormat():
-            flow.parseData()
-            flow.getGameInfo(gameDB)
-            flow.reformatTime()
-            activeFlow[flow.getDigest()] = flow
+            flow = FlowLog(line, serverInfo['ip'], serverInfo['country'])
+            if flow.isWg0FlowFormat():
+                flow.parseData()
+                flow.getGameInfo(gameDB)
+                flow.reformatTime()
+                activeFlow[flow.getDigest()] = flow
 
-        purgeFlow = FlowPurgeLog(line)
-        if purgeFlow.isWg0FlowPurgeFormat():
-            purgeFlow.parseData()
-            if purgeFlow.getDigest() in activeFlow:
-                flow = activeFlow.pop(purgeFlow.getDigest())
-                flow.insertPurgeData(purgeFlow.getFlowPurgeData())
+            purgeFlow = FlowPurgeLog(line)
+            if purgeFlow.isWg0FlowPurgeFormat():
+                purgeFlow.parseData()
+                if purgeFlow.getDigest() in activeFlow:
+                    flow = activeFlow.pop(purgeFlow.getDigest())
+                    flow.insertPurgeData(purgeFlow.getFlowPurgeData())
 
-                if flow.hasLocalIP():
-                    data = json.dumps(flow.resultData).encode('utf-8')
-                    await rawQueue.put(data)
+                    if flow.hasLocalIP():
+                        data = json.dumps(flow.resultData).encode('utf-8')
+                        await rawQueue.put(data)
+                        await asyncio.sleep(0.05)
+
+                        # Packet WatchDog
+                    if flow.getWatchKey() != 'NULL':
+
+                        if flow.getWatchKey() not in activeWatchDog:
+                            activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(),
+                                                                                gameDB.getWatchTime(flow.getWatchKey()))
+
+                        activeWatchDog[flow.getWatchKey()].addPacket(*flow.getHost_server_nameAndOther_ip(),
+                                                                     datetime.datetime.now().timestamp(),
+                                                                     flow.getGame(), flow.getGameCompany(),
+                                                                     flow.getBytes(), flow.getPackets())
+
+                        print('add packet', *flow.getHost_server_nameAndOther_ip(),
+                              datetime.datetime.now().timestamp(),
+                              flow.getGame(), flow.getGameCompany(),
+                              flow.getBytes(), flow.getPackets())
+
+            for key, packetWatchdog in list(activeWatchDog.items()):
+                if packetWatchdog.isTimeToSave() or packetWatchdog.isEndofDay():
+                    # packetWatchdog.save()
+                    data = json.dumps(packetWatchdog.getDataForSave()).encode('utf-8')
+                    await durationQueue.put(data)
                     await asyncio.sleep(0.05)
-
-                    # Packet WatchDog
-                if flow.getWatchKey() != 'NULL':
-
-                    if flow.getWatchKey() not in activeWatchDog:
-                        activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(),
-                                                                            gameDB.getWatchTime(flow.getWatchKey()))
-
-                    activeWatchDog[flow.getWatchKey()].addPacket(*flow.getHost_server_nameAndOther_ip(),
-                                                                 datetime.datetime.now().timestamp(),
-                                                                 flow.getGame(), flow.getGameCompany(),
-                                                                 flow.getBytes(), flow.getPackets())
-
-                    print('add packet', *flow.getHost_server_nameAndOther_ip(),
-                          datetime.datetime.now().timestamp(),
-                          flow.getGame(), flow.getGameCompany(),
-                          flow.getBytes(), flow.getPackets())
-
-        for key, packetWatchdog in list(activeWatchDog.items()):
-            if packetWatchdog.isTimeToSave() or packetWatchdog.isEndofDay():
-                # packetWatchdog.save()
-                data = json.dumps(packetWatchdog.getDataForSave()).encode('utf-8')
-                await durationQueue.put(data)
-                await asyncio.sleep(0.05)
-                print(f"saved {packetWatchdog.getDataForSave()}")
-                del activeWatchDog[key]
-
+                    print(f"saved {packetWatchdog.getDataForSave()}")
+                    del activeWatchDog[key]
+        except Exception as e:
+            print(e)
 
 async def message_send(serverInfo, title, queue):
     producer = aiokafka.AIOKafkaProducer(
