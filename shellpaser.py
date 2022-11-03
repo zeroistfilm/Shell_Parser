@@ -71,7 +71,7 @@ class GameDB:
 
                 except Exception as e:
                     continue
-                print(watchTime, game_company, game, host_server_name, other_ip)
+                #print(watchTime, game_company, game, host_server_name, other_ip)
 
                 # set gameDB
                 if len(other_ip) == 1:
