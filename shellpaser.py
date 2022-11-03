@@ -94,7 +94,7 @@ class GameDB:
                 del self.gameDB['NULL']
                 del self.gameDB['0.0.0.0']
             except Exception as e:
-                print(e)
+                pass
 
         #for key in self.gameDB.keys():
         #    print(key, self.gameDB[key])
