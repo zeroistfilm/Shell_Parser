@@ -21,7 +21,7 @@ async def crawl(rawQueue, durationQueue):
             line = proc.stdout.readline().decode('utf-8').strip()
             try:
                 line = dict(json.loads(line))
-            except json.decoder.JSONDecodeError:
+            except Exception as e:
                 continue
 
             flow = FlowLog(line, serverInfo['ip'], serverInfo['country'])
@@ -69,7 +69,7 @@ async def crawl(rawQueue, durationQueue):
                     print(f"saved {packetWatchdog.getDataForSave()}")
                     del activeWatchDog[key]
         except Exception as e:
-            print(e)
+            print("Crawl Error : ",e)
 
 async def message_send(serverInfo, title, queue):
     producer = aiokafka.AIOKafkaProducer(
@@ -83,6 +83,8 @@ async def message_send(serverInfo, title, queue):
             data = await queue.get()
             await producer.send_and_wait(topic, data)
             #print(f'send', topic, data)
+    except Exception as e:
+        print("kafka producer Error : ", e)
     finally:
         await producer.stop()
 
@@ -97,7 +99,7 @@ async def main():
                                    message_send(serverInfo, 'raw', raw),
                                    message_send(serverInfo, 'duration', duration)])
         except Exception as e:
-            print(e)
+            print("asyncio Error : ", e)
             await asyncio.sleep(1)
 
 if __name__ == "__main__":
