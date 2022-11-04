@@ -21,7 +21,7 @@ async def crawl(rawQueue, durationQueue):
             line = proc.stdout.readline().decode('utf-8').strip()
             try:
                 line = dict(json.loads(line))
-            except json.decoder.JSONDecodeError:
+            except Exception as e:
                 continue
 
             flow = FlowLog(line, serverInfo['ip'], serverInfo['country'])
@@ -69,23 +69,26 @@ async def crawl(rawQueue, durationQueue):
                     print(f"saved {packetWatchdog.getDataForSave()}")
                     del activeWatchDog[key]
         except Exception as e:
-            print(e)
+            print("Crawl Error : ",e)
 
 async def message_send(serverInfo, title, queue):
-    producer = aiokafka.AIOKafkaProducer(
-        bootstrap_servers='ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29092')
-    try:
+    while True:
+        producer = aiokafka.AIOKafkaProducer(bootstrap_servers='ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29092')
+        print(f"{title} producer start")
+        try:
 
-        # Japan_141.147.190.169_{raw or duration}
-        topic = "_".join(['-'.join(serverInfo['country'].split(' ')), serverInfo['ip'], title])
-        await producer.start()
-        while True:
-            data = await queue.get()
-            await producer.send_and_wait(topic, data)
-            #print(f'send', topic, data)
-    finally:
-        await producer.stop()
-
+            # Japan_141.147.190.169_{raw or duration}
+            topic = "_".join(['-'.join(serverInfo['country'].split(' ')), serverInfo['ip'], title])
+            await producer.start()
+            while True:
+                data = await queue.get()
+                await producer.send_and_wait(topic, data)
+                #print(f'send', topic, data)
+        except Exception as e:
+            print("kafka producer Error : ", e)
+        finally:
+            await producer.stop()
+            print(f"{title} producer end")
 
 async def main():
     raw = asyncio.Queue()
@@ -97,7 +100,7 @@ async def main():
                                    message_send(serverInfo, 'raw', raw),
                                    message_send(serverInfo, 'duration', duration)])
         except Exception as e:
-            print(e)
+            print("asyncio Error : ", e)
             await asyncio.sleep(1)
 
 if __name__ == "__main__":

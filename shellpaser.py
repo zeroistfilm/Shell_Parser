@@ -71,7 +71,7 @@ class GameDB:
 
                 except Exception as e:
                     continue
-                print(watchTime, game_company, game, host_server_name, other_ip)
+                #print(watchTime, game_company, game, host_server_name, other_ip)
 
                 # set gameDB
                 if len(other_ip) == 1:
@@ -94,10 +94,10 @@ class GameDB:
                 del self.gameDB['NULL']
                 del self.gameDB['0.0.0.0']
             except Exception as e:
-                print(e)
+                pass
 
-        for key in self.gameDB.keys():
-            print(key, self.gameDB[key])
+        #for key in self.gameDB.keys():
+        #    print(key, self.gameDB[key])
 
     def getWildCard(self, host_server_name):
         if host_server_name == 'NULL':
