@@ -368,6 +368,7 @@
 30,NHN, GUNS UP! Mobile, real-gum-game01.hangame.com, 115.88.123.76
 
 # 탕탕특공대
+30,HABBY PTE. LTD., 탕탕특공대, *.survivorio.com, NULL
 30,HABBY PTE. LTD., 탕탕특공대, mail.survivorio.com, 54.192.175.82, 54.192.175.117, 143.204.86.10, 143.204.86.23
 30,HABBY PTE. LTD., 탕탕특공대, dataupdate.survivorio.com, 54.192.175.45
 30,HABBY PTE. LTD., 탕탕특공대, prod-game.survivorio.com, 54.230.167.38, 54.230.167.97, 143.204.126.120
@@ -395,6 +396,7 @@
 30,NCSOFT, Lineage 2M, l2m-ncupdate.cache.cdn.cloudn.co.kr, NULL
 
 # Asphalt 9: Legends
+30,Gameloft, Asphalt 9: Legends, *.a9.gold0010.gameloft.com, NULL
 30,Gameloft, Asphalt 9: Legends, asa-anubisfinder.gameloft.com, 208.71.185.243
 30,Gameloft, Asphalt 9: Legends, asa-fed.gameloft.com, NULL
 30,Gameloft, Asphalt 9: Legends, asa-hermes.gameloft.com, 208.71.185.243
@@ -409,7 +411,6 @@
 30,Gameloft, Asphalt 9: Legends, ip-3-93-246-235-ext.a9.gold0010.gameloft.com, NULL
 30,Gameloft, Asphalt 9: Legends, ip-35-170-59-24-ext.a9.gold0010.gameloft.com, NULL
 30,Gameloft, Asphalt 9: Legends, ip-63-35-220-117-ext.a9.gold0010.gameloft.com, NULL
-30,Gameloft, Asphalt 9: Legends, *.a9.gold0010.gameloft.com, NULL
 30,Gameloft, Asphalt 9: Legends, vgold-asa.gameloft.com, 208.71.185.243
 
 # Dungeon & Fighter Mobile
@@ -432,8 +433,50 @@
 # Real Racing 3
 30,Electronic Arts, Real Racing 3, river-mobile.data.ea.com, 34.235.229.216, 44.194.141.69
 
+# DRAGON BALL LEGENDS
+30,BNE Entertainment, DRAGON BALL LEGENDS, *.dblgnds.channel.or.jp, NULL
+30,BNE Entertainment, DRAGON BALL LEGENDS, d2bk4rres88b5r.cloudfront.net, 13.33.88.105
+30,BNE Entertainment, DRAGON BALL LEGENDS, li2vou0jaeghu5al.dblgnds.channel.or.jp, 35.190.70.20
+30,BNE Entertainment, DRAGON BALL LEGENDS, nah3ohdioj7ye3sh.dblgnds.channel.or.jp, 13.32.50.38, 13.33.88.105, 13.227.254.78, 18.67.51.36, 18.67.51.52, 54.230.61.5, 54.230.61.84, 54.230.61.104, 54.230.61.121, 54.230.167.63, 54.230.167.100, 99.86.207.12, 99.86.207.75, 99.86.207.87, 143.204.86.120, 143.204.126.41, 143.204.126.125
+30,BNE Entertainment, DRAGON BALL LEGENDS, ul2ahv9ohheiyu3t.dblgnds.channel.or.jp, 35.193.120.131
+30,BNE Entertainment, DRAGON BALL LEGENDS, xeip4aix0aingu5i.dblgnds.channel.or.jp, 35.190.9.209
+30,BNE Entertainment, DRAGON BALL LEGENDS, 35-194-102-19.dblgnds.channel.or.jp, 35.194.102.19
+
+# Top War: Battle Game
+30,Topwar Studio, Top War: Battle Game, *.topwarapp.com, NULL
+30,Topwar Studio, Top War: Battle Game, *.topwargame.com, NULL
+30,Topwar Studio, Top War: Battle Game, *.topwargame.ru, NULL
+30,Topwar Studio, Top War: Battle Game, group-push.topwarapp.com, 104.17.177.30
+30,Topwar Studio, Top War: Battle Game, knight-app-cdn.topwargame.ru, 173.223.227.8, 173.223.227.43
+30,Topwar Studio, Top War: Battle Game, knight-us-cloudflare-576.topwarapp.com, 104.17.177.30
+30,Topwar Studio, Top War: Battle Game, knight-us-gcp-576.topwargame.com, 34.149.41.68
+30,Topwar Studio, Top War: Battle Game, knight-va-cloudflare-s3300.topwarapp.com, 34.149.41.68, 104.17.177.30
+30,Topwar Studio, Top War: Battle Game, knight-va-cloudflare.topwarapp.com, 104.17.177.30
+30,Topwar Studio, Top War: Battle Game, knight-va-gcp.topwargame.com, 34.149.41.68
+30,Topwar Studio, Top War: Battle Game, platformapi.topwarapp.com, 104.17.177.30
+
+# Valor Legends: Dog Rescue
+30,Century Games, Valor Legends: Dog Rescue, devops-ts.centurygame.com, 52.27.234.13
+30,Century Games, Valor Legends: Dog Rescue, logagent-wf.centurygame.com, 35.163.70.244, 44.224.227.180, 44.238.142.84, 50.112.224.123, 52.11.139.99
+30,Century Games, Valor Legends: Dog Rescue, ta-collector.centurygame.com, 52.26.238.196
+
+# F1 Mobile Racing
+30,Electronic Arts, F1 Mobile Racing, f1mrs.codemasters.com, 205.185.216.10
+205.185.216.42
+
+# Among us
+30,Innersloth, Among us, backend.innersloth.com, 104.22.41.247, 172.67.13.197
+30,Innersloth, Among us, matchmaker.among.us, 104.26.2.230
+30,Innersloth, Among us, matchmaker-eu.among.us, NULL
+
+# F1 Clash - Car Racing Manager
+30,Hutch Games, F1 Clash - Car Racing Manager, formularacing.hutchgames.io, 20.43.144.247
+30,Hutch Games, F1 Clash - Car Racing Manager, f1prod.trafficmanager.net, NULL
+
 # Seven Knights 2
-Netmarble
+30,Netmarble, Seven Knights 2, gs-sknightsmmo-gateway.netmarble.com, NULL
+30,Netmarble, Seven Knights 2, sknightsmmo.gcdn.netmarble.com, 18.64.8.43, 18.65.168.17, 18.65.168.53, 18.65.168.71, 23.67.53.32
+30,Netmarble, Seven Knights 2, sknightsmmo.gcdn.netmarblecdn.com.akadns.net, NULL
 
 # Seven Knights: Revolution
 Netmarble
