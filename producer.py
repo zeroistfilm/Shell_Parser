@@ -72,22 +72,23 @@ async def crawl(rawQueue, durationQueue):
             print("Crawl Error : ",e)
 
 async def message_send(serverInfo, title, queue):
-    producer = aiokafka.AIOKafkaProducer(
-        bootstrap_servers='ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29092')
-    try:
+    while True:
+        producer = aiokafka.AIOKafkaProducer(bootstrap_servers='ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29092')
+        print("producer start")
+        try:
 
-        # Japan_141.147.190.169_{raw or duration}
-        topic = "_".join(['-'.join(serverInfo['country'].split(' ')), serverInfo['ip'], title])
-        await producer.start()
-        while True:
-            data = await queue.get()
-            await producer.send_and_wait(topic, data)
-            #print(f'send', topic, data)
-    except Exception as e:
-        print("kafka producer Error : ", e)
-    finally:
-        await producer.stop()
-
+            # Japan_141.147.190.169_{raw or duration}
+            topic = "_".join(['-'.join(serverInfo['country'].split(' ')), serverInfo['ip'], title])
+            await producer.start()
+            while True:
+                data = await queue.get()
+                await producer.send_and_wait(topic, data)
+                #print(f'send', topic, data)
+        except Exception as e:
+            print("kafka producer Error : ", e)
+        finally:
+            await producer.stop()
+            print("producer end")
 
 async def main():
     raw = asyncio.Queue()
