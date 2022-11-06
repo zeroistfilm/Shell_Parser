@@ -71,7 +71,7 @@ class GameDB:
 
                 except Exception as e:
                     continue
-                #print(watchTime, game_company, game, host_server_name, other_ip)
+                # print(watchTime, game_company, game, host_server_name, other_ip)
 
                 # set gameDB
                 if len(other_ip) == 1:
@@ -96,7 +96,7 @@ class GameDB:
             except Exception as e:
                 pass
 
-        #for key in self.gameDB.keys():
+        # for key in self.gameDB.keys():
         #    print(key, self.gameDB[key])
 
     def getWildCard(self, host_server_name):
@@ -422,3 +422,14 @@ class PacketWatchDog:
                     dictwriter_object.writeheader()
                 dictwriter_object.writerow(self.getDataForSave())
                 f_object.close()
+
+
+class paymentWatchDog:
+    def __init__(self):
+        self.ANDROID_PAYMENT_TRY = ""
+        self.ANDROID_PAYMENT_FAIL = ""
+        self.ANDROID_PAYMENT_SUCCESS = ""
+
+        self.IOS_PAYMENT_TRY = ""
+        self.IOS_PAYMENT_FAIL = ""
+        self.IOS_PAYMENT_SUCCESS = ""
