@@ -15,6 +15,7 @@
 30,Wildlife Studios, Sky Warriors, chat.broker.skywarriors.us-east-1.general.prod.wildlife.io, 44.197.75.180, 44.198.46.134, 50.19.244.11
 
 # Tennis Clash
+30,Wildlife Studios, Tennis Clash, tennis-*, NULL
 30,Wildlife Studios, Tennis Clash, tennis-assets.fungames-forfree.com, 52.71.4.148, 143.204.126.89
 30,Wildlife Studios, Tennis Clash, remote-assets-api-tennis.tfgapps.com, 52.71.4.148, 54.147.182.32
 30,Wildlife Studios, Tennis Clash, tennis-connector.fungames-forfree.com, 52.71.4.148
@@ -35,7 +36,6 @@
 # Modern Warships
 30,Cube Software, Modern Warships, f7659.playfabapi.com, 34.215.62.206, 44.231.46.80, 54.148.64.184
 30,Cube Software, Modern Warships, mwapi.artstorm.com, 52.42.192.27, 52.42.244.238, 54.202.82.150
-30,Cube Software, Modern Warships, NULL, 52.27.45.1, 54.230.167.89, 54.230.167.83
 
 # Mario Kart Tour
 30,Nintendo, Mario Kart Tour, *.mariokarttour.com, NULL
@@ -69,7 +69,6 @@
 30,Supercell, Clash of Clan, inbox.clashofclans.com, 13.33.174.50, 13.225.112.93, 54.192.175.18, 54.192.175.14
 30,Supercell, Clash of Clan, event-assets.clashofclans.com, 13.33.174.27, 13.225.121.85
 30,Supercell, Clash of Clan, gamea.clashofclans.com, 54.166.237.225, 34.203.218.157, 18.212.59.187, 35.170.56.255
-30,Supercell, Clash of Clan, NULL, 35.186.218.215, 35.190.5.180, 35.227.244.186, 35.241.52.229
 
 # Clash Royale
 30,Supercell, Clash Royale, *.clashroyale.com, NULL
@@ -88,33 +87,19 @@
 30,Supercell, Brawl Stars, game-assets.brawlstarsgame.com, 18.65.216.80
 
 # Diablo Immortal
-30,Blizzard, Diablo Immortal, *.easebar.com, NULL
-30,Blizzard, Diablo Immortal, g0.gsf.easebar.com, 23.59.252.192
-30,Blizzard, Diablo Immortal, who.nie.easebar.com, 54.219.239.141
-30,Blizzard, Diablo Immortal, drpf-overseaua.proxima.nie.easebar.com, 54.253.4.238
-30,Blizzard, Diablo Immortal, drpf-overseaua.proxima.nie.easebar.com, 52.15.68.102
-30,Blizzard, Diablo Immortal, drpf-overseaua.proxima.nie.easebar.com, 13.115.207.236
-30,Blizzard, Diablo Immortal, easebar.s.llnwi.net, 111.119.27.166
-30,Blizzard, Diablo Immortal, easebar.s.llnwi.net, 111.119.27.78
-30,Blizzard, Diablo Immortal, login.g67ena.easebar.com, 3.138.218.218
-30,Blizzard, Diablo Immortal, login.g67ena.easebar.com, 3.16.20.222
-30,Blizzard, Diablo Immortal, netlink-sigma.proxima.nie.easebar.com, 35.79.30.36
-30,Blizzard, Diablo Immortal, sigma-orbit-impression.proxima.nie.easebar.com, 18.221.15.82
-30,Blizzard, Diablo Immortal, oxima-nlb-omega01-easebar-ap2-614a2e60c0d2be9c.elb.ap-southeast-2.amazonaws.com
-30,Blizzard, Diablo Immortal, g67ena-nlb-omega01-ohio-6c17fcff886d01ae.elb.us-east-2.amazonaws.com
-30,Blizzard, Diablo Immortal, g67ena-nlb-sigma01-easebar-sa-7f00ee6d1a6e94e5.elb.us-east-2.amazonaws.com
-30,Blizzard, Diablo Immortal, g67ena-nlb-omega01-tokyo-b5251f28f193bd2a.elb.ap-northeast-1.amazonaws.com
+30,Blizzard, Diablo Immortal, g67ena-*, NULL
+30,Blizzard, Diablo Immortal, drpf-overseaua.proxima.nie.easebar.com, 54.253.4.238, 52.15.68.102, 13.115.207.236
+30,Blizzard, Diablo Immortal, easebar.s.llnwi.net, 111.119.27.166, 111.119.27.78
+30,Blizzard, Diablo Immortal, login.g67ena.easebar.com, 3.138.218.218, 3.16.20.222
 30,Blizzard, Diablo Immortal, g67ena.appdump.nie.easebar.com, NULL
 30,Blizzard, Diablo Immortal, g67ena.update.easebar.com, NULL
+30,Blizzard, Diablo Immortal, g67ena.gdl.easebar.com, NULL
+30,Blizzard, Diablo Immortal, g67ena-nlb-sigma01-easebar-sa-7f00ee6d1a6e94e5.elb.us-east-2.amazonaws.com, NULL
+30,Blizzard, Diablo Immortal, g67ena-nlb-omega01-ohio-6c17fcff886d01ae.elb.us-east-2.amazonaws.com, 3.133.77.224
+30,Blizzard, Diablo Immortal, g67ena-nlb-omega01-tokyo-b5251f28f193bd2a.elb.ap-northeast-1.amazonaws.com, 35.79.30.36
 30,Blizzard, Diablo Immortal, g67ena-12.gph.easebar.com, NULL
 30,Blizzard, Diablo Immortal, g67ena-13.gph.easebar.com, NULL
 30,Blizzard, Diablo Immortal, g67ena-15.gph.easebar.com, NULL
-30,Blizzard, Diablo Immortal, g67ena.gdl.easebar.com, NULL
-30,Blizzard, Diablo Immortal, mbdl.update.easebar.com, NULL
-30,Blizzard, Diablo Immortal, dns.update.easebar.com, NULL
-30,Blizzard, Diablo Immortal, impression.update.easebar.com, NULL
-30,Blizzard, Diablo Immortal, sdkgate.pushv3.easebar.com, NULL
-30,Blizzard, Diablo Immortal, whoami.nie.easebar.com, NULL
 
 # New State Mobile
 30,KRAFTON (PUBG), New State Mobile, *.pubg-ns-gate.com, NULL
@@ -132,6 +117,7 @@
 30,KRAFTON (PUBG), New State Mobile, NULL, 23.216.159.16
 
 # NBA LIVE Mobile
+30,Electronic Arts, NBA LIVE Mobile, nm22-*, NULL
 30,Electronic Arts, NBA LIVE Mobile, nm22.prod.fuel.ddns.ea.com, 54.83.185.6, 35.173.71.17
 30,Electronic Arts, NBA LIVE Mobile, nm22-prod-public-48860753.us-east-1.elb.amazonaws.com, 35.173.71.17, 54.83.185.6
 
@@ -172,33 +158,32 @@
 30,Roblox, Roblox, www.roblox.com, 128.116.120.3
 
 # KartRider Rush+
+30,Nexon, KartRider Rush+, ktmkr-*, NULL
 30,Nexon, KartRider Rush+, kartm.dn.nexoncdn.co.kr, 23.43.165.74, 23.43.165.83, 23.43.165.88
 30,Nexon, KartRider Rush+, ktmkr-timeattack-mov-1300776466.cos.ap-seoul.myqcloud.com, 119.28.148.150, 119.28.148.172
 30,Nexon, KartRider Rush+, ktmkr-share-image-1300776466.cos.ap-seoul.myqcloud.com, 119.28.148.172
 
 # DEEMO II
+30,Rayark, DEEMO II, deemo2-*, NULL
 30,Rayark, DEEMO II, cdn-aussetzen-deemo2.rayark.net, 34.95.112.246
 30,Rayark, DEEMO II, deemo2.rayark.download, 35.244.210.45
 30,Rayark, DEEMO II, deemo2-resource.rayark.download, 34.120.16.167
 30,Rayark, DEEMO II, 2x0-api-deemo2.rayark.net, 34.95.112.246
 
 # NBA NOW 23
-30,Com2uS, NBA NOW 23, activeuser.qpyou.cn, 184.29.59.42
-30,Com2uS, NBA NOW 23, analytics-ccu.qpyou.cn, 216.239.34.21, 216.239.36.21
-30,Com2uS, NBA NOW 23, analytics-log.withhive.com, 112.175.143.130
-30,Com2uS, NBA NOW 23, api-gspus.qpyou.cn, 34.117.168.124
-30,Com2uS, NBA NOW 23, api-profile.qpyou.cn, 112.175.143.224
-30,Com2uS, NBA NOW 23, auth.qpyou.cn, 112.175.229.121
-30,Com2uS, NBA NOW 23, gspapi-fn.qpyou.cn, 23.45.51.115
-30,Com2uS, NBA NOW 23, hiveiap.qpyou.cn, 112.175.60.150
-30,Com2uS, NBA NOW 23, hive-fn.qpyou.cn, 184.29.59.42
+30,Com2uS, NBA NOW 23, nss-*, NULL
+30,Com2uS, NBA NOW 23, s-usc1b-nss-*, NULL
+30,Com2uS, NBA NOW 23, s-usc1a-nss-*, NULL
+30,Com2uS, NBA NOW 23, s-usc1f-nss-*, NULL
 30,Com2uS, NBA NOW 23, nss-fn.qpyou.cn, 23.45.51.128
 30,Com2uS, NBA NOW 23, nss.qpyou.cn, 35.241.33.45
-30,Com2uS, NBA NOW 23, promotion.qpyou.cn, 203.245.25.191
-30,Com2uS, NBA NOW 23, provision.qpyou.cn, 112.175.143.86
-30,Com2uS, NBA NOW 23, timezone.qpyou.cn, 183.111.229.25
+30,Com2uS, NBA NOW 23, s-usc1b-nss-2139.firebaseio.com, 34.120.160.131
+30,Com2uS, NBA NOW 23, s-usc1f-nss-2538.firebaseio.com, 34.120.160.131
+30,Com2uS, NBA NOW 23, s-usc1a-nss-2039.firebaseio.com, 34.120.160.131
+30,Com2uS, NBA NOW 23, s-usc1b-nss-2112.firebaseio.com, 34.120.160.131
 
 # World of Tanks
+30,Wargaming, World of Tanks, wotblitz-*, NULL
 30,Wargaming, World of Tanks, *.wotb.app, NULL
 30,Wargaming, World of Tanks, asia.wotblitz.com, 92.223.29.20
 30,Wargaming, World of Tanks, cdn.static.wotb.app, 34.117.103.161
@@ -244,6 +229,7 @@
 30,Devsisters, Cookie Run: Kingdom, NULL, 54.192.175.48, 13.225.121.89
 
 # League of Legends: Wild Rift
+30,Riot games, League of Legends: Wild Rift, wildrift-*, NULL
 30,Riot games, League of Legends: Wild Rift, *.wr.pvp.net, NULL
 30,Riot games, League of Legends: Wild Rift, astat.bugly.cros.wr.pvp.net, 170.106.135.32
 30,Riot games, League of Legends: Wild Rift, cloudctrl.cros.wr.pvp.net, 49.51.177.11
@@ -268,17 +254,19 @@
 30,Tencent Games, PUBG Mobile, www.pubgmobile.com, 96.16.99.204
 
 # Call of Duty: Mobile
+30,Activision, Call of Duty: Mobile, codm-*, NULL
 30,Activision, Call of Duty: Mobile, *.cmkrmobile.com, NULL
 30,Activision, Call of Duty: Mobile, file.gcloud.cmkrmobile.com, 211.152.132.101, 211.152.132.17, 211.152.132.73
 30,Activision, Call of Duty: Mobile, codm-kr-cos-1259490257.cos.ap-seoul.myqcloud.com, 119.28.148.128, 119.28.148.150
-30,Activision, Call of Duty: Mobile, NULL, 211.152.132.73, 211.152.132.101, 211.152.132.17
 
 # Pokémon Unite
+30,The Pokémon Company, Pokémon Unite, *.pokemon-unitepgame.com, NULL
 30,The Pokémon Company, Pokémon Unite, pokemon-webapi.appspot.com, 142.250.207.52
 30,The Pokémon Company, Pokémon Unite, image.pokemon-unitepgame.com, 43.155.149.23, 43.155.149.28
 30,The Pokémon Company, Pokémon Unite, gcloud.pokemon-unitepgame.com, 43.155.149.23
 
 # Pokémon GO
+30,Niantic, Pokémon GO, pgorelease-*, NULL
 30,Niantic, Pokémon GO, pgorelease.nianticlabs.com, 130.211.14.80
 30,Niantic, Pokémon GO, pgorelease-assets.nianticstatic.com, 35.190.69.207
 30,Niantic, Pokémon GO, platform-account-assets.nianticlabs.com, 34.110.167.47
@@ -302,19 +290,15 @@
 30,miHoYo, Genshin Impact, sg-hk4e-api.hoyoverse.com, 54.192.175.75, 54.192.175.24, 54.230.61.13
 30,miHoYo, Genshin Impact, sg-hk4e-api-static.hoyoverse.com, 54.192.175.118, 54.192.175.60
 30,miHoYo, Genshin Impact, webstatic.hoyoverse.com, 54.230.61.56, 54.230.61.66
-30,miHoYo, Genshin Impact, NULL, 8.211.157.181
 
 # Cover Fire
 30,VIVA STUDIOS, Cover Fire, coverfire.s3.dualstack.us-east-1.amazonaws.com, 52.217.92.216, 52.217.229.146, 52.216.146.198, 52.217.106.192, 52.217.193.194
 
 # Modern Combat
-30,Gameloft, Modern Combat, eur-hermes.gameloft.com, 208.71.185.241
-30,Gameloft, Modern Combat, eur-iris.gameloft.com, 208.71.185.241
-30,Gameloft, Modern Combat, eur-janus.gameloft.com, 208.71.185.241
-30,Gameloft, Modern Combat, eur-olympus.gameloft.com, 208.71.185.241
-30,Gameloft, Modern Combat, eur-osiris.gameloft.com, 208.71.185.241
+30,Gameloft, Modern Combat, etsv2.gameloft.com, 52.54.189.240
 30,Gameloft, Modern Combat, mt2p.www.vivox.com, 74.201.106.168
 30,Gameloft, Modern Combat, vgold-eur.gameloft.com, 208.71.185.241
+30,Gameloft, Modern Combat, 201205igp.gameloft.com, 208.71.185.246
 
 # The Wolf
 30,Swift Apps Sp z o.o., The Wolf, rest.wolf.ragequitservices.com, 35.224.219.147
@@ -322,15 +306,19 @@
 30,Swift Apps Sp z o.o., The Wolf, api.wolf.ragequitservices.com, 146.148.89.183
 
 # 컴투스프로야구2022
+30,Com2uS, 컴투스프로야구2022, cpb2015-*, NULL
 30,Com2uS, 컴투스프로야구2022, cpb2015-h.com2us.net, 117.52.25.6
 30,Com2uS, 컴투스프로야구2022, cpb2015-fn.qpyou.cn, 23.209.45.50, 23.209.45.74
 30,Com2uS, 컴투스프로야구2022, cpb2015-frontend.qpyou.cn, NULL
 
 # MLB Perfect Inning 2022
+30,Com2uS, MLB Perfect Inning 2022, mlb2-*, NULL
 30,Com2uS, MLB Perfect Inning 2022, mlb2-fn.qpyou.cn, 23.209.45.73
 30,Com2uS, MLB Perfect Inning 2022, mlbpi.qpyou.cn, NULL
 
 # FIFA ONLINE 4 M
+30,Nexon, FIFA ONLINE 4 M, fo4-*, NULL
+30,Nexon, FIFA ONLINE 4 M, fo4m-*, NULL
 30,Nexon, FIFA ONLINE 4 M, fo4m.dn.nexoncdn.co.kr, 23.59.252.187
 30,Nexon, FIFA ONLINE 4 M, fo4.dn.nexoncdn.co.kr, 23.67.53.154, 23.67.53.138, 23.53.228.19, 182.162.14.41, 221.168.66.99
 30,Nexon, FIFA ONLINE 4 M, fo4m-gw.nexon.com, 183.110.1.196
@@ -341,12 +329,14 @@
 30,Nexon, FIFA ONLINE 4 M, fo4-staticdata.nexon.com, 183.110.1.200
 
 # FIFA Mobile
+30,Nexon, FIFA Mobile, fmk-*, NULL
 30,Nexon, FIFA Mobile, fmk-game.nexon.com, 3.37.67.217
 30,Nexon, FIFA Mobile, fmk-hygeia.nexon.com, 43.200.123.201
 30,Nexon, FIFA Mobile, fmk-perrier.nexon.com, 43.200.128.134, 54.180.167.246
 30,Nexon, FIFA Mobile, mfmk.dn.nexoncdn.co.kr, 23.43.165.32, 54.192.175.38
 
 # HIT 2
+30,Nexon, HIT 2, hit2-*, NULL
 30,Nexon, HIT 2, hit2.dn.nexoncdn.co.kr, 110.45.216.89, 110.45.217.95, 114.108.156.79, 114.108.156.80, 114.108.156.88, 114.108.157.72, 114.108.157.90, 114.108.158.159, 114.108.158.161, 114.108.158.162, 182.162.14.41, 182.162.14.42, 182.162.14.43, 182.162.15.35, 182.162.15.37, 183.110.27.27, 183.110.27.61, 183.110.27.125, 183.110.27.221, 183.110.28.125, 183.110.28.188, 183.110.28.189, 183.110.66.2, 183.110.66.3, 183.110.66.99, 183.110.66.130, 183.110.66.34, 183.110.66.35, 183.110.66.66, 183.110.66.162, 183.110.66.163, 183.110.66.195, 183.111.45.124, 183.111.45.29, 183.111.45.93, 221.168.66.2, 221.168.66.3, 221.168.66.35, 221.168.66.67, 221.168.66.99
 30,Nexon, HIT 2, hit2m.bd-31.ktcdn.co.kr, 183.110.27.27
 30,Nexon, HIT 2, hit2m.bd-61.ktcdn.co.kr, 183.110.66.162
@@ -379,6 +369,7 @@
 30,Nexon, Blue Archive, bagl-prd-kr-pub-lb-1372170582.ap-northeast-2.elb.a, 3.38.59.102
 
 # Lineage W
+30,NCSOFT, Lineage W, lw-*, NULL
 30,NCSOFT, Lineage W, lw-lobby.mg.nc.com, NULL
 30,NCSOFT, Lineage W, lw-world-s210.mg.nc.com, 52.79.128.148
 30,NCSOFT, Lineage W, mgs-lw.ncupdate.com, NULL
@@ -386,11 +377,13 @@
 30,NCSOFT, Lineage W, qos-api.g.nc.com, 216.107.244.65
 
 # Lineage M
+30,NCSOFT, Lineage M, linm-*, NULL
 30,NCSOFT, Lineage M, cli-lms.kr.nc.com, 112.175.209.96
 30,NCSOFT, Lineage M, mkr-linm.ncupdate.com, 1.255.60.10, 61.74.67.79, 210.94.120.205, 211.110.15.206, 211.110.86.7
 30,NCSOFT, Lineage M, linm-lobby.mg.nc.com, NULL
 
 # Lineage 2M
+30,NCSOFT, Lineage 2M, l2m-*, NULL
 30,NCSOFT, Lineage 2M, mkr-l2m.ncupdate.com, 110.45.216.206, 110.45.217.197, 114.108.156.199, 114.108.156.200, 114.108.158.198, 116.120.4.218, 117.52.178.67, 211.47.29.2, 211.109.1.143, 211.109.1.144
 30,NCSOFT, Lineage 2M, mkr-l2m.ncupdate.com.service1.gscdn.net, NULL
 30,NCSOFT, Lineage 2M, l2m-ncupdate.cache.cdn.cloudn.co.kr, NULL
@@ -414,6 +407,7 @@
 30,Gameloft, Asphalt 9: Legends, vgold-asa.gameloft.com, 208.71.185.243
 
 # Dungeon & Fighter Mobile
+30,Nexon, Dungeon & Fighter Mobile, dnfkr-*, NULL
 30,Nexon, Dungeon & Fighter Mobile, dnfkr-prd-gl-guideweb-1105876858.ap-northeast-2.el, NULL
 30,Nexon, Dungeon & Fighter Mobile, dnfkr-prd-guideweb.nexon.com, 43.200.50.205
 30,Nexon, Dungeon & Fighter Mobile, dnfkr-prd-w1-login.nexon.com, NULL
@@ -429,9 +423,6 @@
 # Tap Tap Fish AbyssRium
 30,Wemade Connect, Tap Tap Fish AbyssRium, idleif-abyssrium.flerogamessvc.com, 18.178.251.147, 13.115.197.132
 30,Wemade Connect, Tap Tap Fish AbyssRium, ab1-weis-live.flerogamessvc.com, 13.231.28.136
-
-# Real Racing 3
-30,Electronic Arts, Real Racing 3, river-mobile.data.ea.com, 34.235.229.216, 44.194.141.69
 
 # DRAGON BALL LEGENDS
 30,BNE Entertainment, DRAGON BALL LEGENDS, *.dblgnds.channel.or.jp, NULL
@@ -461,8 +452,7 @@
 30,Century Games, Valor Legends: Dog Rescue, ta-collector.centurygame.com, 52.26.238.196
 
 # F1 Mobile Racing
-30,Electronic Arts, F1 Mobile Racing, f1mrs.codemasters.com, 205.185.216.10
-205.185.216.42
+30,Electronic Arts, F1 Mobile Racing, f1mrs.codemasters.com, 205.185.216.10, 205.185.216.42
 
 # Among us
 30,Innersloth, Among us, backend.innersloth.com, 104.22.41.247, 172.67.13.197
@@ -477,6 +467,56 @@
 30,Netmarble, Seven Knights 2, gs-sknightsmmo-gateway.netmarble.com, NULL
 30,Netmarble, Seven Knights 2, sknightsmmo.gcdn.netmarble.com, 18.64.8.43, 18.65.168.17, 18.65.168.53, 18.65.168.71, 23.67.53.32
 30,Netmarble, Seven Knights 2, sknightsmmo.gcdn.netmarblecdn.com.akadns.net, NULL
+
+# The Lord of the Rings: War
+30,NetEase Games, The Lord of the Rings: War, drpf-g96naxx2gb.proxima.nie.easebar.com, 54.184.22.145
+30,NetEase Games, The Lord of the Rings: War, d12pyw8kg18zjc.cloudfront.net, 52.85.227.74
+30,NetEase Games, The Lord of the Rings: War, g96naxx2gb.update.easebar.com, 52.85.227.74
+30,NetEase Games, The Lord of the Rings: War, g96naxx2gb.gph.easebar.com, 96.16.99.43
+30,NetEase Games, The Lord of the Rings: War, mgb-gas3-lb3-901530333.us-east-1.elb.amazonaws.com, 54.144.150.71
+30,NetEase Games, The Lord of the Rings: War, sigma-performance-g96.proxima.nie.easebar.com, 13.238.8.21, 3.213.170.100
+
+# Zombie Gunship Survival
+30,Flaregames, Zombie Gunship Survival, zgi-us-vir-1-alb.zgi.flarecloud.net, 34.231.144.122
+
+# X-Plane Flight Simulator
+30,Laminar Research, X-Plane Flight Simulator, *.x-plane.com, NULL
+30,Laminar Research, X-Plane Flight Simulator, mmo-atc-2.x-plane.com, 137.184.72.157
+30,Laminar Research, X-Plane Flight Simulator, mmo-uncontrolled-2.x-plane.com, NULL
+30,Laminar Research, X-Plane Flight Simulator, mobile.x-plane.com, 34.67.146.193
+30,Laminar Research, X-Plane Flight Simulator, lookup.x-plane.com, 159.203.95.158
+30,Laminar Research, X-Plane Flight Simulator, lookup2.x-plane.com, 192.124.249.157
+
+# Random Dice: Defense
+30,111%, Random Dice: Defense, billing-dot-royal-dice-*, NULL
+30,111%, Random Dice: Defense, us-central1-royal-dice-*, NULL
+30,111%, Random Dice: Defense, royal-dice-*, NULL
+30,111%, Random Dice: Defense, billing-dot-royal-dice-76798907.uc.r.appspot.com, 142.251.8.153
+30,111%, Random Dice: Defense, royal-dice-76798907.firebaseio.com, 34.120.160.131
+30,111%, Random Dice: Defense, royal-dice-76798907-battle.firebaseio.com, 34.120.160.131
+30,111%, Random Dice: Defense, royal-dice-76798907-channel.firebaseio.com, 34.120.160.131
+30,111%, Random Dice: Defense, royal-dice-76798907-channel-history.firebaseio.com, 34.120.160.131
+30,111%, Random Dice: Defense, royal-dice-76798907-channel-member.firebaseio.com, 34.120.160.131
+30,111%, Random Dice: Defense, royal-dice-76798907-channel-private.firebaseio.com, 34.120.160.131
+30,111%, Random Dice: Defense, royal-dice-76798907-channel-rank.firebaseio.com, 34.120.160.131
+30,111%, Random Dice: Defense, royal-dice-76798907-common.firebaseio.com, 34.120.160.131
+30,111%, Random Dice: Defense, royal-dice-76798907-daily.firebaseio.com, 34.120.160.131
+30,111%, Random Dice: Defense, royal-dice-76798907-index.firebaseio.com, 34.120.160.131
+30,111%, Random Dice: Defense, royal-dice-76798907-login.firebaseio.com, 34.120.160.131
+30,111%, Random Dice: Defense, royal-dice-76798907-rank.firebaseio.com, 34.120.160.131
+30,111%, Random Dice: Defense, royal-dice-76798907-room.firebaseio.com, 34.120.160.131
+30,111%, Random Dice: Defense, us-central1-royal-dice-76798907.cloudfunctions.net, 216.239.36.54
+
+# Star Wars: Galaxy of Heroes
+30,Electronic Arts, Star Wars: Galaxy of Heroes, easwgoh-api-prod.akamaized.net, 23.33.32.195
+30,Electronic Arts, Star Wars: Galaxy of Heroes, swprod.capitalgames.com, 54.90.126.151, 3.228.36.34, 18.210.219.43, 54.145.84.160
+30,Electronic Arts, Star Wars: Galaxy of Heroes, synergy.eamobile.com, 44.209.145.18
+
+# 컴투스프로야구V22
+30,Com2uS, 컴투스프로야구V22, cpbv22-*, NULL
+30,Com2uS, 컴투스프로야구V22, cpbv22-fn.qpyou.cn, 23.209.45.16
+30,Com2uS, 컴투스프로야구V22, cpbv22-live-was.qpyou.cn, 34.64.125.163
+30,Com2uS, 컴투스프로야구V22, cpbv22-live-app.qpyou.cn, NULL
 
 # Seven Knights: Revolution
 Netmarble
