@@ -28,10 +28,9 @@ async def consume(service, topic):
 
                     bulk.append(table(message.value))
             # print(len(bulk))
-
             await asyncio.sleep(2)
-
             #print(len(bulk),'================================================================================')
+
             mareeldb.session.add_all(bulk)
             mareeldb.session.commit()
 
