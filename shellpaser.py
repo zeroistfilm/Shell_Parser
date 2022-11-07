@@ -225,7 +225,7 @@ class FlowLog:
         return self.resultData['total_packets']
 
     def getTimeKSTFromTimeStamp(self, timestamp):
-        return datetime.datetime.fromtimestamp(timestamp, timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S')
+        return datetime.datetime.fromtimestamp(timestamp, timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S.%f')
 
     def getHost_server_nameAndOther_ip(self):
         return self.resultData['host_server_name'], self.resultData['other_ip']
@@ -357,7 +357,7 @@ class PacketWatchDog:
             self.packetsList.append(eachPackets)
 
     def getTimeKSTFromTimeStamp(self, timestamp):
-        return datetime.datetime.fromtimestamp(timestamp, timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S')
+        return datetime.datetime.fromtimestamp(timestamp, timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S.%f')
 
     def calcDuration(self):
         if self.isTimeToSave():
