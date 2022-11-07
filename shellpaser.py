@@ -5,7 +5,7 @@ from csv import DictWriter
 import datetime
 import requests
 import time
-
+from pytz import timezone
 
 class ServerInfo:
     def get_ip(self):
@@ -225,15 +225,7 @@ class FlowLog:
         return self.resultData['total_packets']
 
     def getTimeKSTFromTimeStamp(self, timestamp):
-        from datetime import timezone
-        utctime = datetime.datetime.now(timezone.utc).strftime("%Y%m%d_%H:%M:%S")
-        kstime = datetime.datetime.now().strftime("%Y%m%d_%H:%M:%S")
-
-        # .strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
-        if utctime == kstime:
-            return datetime.datetime.fromtimestamp(timestamp) + datetime.timedelta(hours=9)
-        else:
-            return datetime.datetime.fromtimestamp(timestamp)
+        return datetime.datetime.fromtimestamp(timestamp, timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S')
 
     def getHost_server_nameAndOther_ip(self):
         return self.resultData['host_server_name'], self.resultData['other_ip']
@@ -365,15 +357,7 @@ class PacketWatchDog:
             self.packetsList.append(eachPackets)
 
     def getTimeKSTFromTimeStamp(self, timestamp):
-        from datetime import timezone
-        utctime = datetime.datetime.now(timezone.utc).strftime("%Y%m%d_%H:%M:%S")
-        kstime = datetime.datetime.now().strftime("%Y%m%d_%H:%M:%S")
-
-        # .strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
-        if utctime == kstime:
-            return datetime.datetime.fromtimestamp(timestamp) + datetime.timedelta(hours=9)
-        else:
-            return datetime.datetime.fromtimestamp(timestamp)
+        return datetime.datetime.fromtimestamp(timestamp, timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S')
 
     def calcDuration(self):
         if self.isTimeToSave():
