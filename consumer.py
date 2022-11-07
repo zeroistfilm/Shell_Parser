@@ -18,11 +18,23 @@ async def consume(service, topic):
     await consumer.start()
     try:
         while True:
-            msg = await consumer.getone()
-            data = table(msg.value)
-            mareeldb.session.add(data)
+            bulk = []
+
+            msg = await consumer.getmany()
+
+            for topic, messages in msg.items():
+                for message in messages:
+                    print(message)
+
+                    bulk.append(table(message.value))
+            # print(len(bulk))
+
+            await asyncio.sleep(2)
+
+            #print(len(bulk),'================================================================================')
+            mareeldb.session.add_all(bulk)
             mareeldb.session.commit()
-            await asyncio.sleep(0.1)
+
     except Exception as e:
         print(e)
     finally:

@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import json
 
-DATABASES = create_engine('mysql+mysqldb://empo:dpavh1423@10.2.1.6:3306/mareel_traffic', echo=True)
+DATABASES = create_engine('mysql+mysqldb://empo:dpavh1423@10.2.1.6:3306/mareel_traffic')
 
 # orm과의 매핑 선언
 Base = declarative_base()
@@ -14,7 +14,7 @@ Base = declarative_base()
 
 class mareelDB():
     def __init__(self):
-        self.DATABASES = create_engine('mysql+mysqldb://empo:dpavh1423@10.2.1.6:3306/mareel_traffic', echo=True)
+        self.DATABASES = create_engine('mysql+mysqldb://empo:dpavh1423@10.2.1.6:3306/mareel_traffic')
         self.Base = declarative_base()
         self.Base.metadata.create_all(self.DATABASES)
         self.Session = sessionmaker()
