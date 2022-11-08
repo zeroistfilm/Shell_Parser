@@ -67,7 +67,7 @@ class ServerInfo:
             if location_data['country'] != None:
                 location_data = self.location_dict[ip_address]
                 break
-            time.sleep(1)
+            time.sleep(1)t
             print("retrying to get location data")
 
         return location_data
