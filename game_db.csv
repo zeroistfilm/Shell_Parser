@@ -464,6 +464,8 @@
 30,Hutch Games, F1 Clash - Car Racing Manager, f1prod.trafficmanager.net, NULL
 
 # Seven Knights 2
+30,Netmarble, Seven Knights 2, gs-sknightsmmo-*, NULL
+30,Netmarble, Seven Knights 2, sknightsmmo.gcdn.*, NULL
 30,Netmarble, Seven Knights 2, gs-sknightsmmo-gateway.netmarble.com, NULL
 30,Netmarble, Seven Knights 2, sknightsmmo.gcdn.netmarble.com, 18.64.8.43, 18.65.168.17, 18.65.168.53, 18.65.168.71, 23.67.53.32
 30,Netmarble, Seven Knights 2, sknightsmmo.gcdn.netmarblecdn.com.akadns.net, NULL
@@ -518,8 +520,39 @@
 30,Com2uS, 컴투스프로야구V22, cpbv22-live-was.qpyou.cn, 34.64.125.163
 30,Com2uS, 컴투스프로야구V22, cpbv22-live-app.qpyou.cn, NULL
 
+# Pocket Battles: NFT War
+30,ME2ON, Pocket Battles: NFT War, battle-artist-x-cdn.jerrygame.net, NULL
+30,ME2ON, Pocket Battles: NFT War, battle-artist-x-v2-lb.jerrygame.net, 52.22.17.82, 34.230.95.55
+30,ME2ON, Pocket Battles: NFT War, battleartistxv2-766343681.us-east-1.elb.amazonaws., 34.230.95.55
+30,ME2ON, Pocket Battles: NFT War, me2zen-battle-artist-x-res.s3.amazonaws.com, 52.217.172.249
+30,ME2ON, Pocket Battles: NFT War, ta.me2zengame.com, NULL
+30,ME2ON, Pocket Battles: NFT War, thinkingdata-42874792.us-east-1.elb.amazonaws.com, 3.216.25.199
+
+# Gunship Battle: Crypto Conflict
+30,JOYCITY, Gunship Battle: Crypto Conflict, gaccount1.joycityglobal.com, 35.71.172.196
+30,JOYCITY, Gunship Battle: Crypto Conflict, gbill1.joycityglobal.com, 76.223.46.237
+30,JOYCITY, Gunship Battle: Crypto Conflict, gbranch.joycityglobal.com, 13.248.188.240
+30,JOYCITY, Gunship Battle: Crypto Conflict, gcontent1.joycityglobal.com, 15.197.212.240
+30,JOYCITY, Gunship Battle: Crypto Conflict, gpush1.joycityglobal.com, 15.197.157.204
+30,JOYCITY, Gunship Battle: Crypto Conflict, gsys1.joycityglobal.com, 15.197.162.201
+30,JOYCITY, Gunship Battle: Crypto Conflict, gt-client.global.joycityglobal.com, 23.209.45.58
+30,JOYCITY, Gunship Battle: Crypto Conflict, gt-was-public.joycityglobal.com, 75.2.17.89
+
+# Hero Blaze: Three Kingdoms
+30,NATRIS, Hero Blaze: Three Kingdoms, *.mudolsamgook.co.kr, NULL
+30,NATRIS, Hero Blaze: Three Kingdoms, api.mudolsamgook.co.kr, 3.39.61.159, 3.36.7.222
+30,NATRIS, Hero Blaze: Three Kingdoms, api.heroblaze3kd.io, 52.74.67.104, 18.142.72.116
+30,NATRIS, Hero Blaze: Three Kingdoms, api2.heroblaze3kd.io, 54.172.45.234, 54.82.7.206
+30,NATRIS, Hero Blaze: Three Kingdoms, platform.mudolsamgook.co.kr, 3.39.48.48
+
 # Seven Knights: Revolution
-Netmarble
+30,Netmarble, Seven Knights: Revolution, gs-skrv-real-*, NULL
+30,Netmarble, Seven Knights: Revolution, skrv.gcdn.*, NULL
+30,Netmarble, Seven Knights: Revolution, gs-skrv-real-game01.netmarble.com, NULL
+30,Netmarble, Seven Knights: Revolution, gs-skrv-real-sess.netmarble.com, NULL
+30,Netmarble, Seven Knights: Revolution, skrv.gcdn.netmarble.com, 23.216.153.75, 23.216.159.106
 
 # MapleStory M
-Nexon
+30,Nexon, MapleStory M, maplemkorea.dn.nexoncdn.co.kr, 23.50.121.153
+30,Nexon, MapleStory M, mm-staticweb.s3.amazonaws.com, 52.219.195.65, 52.219.196.25, 52.219.172.45
+30,Nexon, MapleStory M, nxm-maplem-login.nexon.com, NULL
