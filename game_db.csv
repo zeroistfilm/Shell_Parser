@@ -345,12 +345,6 @@
 
 # Odin: Valhalla Rising
 30,Kakao Games, Odin: Valhalla Rising, accounts-ec2avpvy.kgslb.com, 211.231.99.67
-
-
-30,Kakao Games, Odin: Valhalla Rising, infodesk-zinny3.game.kakao.com, 3.37.91.178, 3.39.178.184
-30,Kakao Games, Odin: Valhalla Rising, openapi-zinny3.game.kakao.com, 13.124.74.10
-30,Kakao Games, Odin: Valhalla Rising, session-zinny3.game.kakao.com, 13.125.89.241
-
 30,Kakao Games, Odin: Valhalla Rising, stat.tiara.kakao.com, 211.249.220.83
 30,Kakao Games, Odin: Valhalla Rising, stat-tiara-5mka6y7y.kgslb.com, 211.249.220.83
 
@@ -576,6 +570,9 @@
 30,Netmarble, Ni no Kuni: Cross Worlds, gs-enngb-na-*, NULL
 30,Netmarble, Ni no Kuni: Cross Worlds, enngb.gcdn.netmarble.com, 23.32.241.57, 23.32.241.65, 23.33.33.40
 30,Netmarble, Ni no Kuni: Cross Worlds, gs-enngb-na-lobby.netmarble.com, NULL
+
+gs-enngb-na-game09.netmarble.com
+
 
 # Birdie Shot
 30,METABORA, Birdie Shot, *.bdst.kakaogames.com, NULL
