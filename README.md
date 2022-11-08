@@ -40,3 +40,12 @@ run
 ```bash
 nohup python3 consumer.py &
 ```
+
+
+---
+### restart
+```bash
+chmod 777 restart.sh
+./restart.sh
+```
+
