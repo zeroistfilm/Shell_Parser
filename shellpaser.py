@@ -11,11 +11,45 @@ from pytz import timezone
 class ServerInfo:
 
     def __init__(self):
-        self.location_dict = {"54.250.113.35": {"country":"Japen"} ,
-                             "129.158.221.8": {"country":"United States"},
-                             "146.56.42.103": {"country":"South Korea"} ,
-                             "144.24.119.251": {"country":"India"} ,
-                             }
+        '''
+        146.56.42.103: South Korea
+        54.250.113.35: Japan
+        144.24.119.251: India
+        129.158.221.8: United States
+
+        마릴 VPN
+        45.77.65.232: Germany
+        15.206.180.184: India
+        35.79.143.27: Japan
+        172.107.194.178: South Korea
+        104.156.250.10: United States (East)
+        54.200.124.241: United States (West)
+
+        마릴 GO 테스트 서버
+        141.147.190.169: Japan
+        146.56.145.179: South Korea
+        '''
+
+        self.location_dict = {  # 마릴 GO
+            '146.56.42.103': {'ip': '146.56.42.103', 'country': 'South Korea'},
+            '54.250.113.35': {'ip': '54.250.113.35', 'country': 'Japan'},
+            '144.24.119.251': {'ip': '144.24.119.251', 'country': 'India'},
+            '129.158.221.8': {'ip': '129.158.221.8', 'country': 'United States'},
+
+            # 마릴 VPN
+            '45.77.65.232': {'ip': '45.77.65.232', 'country': 'Germany'},
+            '15.206.180.184': {'ip': '15.206.180.184', 'country': 'India'},
+            '35.79.143.27': {'ip': '35.79.143.27', 'country': 'Japan'},
+            '172.107.194.178': {'ip': '172.107.194.178', 'country': 'South Korea'},
+            '104.156.250.10': {'ip': '104.156.250.10', 'country': 'United States (East)'},
+            '54.200.124.241': {'ip': '54.200.124.241', 'country': 'United States (West)'},
+
+            # 마릴 GO 테스트 서버
+            '141.147.190.169': {'ip': '141.147.190.169', 'country': 'Japan'},
+            '146.56.145.179': {'ip': '146.56.145.179', 'country': 'South Korea'},
+
+        }
+
     def get_ip(self):
         response = requests.get('https://api.ipify.org?format=json').json()
         return response["ip"]
@@ -35,8 +69,6 @@ class ServerInfo:
                 break
             time.sleep(1)
             print("retrying to get location data")
-
-
 
         return location_data
 
