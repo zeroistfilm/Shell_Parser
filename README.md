@@ -45,7 +45,12 @@ nohup python3 consumer.py &
 ---
 ### restart
 ```bash
-chmod 777 restart.sh
-./restart.sh
+chmod 777 restart_producer.sh
+./restart_producer.sh
+```
+
+```bash
+chmod 777 restart_consumer.sh
+./restart_consumer.sh
 ```
 
