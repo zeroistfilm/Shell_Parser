@@ -55,20 +55,21 @@ class ServerInfo:
         return response["ip"]
 
     def get_location(self):
-        while True:
-            ip_address = self.get_ip()
-            response = requests.get(f'https://ipapi.co/{ip_address}/json/').json()
-            location_data = {
-                "ip": ip_address,
-                "city": response.get("city"),
-                "region": response.get("region"),
-                "country": response.get("country_name")
-            }
-            if location_data['country'] != None:
-                location_data = self.location_dict[ip_address]
-                break
-            time.sleep(1)
-            print("retrying to get location data")
+        # while True:
+        ip_address = self.get_ip()
+        #    response = requests.get(f'https://ipapi.co/{ip_address}/json/').json()
+        #    location_data = {
+        #        "ip": ip_address,
+        #        "city": response.get("city"),
+        ##        "region": response.get("region"),
+        #        "country": response.get("country_name")
+        #    }
+        #    if location_data['country'] != None:
+        location_data = self.location_dict[ip_address]
+    ##        break
+    #   time.sleep(1)
+    #   print("retrying to get location data")
+
 
         return location_data
 
