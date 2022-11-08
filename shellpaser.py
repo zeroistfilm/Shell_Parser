@@ -270,7 +270,7 @@ class FlowLog:
         return self.resultData['total_packets']
 
     def getTimeKSTFromTimeStamp(self, timestamp):
-        return datetime.datetime.fromtimestamp(timestamp, timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S.%f')
+        return datetime.datetime.fromtimestamp(timestamp, timezone('Asia/Seoul'))
 
     def getHost_server_nameAndOther_ip(self):
         return self.resultData['host_server_name'], self.resultData['other_ip']
@@ -401,8 +401,8 @@ class PacketWatchDog:
             self.packetsList.append(eachPackets)
 
     def getTimeKSTFromTimeStamp(self, timestamp):
-        #str..
-        return datetime.datetime.fromtimestamp(timestamp, timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S.%f')
+
+        return datetime.datetime.fromtimestamp(timestamp, timezone('Asia/Seoul'))
 
     def calcDuration(self):
         if self.isTimeToSave():
@@ -424,9 +424,9 @@ class PacketWatchDog:
         return {'server_ip': ServerInfo().get_location()['ip'],
                 'country': ServerInfo().get_location()['country'],
                 'local_ip': self.local_ip,
-                'date': self.watchStart.split(' ')[0],
-                'start_time': self.watchStart.split(' ')[1],
-                'end_time': self.packetTimeList[-1].split(' ')[1],
+                'date': self.watchStart.strftime('%Y-%m-%d'),
+                'start_time': self.watchStart.strftime('%H:%M:%S.%f'),
+                'end_time': self.packetTimeList[-1].strftime('%H:%M:%S.%f'),
                 'host_server_name': self.host_server_name,
                 'other_ip': self.other_ip,
                 'duration': round(float(self.calcDuration().total_seconds()), 4),
@@ -436,7 +436,7 @@ class PacketWatchDog:
                 'packets': sum(self.packetsList)}  # pureflow에서 가져올 것
 
     def isEndofDay(self):
-        currTime = datetime.datetime.strptime(self.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()), '%Y-%m-%d %H:%M:%S.%f')
+        currTime = self.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp())
         if currTime.hour == '23' and \
                 currTime.minute == '59' and \
                 currTime.second == '59':
@@ -471,9 +471,7 @@ if __name__ == "__main__":
     print(datetime.datetime.now().timestamp())
     pk = PacketWatchDog("1111", 1)
 
-    times = datetime.datetime.strptime(pk.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()),
-                                       '%Y-%m-%d %H:%M:%S.%f')
-    print(times.hour)
 
-    print(type(datetime.datetime.fromtimestamp(time.time(), timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S.%f')))
-    print(type(times))
+
+
+    print(pk.getDataForSave())
