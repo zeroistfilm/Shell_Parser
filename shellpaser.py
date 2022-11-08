@@ -379,8 +379,7 @@ class PacketWatchDog:
         self.other_ip = 'NULL'
 
         self.watchStart = self.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp())
-        self.watchEnd = self.getTimeKSTFromTimeStamp(
-            (datetime.datetime.now() + datetime.timedelta(minutes=self.WATCH_TIME_MINUTES)).timestamp())
+        self.watchEnd = self.getTimeKSTFromTimeStamp((datetime.datetime.now() + datetime.timedelta(minutes=self.WATCH_TIME_MINUTES)).timestamp())
 
         self.packetTimeList = []
         self.game = 'NULL'
@@ -402,6 +401,7 @@ class PacketWatchDog:
             self.packetsList.append(eachPackets)
 
     def getTimeKSTFromTimeStamp(self, timestamp):
+        #str..
         return datetime.datetime.fromtimestamp(timestamp, timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S.%f')
 
     def calcDuration(self):
@@ -424,9 +424,9 @@ class PacketWatchDog:
         return {'server_ip': ServerInfo().get_location()['ip'],
                 'country': ServerInfo().get_location()['country'],
                 'local_ip': self.local_ip,
-                'date': self.watchStart.strftime('%Y-%m-%d'),
-                'start_time': self.watchStart.strftime('%H:%M:%S.%f'),
-                'end_time': self.packetTimeList[-1].strftime('%H:%M:%S.%f'),
+                'date': self.watchStart.split(' ')[0],
+                'start_time': self.watchStart.split(' ')[1],
+                'end_time': self.packetTimeList[-1].split(' ')[1],
                 'host_server_name': self.host_server_name,
                 'other_ip': self.other_ip,
                 'duration': round(float(self.calcDuration().total_seconds()), 4),
@@ -436,8 +436,7 @@ class PacketWatchDog:
                 'packets': sum(self.packetsList)}  # pureflow에서 가져올 것
 
     def isEndofDay(self):
-        currTime = datetime.datetime.strptime(self.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()),
-                                              '%Y-%m-%d %H:%M:%S.%f')
+        currTime = datetime.datetime.strptime(self.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()), '%Y-%m-%d %H:%M:%S.%f')
         if currTime.hour == '23' and \
                 currTime.minute == '59' and \
                 currTime.second == '59':
