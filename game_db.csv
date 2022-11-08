@@ -345,9 +345,12 @@
 
 # Odin: Valhalla Rising
 30,Kakao Games, Odin: Valhalla Rising, accounts-ec2avpvy.kgslb.com, 211.231.99.67
+
+
 30,Kakao Games, Odin: Valhalla Rising, infodesk-zinny3.game.kakao.com, 3.37.91.178, 3.39.178.184
 30,Kakao Games, Odin: Valhalla Rising, openapi-zinny3.game.kakao.com, 13.124.74.10
 30,Kakao Games, Odin: Valhalla Rising, session-zinny3.game.kakao.com, 13.125.89.241
+
 30,Kakao Games, Odin: Valhalla Rising, stat.tiara.kakao.com, 211.249.220.83
 30,Kakao Games, Odin: Valhalla Rising, stat-tiara-5mka6y7y.kgslb.com, 211.249.220.83
 
@@ -556,3 +559,26 @@
 30,Nexon, MapleStory M, maplemkorea.dn.nexoncdn.co.kr, 23.50.121.153
 30,Nexon, MapleStory M, mm-staticweb.s3.amazonaws.com, 52.219.195.65, 52.219.196.25, 52.219.172.45
 30,Nexon, MapleStory M, nxm-maplem-login.nexon.com, NULL
+
+# MIR4
+30,Wemade, MIR4, *.mir4global.com, NULL
+30,Wemade, MIR4, api.mir4global.com, 23.101.2.57
+30,Wemade, MIR4, event.mir4global.com, 20.187.125.125
+30,Wemade, MIR4, file.mir4global.com, 150.109.207.99
+30,Wemade, MIR4, hkgt010102.mir4global.com, NULL
+30,Wemade, MIR4, humanverify.mir4global.com, 104.208.81.222
+30,Wemade, MIR4, live-dl.mir4global.com, 18.65.125.67, 18.65.125.70, 150.109.207.116
+30,Wemade, MIR4, live-dl.mir4global.com.ovslegodl.sched.ovscdns.com, 150.109.207.113
+30,Wemade, MIR4, version.mir4global.com, 13.72.209.214
+
+# Ni no Kuni: Cross Worlds
+30,Netmarble, Ni no Kuni: Cross Worlds, enngb.gcdn.*, NULL
+30,Netmarble, Ni no Kuni: Cross Worlds, gs-enngb-na-*, NULL
+30,Netmarble, Ni no Kuni: Cross Worlds, enngb.gcdn.netmarble.com, 23.32.241.57, 23.32.241.65, 23.33.33.40
+30,Netmarble, Ni no Kuni: Cross Worlds, gs-enngb-na-lobby.netmarble.com, NULL
+
+# Birdie Shot
+30,METABORA, Birdie Shot, *.bdst.kakaogames.com, NULL
+30,METABORA, Birdie Shot, live.bdst.kakaogames.com, 52.74.83.244, 54.251.79.33
+30,METABORA, Birdie Shot, patch.bdst.kakaogames.com, 13.227.62.125, 143.204.86.21
+
