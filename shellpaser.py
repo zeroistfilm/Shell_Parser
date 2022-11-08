@@ -7,7 +7,15 @@ import requests
 import time
 from pytz import timezone
 
+
 class ServerInfo:
+
+    def __init__(self):
+        self.location_dict = {"54.250.113.35": {"country":"Japen"} ,
+                             "129.158.221.8": {"country":"United States"},
+                             "146.56.42.103": {"country":"South Korea"} ,
+                             "144.24.119.251": {"country":"India"} ,
+                             }
     def get_ip(self):
         response = requests.get('https://api.ipify.org?format=json').json()
         return response["ip"]
@@ -23,9 +31,13 @@ class ServerInfo:
                 "country": response.get("country_name")
             }
             if location_data['country'] != None:
+                location_data = self.location_dict[ip_address]
                 break
             time.sleep(1)
             print("retrying to get location data")
+
+
+
         return location_data
 
 
@@ -391,7 +403,8 @@ class PacketWatchDog:
                 'packets': sum(self.packetsList)}  # pureflow에서 가져올 것
 
     def isEndofDay(self):
-        currTime = datetime.datetime.strptime(self.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()),'%Y-%m-%d %H:%M:%S.%f')
+        currTime = datetime.datetime.strptime(self.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()),
+                                              '%Y-%m-%d %H:%M:%S.%f')
         if currTime.hour == '23' and \
                 currTime.minute == '59' and \
                 currTime.second == '59':
@@ -420,13 +433,14 @@ class paymentWatchDog:
         self.IOS_PAYMENT_SUCCESS = ""
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import datetime
+
     print(datetime.datetime.now().timestamp())
-    pk  = PacketWatchDog("1111", 1)
+    pk = PacketWatchDog("1111", 1)
 
-
-    times = datetime.datetime.strptime(pk.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()),'%Y-%m-%d %H:%M:%S.%f')
+    times = datetime.datetime.strptime(pk.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()),
+                                       '%Y-%m-%d %H:%M:%S.%f')
     print(times.hour)
 
     print(type(datetime.datetime.fromtimestamp(time.time(), timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S.%f')))
