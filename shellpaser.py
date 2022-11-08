@@ -391,9 +391,10 @@ class PacketWatchDog:
                 'packets': sum(self.packetsList)}  # pureflow에서 가져올 것
 
     def isEndofDay(self):
-        if self.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()).hour == '23' and \
-                self.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()).minute == '59' and \
-                self.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()).second == '59':
+        currTime = datetime.datetime.strptime(self.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()),'%Y-%m-%d %H:%M:%S.%f')
+        if currTime.hour == '23' and \
+                currTime.minute == '59' and \
+                currTime.second == '59':
             return True
         else:
             return False
@@ -417,3 +418,16 @@ class paymentWatchDog:
         self.IOS_PAYMENT_TRY = ""
         self.IOS_PAYMENT_FAIL = ""
         self.IOS_PAYMENT_SUCCESS = ""
+
+
+if __name__=="__main__":
+    import datetime
+    print(datetime.datetime.now().timestamp())
+    pk  = PacketWatchDog("1111", 1)
+
+
+    times = datetime.datetime.strptime(pk.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()),'%Y-%m-%d %H:%M:%S.%f')
+    print(times.hour)
+
+    print(type(datetime.datetime.fromtimestamp(time.time(), timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S.%f')))
+    print(type(times))
