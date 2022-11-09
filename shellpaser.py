@@ -141,8 +141,8 @@ class GameDB:
             except Exception as e:
                 pass
 
-        for key in self.gameDB.keys():
-           print(key, self.gameDB[key])
+        # for key in self.gameDB.keys():
+        #    print(key, self.gameDB[key])
 
     def getWildCard(self, host_server_name):
         if host_server_name == 'NULL':
