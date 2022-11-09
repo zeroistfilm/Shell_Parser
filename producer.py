@@ -68,7 +68,7 @@ async def crawl(rawQueue, durationQueue):
 
                     await durationQueue.put(data)
                     print('durationQueue', len(durationQueue))
-                    await asyncio.sleep(0.1)
+                    await asyncio.sleep(0.05)
                     print(f"saved {packetWatchdog.getDataForSave()}")
                     del activeWatchDog[key]
         except Exception as e:
@@ -86,7 +86,7 @@ async def message_send(serverInfo, title, queue):
             while True:
                 data = await queue.get()
                 await producer.send_and_wait(topic, data)
-                print(f'send', topic, data)
+                #print(f'send', topic, data)
         except Exception as e:
             print("kafka producer Error : ", e)
         finally:
