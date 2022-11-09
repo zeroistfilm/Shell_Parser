@@ -86,7 +86,7 @@ async def message_send(serverInfo, title, queue):
             await producer.start()
             while True:
                 data = await queue.get()
-                await producer.send_and_wait(topic, data)
+                await producer.send(topic, data)
                 #print(f'send', topic, data)
         except Exception as e:
             trace_back = traceback.format_exc()
