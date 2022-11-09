@@ -234,7 +234,7 @@ class FlowLog:
             retval = [str(number >> i & 0xFF) for i in (24, 16, 8, 0)]
             retval[0] = '10'
 
-            print('==============================', ip, '.'.join(retval), '==============================')
+            #print('==============================', ip, '.'.join(retval), '==============================')
             return '.'.join(retval)
 
     def reformatTime(self):
