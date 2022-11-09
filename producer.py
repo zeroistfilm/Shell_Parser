@@ -62,7 +62,7 @@ async def crawl(rawQueue, durationQueue):
                               flow.getBytes(), flow.getPackets())
 
             for key, packetWatchdog in list(activeWatchDog.items()):
-                if packetWatchdog.isTimeToSave() or packetWatchdog.isEndofDay():
+                if packetWatchdog.isTimeToSave():
                     # packetWatchdog.save()
                     data = json.dumps(packetWatchdog.getDataForSave()).encode('utf-8')
 
