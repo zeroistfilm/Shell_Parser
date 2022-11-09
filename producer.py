@@ -41,8 +41,8 @@ async def crawl(rawQueue, durationQueue):
                     if flow.hasLocalIP():
                         data = json.dumps(flow.resultData).encode('utf-8')
                         await rawQueue.put(data)
-                        print('rawQueue', len(rawQueue))
-                        await asyncio.sleep(0.1)
+
+                        await asyncio.sleep(0.05)
 
                         # Packet WatchDog
                     if flow.getWatchKey() != 'NULL':
@@ -67,7 +67,7 @@ async def crawl(rawQueue, durationQueue):
                     data = json.dumps(packetWatchdog.getDataForSave()).encode('utf-8')
 
                     await durationQueue.put(data)
-                    print('durationQueue', len(durationQueue))
+
                     await asyncio.sleep(0.05)
                     print(f"saved {packetWatchdog.getDataForSave()}")
                     del activeWatchDog[key]
@@ -79,14 +79,13 @@ async def message_send(serverInfo, title, queue):
         producer = aiokafka.AIOKafkaProducer(bootstrap_servers='ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29092')
         print(f"{title} producer start")
         try:
-
             # Japan_141.147.190.169_{raw or duration}
             topic = "_".join(['-'.join(serverInfo['country'].split(' ')), serverInfo['ip'], title])
             await producer.start()
             while True:
                 data = await queue.get()
                 await producer.send_and_wait(topic, data)
-                #print(f'send', topic, data)
+                print(f'send', topic, data)
         except Exception as e:
             print("kafka producer Error : ", e)
         finally:
