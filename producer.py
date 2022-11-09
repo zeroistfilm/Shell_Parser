@@ -5,7 +5,7 @@ import os
 import subprocess
 import json
 from shellpaser import ServerInfo, GameDB, FlowLog, FlowPurgeLog, PacketWatchDog
-
+import traceback
 
 
 async def crawl(rawQueue, durationQueue):
@@ -72,7 +72,9 @@ async def crawl(rawQueue, durationQueue):
                     print(f"saved {packetWatchdog.getDataForSave()}")
                     del activeWatchDog[key]
         except Exception as e:
-            print("Crawl Error : ",e)
+            trace_back = traceback.format_exc()
+            message = str(e) + "\n" + str(trace_back)
+            print("Crawl Error : ",message)
 
 async def message_send(serverInfo, title, queue):
     while True:
@@ -87,7 +89,10 @@ async def message_send(serverInfo, title, queue):
                 await producer.send_and_wait(topic, data)
                 print(f'send', topic, data)
         except Exception as e:
-            print("kafka producer Error : ", e)
+            trace_back = traceback.format_exc()
+            message = str(e) + "\n" + str(trace_back)
+            print("kafka producer Error : ", message)
+
         finally:
             await producer.stop()
             print(f"{title} producer end")
@@ -102,7 +107,9 @@ async def main():
                                    message_send(serverInfo, 'raw', raw),
                                    message_send(serverInfo, 'duration', duration)])
         except Exception as e:
-            print("asyncio Error : ", e)
+            trace_back = traceback.format_exc()
+            message = str(e) + "\n" + str(trace_back)
+            print("asyncio Error : ", message)
             await asyncio.sleep(1)
 
 if __name__ == "__main__":
