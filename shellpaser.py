@@ -119,16 +119,16 @@ class GameDB:
                 # print(watchTime, game_company, game, host_server_name, other_ip)
 
                 # set gameDB
-                if len(other_ip) == 1:
-                    if other_ip[0] == 'NULL':
-                        if not host_server_name == 'NULL':
-                            self.gameDB[host_server_name] = {'game_company': game_company, 'game': game}
+                # if len(other_ip) == 1:
+                #     if other_ip[0] == 'NULL':
+                #         if not host_server_name == 'NULL':
+                #             self.gameDB[host_server_name] = {'game_company': game_company, 'game': game}
+                #
+                #     self.gameDB[other_ip[0]] = {'game_company': game_company, 'game': game}
 
-                    self.gameDB[other_ip[0]] = {'game_company': game_company, 'game': game}
-
-                elif len(other_ip) > 1:
-                    for ip in other_ip:
-                        self.gameDB[ip] = {'game_company': game_company, 'game': game}
+                # elif len(other_ip) > 1:
+                #     for ip in other_ip:
+                #         self.gameDB[ip] = {'game_company': game_company, 'game': game}
 
                 if not host_server_name == 'NULL':
                     self.gameDB[host_server_name] = {'game_company': game_company, 'game': game}
@@ -141,8 +141,8 @@ class GameDB:
             except Exception as e:
                 pass
 
-        # for key in self.gameDB.keys():
-        #    print(key, self.gameDB[key])
+        for key in self.gameDB.keys():
+           print(key, self.gameDB[key])
 
     def getWildCard(self, host_server_name):
         if host_server_name == 'NULL':
@@ -466,12 +466,5 @@ class paymentWatchDog:
 
 
 if __name__ == "__main__":
-    import datetime
-
-    print(datetime.datetime.now().timestamp())
-    pk = PacketWatchDog("1111", 1)
-
-
-
-
-    print(pk.getDataForSave())
+    db = GameDB()
+    db.loadGameDB()
