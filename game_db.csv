@@ -572,9 +572,65 @@
 30,Netmarble, Ni no Kuni: Cross Worlds, gs-enngb-na-lobby.netmarble.com, NULL
 30,Netmarble, Ni no Kuni: Cross Worlds, gs-enngb-na-game09.netmarble.com, NULL
 
-
 # Birdie Shot
 30,METABORA, Birdie Shot, *.bdst.kakaogames.com, NULL
 30,METABORA, Birdie Shot, live.bdst.kakaogames.com, 52.74.83.244, 54.251.79.33
 30,METABORA, Birdie Shot, patch.bdst.kakaogames.com, 13.227.62.125, 143.204.86.21
 
+# ZEPETO
+30,Naver Z, ZEPETO, *.zepeto.me, NULL
+30,Naver Z, ZEPETO, *.zepeto.io, NULL
+30,Naver Z, ZEPETO, asset-zepetoful.zepeto.io, 104.18.38.9
+30,Naver Z, ZEPETO, cdn-style.zepeto.me, 39.125.80.224
+30,Naver Z, ZEPETO, cf-wk1-zepetoful.zepeto.io, 172.64.149.247
+30,Naver Z, ZEPETO, content-fgw.zepeto.io, 223.130.192.62
+30,Naver Z, ZEPETO, gcl.zepeto.io, 47.246.29.219
+30,Naver Z, ZEPETO, gls.zepeto.io, 39.125.80.241
+30,Naver Z, ZEPETO, gpapi.zepeto.io, 210.89.168.235
+30,Naver Z, ZEPETO, gw-napi.zepeto.io, 210.89.168.201
+30,Naver Z, ZEPETO, gws.zepeto.io, 223.130.192.84
+30,Naver Z, ZEPETO, g-zgroup.pstatic.net, 101.79.137.132, 23.45.52.238
+30,Naver Z, ZEPETO, log.zepeto.io, 210.89.168.190
+30,Naver Z, ZEPETO, media-contentful.zepeto.io, 39.125.80.228
+30,Naver Z, ZEPETO, static-zepeto.pstatic.net, 211.47.29.20, 23.205.96.203
+30,Naver Z, ZEPETO, static-zepeto-world-assets.pstatic.net, 23.33.33.137
+30,Naver Z, ZEPETO, style.zepeto.me, 8.209.222.213
+30,Naver Z, ZEPETO, render-cdn.zepeto.io, 39.125.80.228
+30,Naver Z, ZEPETO, world-service-api.zepeto.io, 172.64.149.247
+30,Naver Z, ZEPETO, zpi.zepeto.io, 8.209.222.213
+
+# PunBall
+30,HABBY PTE. LTD., PunBall, *-punball.habby.com, NULL
+30,HABBY PTE. LTD., PunBall, *-punball2.habby.com, NULL
+30,HABBY PTE. LTD., PunBall, *-punball-v2.habby.com, NULL
+30,HABBY PTE. LTD., PunBall, game-punball-v2.habby.com, 18.65.159.109, 54.230.61.97, 54.230.167.78
+30,HABBY PTE. LTD., PunBall, hotupdate-punball.habby.com, 13.225.131.114
+30,HABBY PTE. LTD., PunBall, mail-punball2.habby.com, 18.64.8.120, 18.65.148.19, 54.230.61.7
+30,HABBY PTE. LTD., PunBall, resource-punball.habby.com, 54.230.61.94
+
+# BTS Island: In the SEOM
+30,HYBE, BTS Island: In the SEOM, *.intheseom.com, NULL
+30,HYBE, BTS Island: In the SEOM, *.intheseom.net, NULL
+30,HYBE, BTS Island: In the SEOM, assets.intheseom.com, 18.65.168.111
+30,HYBE, BTS Island: In the SEOM, game-lobby-1-3-0-android.intheseom.net, 3.33.144.12
+
+# 신도림
+30,Super Awesome Inc., 신도림, sindorim-*, NULL
+30,Super Awesome Inc., 신도림, sindorim-ab-korea.s3.ap-northeast-2.amazonaws.com, 52.219.56.147, 52.219.146.70
+30,Super Awesome Inc., 신도림, sindorim-lb-login.superawesome.co.kr, 175.106.100.29
+30,Super Awesome Inc., 신도림, sindorim-lb-main-01.superawesome.co.kr, 110.165.23.167
+
+# The Walking Dead: All-Stars
+30,Com2uS, The Walking Dead: All-Stars, wd-*, NULL
+30,Com2uS, The Walking Dead: All-Stars, wd-fn.qpyou.cn, 23.200.75.28
+30,Com2uS, The Walking Dead: All-Stars, wd-lbgame.qpyou.cn, 34.111.135.92
+
+# Merge Fantasy Island
+30,Netmarble, Merge Fantasy Island, mkgb.*, NULL
+30,Netmarble, Merge Fantasy Island, mkgb.gcdn.netmarble.com, 23.32.241.59, 23.195.91.178
+
+# Football Manager 2023 Mobile
+30,SEGA, Football Manager 2023 Mobile, *.footballmanager.com, NULL
+30,SEGA, Football Manager 2023 Mobile, cdn.fmfc.footballmanager.com, 13.225.142.39
+30,SEGA, Football Manager 2023 Mobile, fmfc.footballmanager.com, 13.225.142.54, 54.192.76.92
+30,SEGA, Football Manager 2023 Mobile, mtracking.footballmanager.com, 13.230.227.99
