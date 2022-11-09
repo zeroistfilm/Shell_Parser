@@ -41,8 +41,8 @@ class ServerInfo:
             '15.206.180.184': {'ip': '15.206.180.184', 'country': 'India'},
             '35.79.143.27': {'ip': '35.79.143.27', 'country': 'Japan'},
             '172.107.194.178': {'ip': '172.107.194.178', 'country': 'South Korea'},
-            '104.156.250.10': {'ip': '104.156.250.10', 'country': 'United States (East)'},
-            '54.200.124.241': {'ip': '54.200.124.241', 'country': 'United States (West)'},
+            '104.156.250.10': {'ip': '104.156.250.10', 'country': 'United States'},
+            '54.200.124.241': {'ip': '54.200.124.241', 'country': 'United States'},
 
             # 마릴 GO 테스트 서버
             '141.147.190.169': {'ip': '141.147.190.169', 'country': 'Japan'},
