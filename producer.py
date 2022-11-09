@@ -41,7 +41,8 @@ async def crawl(rawQueue, durationQueue):
                     if flow.hasLocalIP():
                         data = json.dumps(flow.resultData).encode('utf-8')
                         await rawQueue.put(data)
-                        await asyncio.sleep(0.05)
+                        print('rawQueue', len(rawQueue))
+                        await asyncio.sleep(0.1)
 
                         # Packet WatchDog
                     if flow.getWatchKey() != 'NULL':
@@ -64,8 +65,10 @@ async def crawl(rawQueue, durationQueue):
                 if packetWatchdog.isTimeToSave() or packetWatchdog.isEndofDay():
                     # packetWatchdog.save()
                     data = json.dumps(packetWatchdog.getDataForSave()).encode('utf-8')
+
                     await durationQueue.put(data)
-                    await asyncio.sleep(0.05)
+                    print('durationQueue', len(durationQueue))
+                    await asyncio.sleep(0.1)
                     print(f"saved {packetWatchdog.getDataForSave()}")
                     del activeWatchDog[key]
         except Exception as e:
@@ -83,7 +86,7 @@ async def message_send(serverInfo, title, queue):
             while True:
                 data = await queue.get()
                 await producer.send_and_wait(topic, data)
-                #print(f'send', topic, data)
+                print(f'send', topic, data)
         except Exception as e:
             print("kafka producer Error : ", e)
         finally:
