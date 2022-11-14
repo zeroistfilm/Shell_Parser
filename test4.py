@@ -45,9 +45,6 @@ async def main():
 
     servers = [
         ('Mareel_VPN_Raw', 'Japan_35.79.143.27_raw'),
-
-
-
     ]
 
     await asyncio.gather(*[consume(service, server) for service, server in servers])

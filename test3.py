@@ -1,10 +1,7 @@
 import datetime
-import time
-import random
 
 
-
-class SignalTimer():
+class SignalTimer:
     def __init__(self, name, target, timeLimitSeconds, targetCount):
         self.name = name
         self.timeLimitSeconds = timeLimitSeconds
@@ -16,7 +13,6 @@ class SignalTimer():
         self.candidateList = []
         self.targetResultList = []
         self.valve = False
-
 
     def isStart(self):
         return self.startTime is not None
@@ -47,7 +43,7 @@ class SignalTimer():
 
 
 # 결제 시도 후 성공 실패 여부 확인
-class paymentChecker:
+class PaymentChecker:
     def __init__(self, local_ip):
         self.local_ip = local_ip
 
@@ -74,80 +70,59 @@ class paymentChecker:
                          {'type': "ios", 'title': "IOS_PAYMENT_SUCCESS", 'timeLimit': 30, 'targetCount': 3}, }
 
         self.status = 'None'
-        self.signalTimers= {}
+        self.signalTimers = {}
+
+    def getSignalTimer(self, key):
+        if self.status not in self.signalTimers:
+            self.signalTimers[self.status] = SignalTimer(name=self.urls[key]['title'], target=key,
+                                                         timeLimitSeconds=self.urls[key]['timeLimit'],
+                                                         targetCount=self.urls[key]['targetCount'])
+        st = self.signalTimers[self.status]
+        return st
+
+    def changeStatus(self, key, status):
+        st = self.getSignalTimer(key)
+        if st.valve is False:
+            if st.isStart() is False:
+                st.setStart()
+            st.add(key)
+            if st.valve is True:
+                del self.signalTimers[self.status]
+                self.status = status
+            return None
 
     def pipe(self, data):
         host_server_name = data['host_server_name']
         key = self.status + '-' + host_server_name
-        type = self.urls[key]['type']
+
         if key not in self.urls:
             return None
 
         if self.urls[key]['type'] == 'android':
-            if self.status =='None' and self.urls[key]['title'] == 'ANDROID_PAYMENT_TRY':
-                if self.status not in self.signalTimers:
-                    self.signalTimers[self.status] = SignalTimer(name = self.urls[key]['title'],  target = key, timeLimitSeconds = self.urls[key]['timeLimit'], targetCount = self.urls[key]['targetCount'])
-                st = self.signalTimers[self.status]
-                if st.valve is False:
-                    if st.isStart() is False:
-                        st.setStart()
-                    st.add(key)
+            if self.status == 'None' and self.urls[key]['title'] == 'ANDROID_PAYMENT_TRY':
+                self.changeStatus(key, 'Trying')
+                return None
 
-                    if st.valve is True:
-                        del self.signalTimers[self.status]
-                        self.status = 'Trying'
-                    return None
+            if self.status == 'Trying' and self.urls[key]['title'] == 'ANDROID_PAYMENT_SUCCESS':
+                self.changeStatus(key, 'Success_step1')
+                return None
 
+            if self.status == 'Success_step1' and self.urls[key]['title'] == 'ANDROID_PAYMENT_SUCCESS':
+                self.changeStatus(key, 'Success')
+                return None
 
-            if self.status=='Trying' and self.urls[key]['title'] == 'ANDROID_PAYMENT_SUCCESS':
-                if self.status not in self.signalTimers:
-                    self.signalTimers[self.status] = SignalTimer(name=self.urls[key]['title'], target=key,
-                                                                 timeLimitSeconds=self.urls[key]['timeLimit'],
-                                                                 targetCount=self.urls[key]['targetCount'])
-                st = self.signalTimers[self.status]
-                if st.valve is False:
-                    if st.isStart() is False:
-                        st.setStart()
-                    st.add(key)
+            if self.status == 'Trying' and self.urls[key]['title'] == 'ANDROID_PAYMENT_FAIL':
+                self.changeStatus(key, 'Fail')
+                return None
 
-                    if st.valve is True:
-                        del self.signalTimers[self.status]
-                        self.status = 'Success_step1'
-                    return None
+        if self.urls[key]['type'] == 'ios':
+            if self.status == 'None' and self.urls[key]['title'] == 'IOS_PAYMENT_TRY':
+                self.changeStatus(key, 'Trying')
+                return None
+            if self.status == 'Trying' and self.urls[key]['title'] == 'IOS_PAYMENT_SUCCESS':
+                self.changeStatus(key, 'Success')
+                return None
 
-
-
-            if self.status=='Success_step1' and self.urls[key]['title'] == 'ANDROID_PAYMENT_SUCCESS':
-                if self.status not in self.signalTimers:
-                    self.signalTimers[self.status] = SignalTimer(name=self.urls[key]['title'], target=key,
-                                                                 timeLimitSeconds=self.urls[key]['timeLimit'],
-                                                                 targetCount=self.urls[key]['targetCount'])
-                st = self.signalTimers[self.status]
-                if st.valve is False:
-                    if st.isStart() is False:
-                        st.setStart()
-                    st.add(key)
-
-                    if st.valve is True:
-                        del self.signalTimers[self.status]
-                        self.status = 'Success'
-                    return None
-
-            if self.status=='Trying' and self.urls[key]['title'] == 'ANDROID_PAYMENT_FAIL':
-                if self.status not in self.signalTimers:
-                    self.signalTimers[self.status] = SignalTimer(name=self.urls[key]['title'], target=key,
-                                                                 timeLimitSeconds=self.urls[key]['timeLimit'],
-                                                                 targetCount=self.urls[key]['targetCount'])
-                st = self.signalTimers[self.status]
-                if st.valve is False:
-                    if st.isStart() is False:
-                        st.setStart()
-                    st.add(key)
-
-                    if st.valve is True:
-                        del self.signalTimers[self.status]
-                        self.status = 'Fail'
-                    return None
 
 
 targetList = ["play-fe.googleapis.com",
@@ -163,26 +138,77 @@ targetList = ["play-fe.googleapis.com",
               "pd.itunes.apple.com"]
 
 import time
+# #안드로이드 성공
+# paymentchecker = PaymentChecker("10.0.0.1")
+# print(paymentchecker.status)
+# paymentchecker.pipe({'host_server_name': 'play-fe.googleapis.com'})
+# paymentchecker.pipe({'host_server_name': 'play-fe.googleapis.com'})
+#
+# print(paymentchecker.status)
+#
+# time.sleep(3)
+# paymentchecker.pipe({'host_server_name': 'play-lh.googleusercontent.com'})
+# print(paymentchecker.status)
+#
+#
+# #안드로이드 실패
+# paymentchecker = PaymentChecker("10.0.0.1")
+# print(paymentchecker.status)
+# paymentchecker.pipe({'host_server_name': 'play-fe.googleapis.com'})
+# paymentchecker.pipe({'host_server_name': 'play-fe.googleapis.com'})
+#
+# print(paymentchecker.status)
+# time.sleep(0.5)
+#
+# #성공케이스
+# paymentchecker.pipe({'host_server_name': 'play-fe.googleapis.com'})
+# paymentchecker.pipe({'host_server_name': 'play-fe.googleapis.com'})
+# print(paymentchecker.status)
+# time.sleep(3)
+# paymentchecker.pipe({'host_server_name': 'inbox.google.com'})
+# print(paymentchecker.status)
+
+# #ios 성공
+# paymentchecker = PaymentChecker("10.0.0.1")
+# print(paymentchecker.status)
+# paymentchecker.pipe({'host_server_name': 'p30-buy.itunes-apple.com.akadns.net'})
+# time.sleep(1)
+# paymentchecker.pipe({'host_server_name': 'p30-buy.itunes-apple.com.akadns.net'})
+# time.sleep(3)
+# paymentchecker.pipe({'host_server_name': 'xp.apple.com'})
+# time.sleep(5)
+#
+# print(paymentchecker.status)
+#
+# #ios 성공
+# paymentchecker = PaymentChecker("10.0.0.1")
+# print(paymentchecker.status)
+# paymentchecker.pipe({'host_server_name': 'p30-buy-lb.itunes-apple.com.akadns.net'})
+# time.sleep(0.5)
+# paymentchecker.pipe({'host_server_name': 'p30-buy-lb.itunes-apple.com.akadns.net'})
+#
+#
+# time.sleep(3)
+# paymentchecker.pipe({'host_server_name': 'bag.itunes.apple.com'})
+# paymentchecker.pipe({'host_server_name': 'bag.itunes.apple.com'})
+# paymentchecker.pipe({'host_server_name': 'bag.itunes.apple.com'})
+# time.sleep(5)
+# print(paymentchecker.status)
 
 
-
-paymentchecker = paymentChecker("10.0.0.1")
+#ios 성공
+paymentchecker = PaymentChecker("10.0.0.1")
 print(paymentchecker.status)
-paymentchecker.pipe({'host_server_name': 'play-fe.googleapis.com'})
-paymentchecker.pipe({'host_server_name': 'play-fe.googleapis.com'})
-
-print(paymentchecker.status)
+paymentchecker.pipe({'host_server_name': 'p30-buy.itunes.apple.com'})
 time.sleep(0.5)
+paymentchecker.pipe({'host_server_name': 'p30-buy.itunes.apple.com'})
 
-#성공케이스
-paymentchecker.pipe({'host_server_name': 'play-fe.googleapis.com'})
-paymentchecker.pipe({'host_server_name': 'play-fe.googleapis.com'})
-print(paymentchecker.status)
 time.sleep(3)
-paymentchecker.pipe({'host_server_name': 'inbox.google.com'})
-print(paymentchecker.status)
+paymentchecker.pipe({'host_server_name': 'pd.itunes.apple.com'})
+time.sleep(3)
+paymentchecker.pipe({'host_server_name': 'pd.itunes.apple.com'})
+time.sleep(3)
+paymentchecker.pipe({'host_server_name': 'pd.itunes.apple.com'})
 
-#성공뒤 실패는 없다
-time.sleep(3)
-paymentchecker.pipe({'host_server_name': 'play-lh.googleusercontent.com'})
+time.sleep(5)
 print(paymentchecker.status)
