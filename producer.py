@@ -78,7 +78,10 @@ async def crawl(rawQueue, durationQueue):
 
 async def message_send(serverInfo, title, queue):
     while True:
-        producer = aiokafka.AIOKafkaProducer(bootstrap_servers='ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29092',acks=0)
+        producer = aiokafka.AIOKafkaProducer(bootstrap_servers=['ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29092',
+                                                                'ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29093'
+                                                                'ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29094'
+                                                                ],acks=1)
         #producer = aiokafka.AIOKafkaProducer(bootstrap_servers='3.34.72.6:29092', acks=0)
         print(f"{title} producer start")
         try:
