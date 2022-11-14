@@ -44,7 +44,7 @@ class ServerInfo:
             '54.200.124.241': {'ip': '54.200.124.241', 'country': 'United States'},
 
             # 마릴 VPN 테스트 서버
-            '130.162.152.89 ': {'ip': '130.162.152.89', 'country': 'South Korea'},
+            '130.162.152.89': {'ip': '130.162.152.89', 'country': 'South Korea'},
 
             # 마릴 GO 테스트 서버
             '141.147.190.169': {'ip': '141.147.190.169', 'country': 'Japan'},

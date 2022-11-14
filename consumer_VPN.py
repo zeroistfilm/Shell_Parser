@@ -47,20 +47,21 @@ async def main():
 
     servers = [
 
-               ('Mareel_VPN_Raw', 'Germany_45.77.65.232_raw'),
-               ('Mareel_VPN_Duration', 'Germany_45.77.65.232_duration'),
-               ('Mareel_VPN_Raw', 'India_15.206.180.184_raw'),
-               ('Mareel_VPN_Duration', 'India_15.206.180.184_duration'),
+               ('Mareel_VPN_Raw', 'Germany_52.29.224.219_raw'),
+               ('Mareel_VPN_Duration', 'Germany_52.29.224.219_duration'),
                ('Mareel_VPN_Raw', 'Japan_35.79.143.27_raw'),
                ('Mareel_VPN_Duration', 'Japan_35.79.143.27_duration'),
                ('Mareel_VPN_Raw', 'Singapore_207.148.124.7_raw'),
                ('Mareel_VPN_Duration', 'Singapore_207.148.124.7_duration'),
+        ('Mareel_VPN_Raw', 'South-Korea_130.162.152.89_raw'),
+        ('Mareel_VPN_Duration', 'South-Korea_130.162.152.89_duration'),
+
                ('Mareel_VPN_Raw', 'South-Korea_172.107.194.178_raw'),
                ('Mareel_VPN_Duration', 'South-Korea_172.107.194.178_duration'),
                ('Mareel_VPN_Raw', 'United-Kingdom_104.238.184.85_raw'),
                ('Mareel_VPN_Duration', 'United-Kingdom_104.238.184.85_duration'),
-               ('Mareel_VPN_Raw', 'United-States_104.156.250.10_raw'),
-               ('Mareel_VPN_Duration', 'United-States_104.156.250.10_duration'),
+               ('Mareel_VPN_Raw', 'United-States_129.159.126.80_raw'),
+               ('Mareel_VPN_Duration', 'United-States_129.159.126.80_duration'),
                ('Mareel_VPN_Raw', 'United-States_54.200.124.241_raw'),
                ('Mareel_VPN_Duration', 'United-States_54.200.124.241_duration')]
 
