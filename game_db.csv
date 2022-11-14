@@ -634,3 +634,33 @@
 30,SEGA, Football Manager 2023 Mobile, cdn.fmfc.footballmanager.com, 13.225.142.39
 30,SEGA, Football Manager 2023 Mobile, fmfc.footballmanager.com, 13.225.142.54, 54.192.76.92
 30,SEGA, Football Manager 2023 Mobile, mtracking.footballmanager.com, 13.230.227.99
+
+# Summoners War: Chronicles
+30,Com2uS, Summoners War: Chronicles, chronicles-*, NULL
+30,Com2uS, Summoners War: Chronicles, live-chronicleskr-*, NULL
+30,Com2uS, Summoners War: Chronicles, chronicles-fn.qpyou.cn, 23.206.250.67, 96.16.99.205
+30,Com2uS, Summoners War: Chronicles, live-chronicleskr-gateway.qpyou.cn, 34.64.193.211
+30,Com2uS, Summoners War: Chronicles, live-chronicleskr-start.qpyou.cn, 35.244.173.223
+
+# Epic Seven
+30,Smilegate Megaport, Epic Seven, epic-down.game.playstove.com, 23.32.241.64, 23.32.241.65, 23.195.91.208, 23.195.91.217
+30,Smilegate Megaport, Epic Seven, epic7-event-alb-195617245.ap-northeast-1.elb.amazo, 18.182.199.147
+30,Smilegate Megaport, Epic Seven, event-epic7.smilegatemegaport.com, 18.182.199.147, 52.194.48.59
+30,Smilegate Megaport, Epic Seven, live-j-epic7-gate-1353672209.ap-northeast-1.elb.am, NULL
+30,Smilegate Megaport, Epic Seven, live-j-gate-epic.game.playstove.com, 54.65.127.123
+30,Smilegate Megaport, Epic Seven, live-j-star-epic.game.playstove.com, NULL
+
+# Path to Nowhere
+30,AISNO Games, Path to Nowhere, static.aisnogames.com, 13.33.174.113
+30,AISNO Games, Path to Nowhere, ptn.aisnogames.com, 47.241.109.65
+
+# Goddess of Victory: Nikke
+30,Tencent Games, Goddess of Victory: Nikke, *.nikke-kr.com, NULL
+30,Tencent Games, Goddess of Victory: Nikke, cloud.nikke-kr.com, 35.190.17.65
+30,Tencent Games, Goddess of Victory: Nikke, kr-lobby.nikke-kr.com.eo.dnse5.com, 43.159.118.125
+30,Tencent Games, Goddess of Victory: Nikke, kr-lobby.nikke-kr.com, 43.159.118.125, 43.159.119.129
+30,Tencent Games, Goddess of Victory: Nikke, nikke.gcp.sched.qcloudcdn.com, NULL
+
+# 트리 오브 세이비어 M
+30,IMCGAMES, 트리 오브 세이비어 M, alb-mtos-live-webgame-8020-1702609663.ap-northeast, 3.38.225.39, 15.164.253.198
+30,IMCGAMES, 트리 오브 세이비어 M, asia-northeast2-mtos-got.cloudfunctions.net, 216.239.36.54
