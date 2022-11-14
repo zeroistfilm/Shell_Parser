@@ -8,7 +8,9 @@ async def consume(service, topic):
     mareeldb = mareelDB()
 
     consumer = aiokafka.AIOKafkaConsumer(topic,
-                                         bootstrap_servers='ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29092')
+                                         bootstrap_servers=['ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29092',
+                                                            'ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29093',
+                                                            'ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29094'])
 
     if service.split('_')[-1] == 'Raw':
         table = createRawTable(service)
