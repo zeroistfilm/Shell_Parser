@@ -28,8 +28,8 @@ async def consume(service, topic):
 
                     bulk.append(table(message.value))
             # print(len(bulk))
-            await asyncio.sleep(2)
-            #print(len(bulk),'================================================================================')
+            await asyncio.sleep(0.5)
+            print(len(bulk),'================================================================================')
 
             mareeldb.session.add_all(bulk)
             mareeldb.session.commit()
@@ -45,17 +45,18 @@ async def main():
 
     servers = [('Mareel_GO_Test_Raw', 'South-Korea_146.56.145.179_raw'),
                ('Mareel_GO_Test_Duration', 'South-Korea_146.56.145.179_duration'),
-               ('Mareel_GO_Test_Raw', 'Japan_141.147.190.169_raw'),
-               ('Mareel_GO_Test_Duration', 'Japan_141.147.190.169_duration'),
-
-               ('Mareel_GO_Raw', 'India_144.24.119.251_raw'),
-               ('Mareel_GO_Duration', 'India_144.24.119.251_duration'),
-               ('Mareel_GO_Raw', 'Japan_54.250.113.35_raw'),
-               ('Mareel_GO_Duration', 'Japan_54.250.113.35_duration'),
-               ('Mareel_GO_Raw', 'South-Korea_146.56.42.103_raw'),
-               ('Mareel_GO_Duration', 'South-Korea_146.56.42.103_duration'),
-               ('Mareel_GO_Raw', 'United-States_129.158.221.8_raw'),
-               ('Mareel_GO_Duration', 'United-States_129.158.221.8_duration'),]
+               # ('Mareel_GO_Test_Raw', 'Japan_141.147.190.169_raw'),
+               # ('Mareel_GO_Test_Duration', 'Japan_141.147.190.169_duration'),
+               #
+               # ('Mareel_GO_Raw', 'India_144.24.119.251_raw'),
+               # ('Mareel_GO_Duration', 'India_144.24.119.251_duration'),
+               # ('Mareel_GO_Raw', 'Japan_54.250.113.35_raw'),
+               # ('Mareel_GO_Duration', 'Japan_54.250.113.35_duration'),
+               # ('Mareel_GO_Raw', 'South-Korea_146.56.42.103_raw'),
+               # ('Mareel_GO_Duration', 'South-Korea_146.56.42.103_duration'),
+               # ('Mareel_GO_Raw', 'United-States_129.158.221.8_raw'),
+               # ('Mareel_GO_Duration', 'United-States_129.158.221.8_duration'),
+               ]
 
     await asyncio.gather(*[consume(service, server) for service, server in servers])
 
