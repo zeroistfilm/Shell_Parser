@@ -64,6 +64,7 @@ services:
      - "9000:9000"
     environment:
       KAFKA_BROKERCONNECT: "kafka1:9092"
-      JVM_OPTS: "-Xms16M -Xmx48M -Xss180K -XX:-TieredCompilation -XX:+UseStringDeduplication -noverify"
     depends_on:
-      - kafka
+      - kafka1
+      - kafka2
+      - kafka3
