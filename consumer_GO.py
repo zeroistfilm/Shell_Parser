@@ -30,7 +30,7 @@ async def consume(service, topic):
 
                     bulk.append(table(message.value))
             # print(len(bulk))
-            await asyncio.sleep(2)
+            await asyncio.sleep(0.01)
             print(len(bulk),'================================================================================')
 
             mareeldb.session.add_all(bulk)
@@ -45,11 +45,12 @@ async def consume(service, topic):
 async def main():
     # test
 
-    servers = [('Mareel_GO_Test_Raw', 'South-Korea_146.56.145.179_raw'),
+    servers = [
+        ('Mareel_GO_Test_Raw', 'South-Korea_146.56.145.179_raw'),
                ('Mareel_GO_Test_Duration', 'South-Korea_146.56.145.179_duration'),
                ('Mareel_GO_Test_Raw', 'Japan_141.147.190.169_raw'),
                ('Mareel_GO_Test_Duration', 'Japan_141.147.190.169_duration'),
-
+               #
                ('Mareel_GO_Raw', 'India_144.24.119.251_raw'),
                ('Mareel_GO_Duration', 'India_144.24.119.251_duration'),
                ('Mareel_GO_Raw', 'Japan_54.250.113.35_raw'),

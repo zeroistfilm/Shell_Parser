@@ -30,7 +30,7 @@ async def consume(service, topic):
 
                     bulk.append(table(message.value))
             # print(len(bulk))
-            await asyncio.sleep(2)
+            await asyncio.sleep(0.01)
             #print(len(bulk),'================================================================================')
 
             mareeldb.session.add_all(bulk)
