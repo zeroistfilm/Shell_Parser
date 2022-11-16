@@ -6,7 +6,163 @@ import datetime
 import requests
 import time
 from pytz import timezone
+import re
 
+class SignalTimer:
+    def __init__(self, name, target, timeLimitSeconds, targetCount):
+        self.name = name
+        self.timeLimitSeconds = timeLimitSeconds
+        self.startTime = None
+        self.endTime = None
+        self.currCount = 0
+        self.target = target
+        self.targetCount = targetCount
+        self.candidateList = []
+        self.targetResultList = []
+        self.valve = False
+
+    def isStart(self):
+        return self.startTime is not None
+
+    def setStart(self):
+        self.startTime = datetime.datetime.now()
+        self.endTime = self.startTime + datetime.timedelta(seconds=self.timeLimitSeconds)
+
+    def getvalve(self):
+        return self.valve
+
+    def isEndWatch(self):
+        return datetime.datetime.now() > self.endTime
+
+    def add(self, data):
+        self.candidateList.append(data)
+        if data == self.target:
+            self.currCount += 1
+            self.targetResultList.append(data)
+        self.check()
+    def checkTimeLimit(self)->bool:
+        if self.isEndWatch():
+            return True
+        else:
+            return False
+
+    def check(self):
+        if self.targetCount <= self.currCount and not self.isEndWatch():
+            self.valve = True
+            return True
+        else:
+            self.valve = False
+            return False
+
+
+# 결제 시도 후 성공 실패 여부 확인
+class PaymentChecker:
+    def __init__(self, local_ip):
+        self.local_ip = local_ip
+
+        self.urls = {"None-play-fe.googleapis.com":
+                         {'type': "android", 'title': "ANDROID_PAYMENT_TRY", 'timeLimit': 1, 'targetCount': 2},
+                     "Trying-play-fe.googleapis.com":
+                         {'type': "android", 'title': "ANDROID_PAYMENT_SUCCESS", 'timeLimit': 1, 'targetCount': 2},
+                     "Success_step1-inbox.google.com":
+                         {'type': "android", 'title': "ANDROID_PAYMENT_SUCCESS", 'timeLimit': 5, 'targetCount': 1},
+                     "Trying-play-lh.googleusercontent.com":
+                         {'type': "android", 'title': "ANDROID_PAYMENT_FAIL", 'timeLimit': 20, 'targetCount': 1},
+
+                     'None-p**-buy.itunes-apple.com.akadns.net':
+                         {'type': "ios", 'title': "IOS_PAYMENT_TRY", 'timeLimit': 2, 'targetCount': 2},
+                     "None-p**-buy-lb.itunes-apple.com.akadns.net":
+                         {'type': "ios", 'title': "IOS_PAYMENT_TRY", 'timeLimit': 2, 'targetCount': 1},
+                     "None-p**-buy.itunes.apple.com":
+                         {'type': "ios", 'title': "IOS_PAYMENT_TRY", 'timeLimit': 2, 'targetCount': 1},
+                     "Trying-xp.apple.com":
+                         {'type': "ios", 'title': "IOS_PAYMENT_SUCCESS", 'timeLimit': 30, 'targetCount': 1},
+                     "Trying-bag.itunes.apple.com":
+                         {'type': "ios", 'title': "IOS_PAYMENT_SUCCESS", 'timeLimit': 30, 'targetCount': 2},
+                     "Trying-pd.itunes.apple.com":
+                         {'type': "ios", 'title': "IOS_PAYMENT_SUCCESS", 'timeLimit': 30, 'targetCount': 3}, }
+
+        self.status = 'None'
+        self.signalTimers = {}
+        self.recentSignalTimer = None
+
+    def whildCardHostName(self, host_name_server):
+        if re.compile(r'p\d\d-buy.itunes-apple.com.akadns.net').match(host_name_server):
+            return 'p**-buy.itunes-apple.com.akadns.net'
+        if re.compile(r'p\d\d-buy-lb.itunes-apple.com.akadns.net').match(host_name_server):
+            return 'p**-buy-lb.itunes-apple.com.akadns.net'
+        if re.compile(r'p\d\d-buy.itunes-apple.com').match(host_name_server):
+            return 'p**-buy.itunes.apple.com'
+        return host_name_server
+
+    def getSignalTimer(self, key):
+        if self.status not in self.signalTimers:
+            self.signalTimers[self.status] = SignalTimer(name=self.urls[key]['title'], target=key,
+                                                         timeLimitSeconds=self.urls[key]['timeLimit'],
+                                                         targetCount=self.urls[key]['targetCount'])
+        st = self.signalTimers[self.status]
+        self.recentSignalTimer = st
+        return st
+
+    def getRecentSignalTimer(self):
+        return self.recentSignalTimer
+
+
+    def isTimeToWatchEnd(self):
+        if self.getRecentSignalTimer() is not None:
+            return self.getRecentSignalTimer().checkTimeLimit()
+        return False
+
+    def changeStatus(self, key, status):
+        st = self.getSignalTimer(key)
+        if st.valve is False:
+            if st.isStart() is False:
+                st.setStart()
+            st.add(key)
+            if st.valve is True:
+                del self.signalTimers[self.status]
+                self.status = status
+
+            return None
+
+    def pipe(self, data):
+
+        host_server_name = self.whildCardHostName(data)
+        key = self.status + '-' + host_server_name
+        if key not in self.urls:
+            st = self.getRecentSignalTimer()
+            if st and st.checkTimeLimit():
+                self.status= 'Fail'
+            return None
+
+        if self.urls[key]['type'] == 'android':
+            if self.status == 'None' and self.urls[key]['title'] == 'ANDROID_PAYMENT_TRY':
+                self.changeStatus(key, 'Trying')
+                return None
+
+            if self.status == 'Trying' and self.urls[key]['title'] == 'ANDROID_PAYMENT_SUCCESS':
+                self.changeStatus(key, 'Success_step1')
+                return None
+
+            if self.status == 'Success_step1' and self.urls[key]['title'] == 'ANDROID_PAYMENT_SUCCESS':
+                self.changeStatus(key, 'Success')
+                return None
+
+            if self.status == 'Trying' and self.urls[key]['title'] == 'ANDROID_PAYMENT_FAIL':
+                self.changeStatus(key, 'Fail')
+                return None
+
+        if self.urls[key]['type'] == 'ios':
+            print('in pipe ios')
+            if self.status == 'None' and self.urls[key]['title'] == 'IOS_PAYMENT_TRY':
+                self.changeStatus(key, 'Trying')
+                return None
+            if self.status == 'Trying' and self.signalTimers[self.status].isEndWatch():
+                self.changeStatus(key, 'Fail')
+                return None
+            if self.status == 'Trying' and self.urls[key]['title'] == 'IOS_PAYMENT_SUCCESS':
+                self.changeStatus(key, 'Success')
+                return None
 
 class ServerInfo:
 
@@ -280,6 +436,8 @@ class FlowLog:
 
     def getHost_server_nameAndOther_ip(self):
         return self.resultData['host_server_name'], self.resultData['other_ip']
+    def getHost_server_name(self):
+        return self.resultData['host_server_name']
 
     def getLastSeenAtDatetime(self):
         if type(self.resultData['last_seen_at']) == datetime.datetime:

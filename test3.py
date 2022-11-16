@@ -33,13 +33,19 @@ class SignalTimer:
             self.currCount += 1
             self.targetResultList.append(data)
         self.check()
+    def checkTimeLimit(self)->bool:
+        if self.isEndWatch():
+            return True
+        else:
+            return False
 
     def check(self):
         if self.targetCount <= self.currCount and not self.isEndWatch():
             self.valve = True
             return True
-        self.valve = False
-        return False
+        else:
+            self.valve = False
+            return False
 
 
 # 결제 시도 후 성공 실패 여부 확인
@@ -71,6 +77,7 @@ class PaymentChecker:
 
         self.status = 'None'
         self.signalTimers = {}
+        self.recentSignalTimer = None
 
     def getSignalTimer(self, key):
         if self.status not in self.signalTimers:
@@ -78,7 +85,11 @@ class PaymentChecker:
                                                          timeLimitSeconds=self.urls[key]['timeLimit'],
                                                          targetCount=self.urls[key]['targetCount'])
         st = self.signalTimers[self.status]
+        self.recentSignalTimer = st
         return st
+
+    def getRecentSignalTimer(self):
+        return self.recentSignalTimer
 
     def changeStatus(self, key, status):
         st = self.getSignalTimer(key)
@@ -89,6 +100,7 @@ class PaymentChecker:
             if st.valve is True:
                 del self.signalTimers[self.status]
                 self.status = status
+
             return None
 
     def pipe(self, data):
@@ -96,6 +108,9 @@ class PaymentChecker:
         key = self.status + '-' + host_server_name
 
         if key not in self.urls:
+            st = self.getRecentSignalTimer()
+            if st.checkTimeLimit():
+                self.status= 'Fail'
             return None
 
         if self.urls[key]['type'] == 'android':
@@ -118,6 +133,9 @@ class PaymentChecker:
         if self.urls[key]['type'] == 'ios':
             if self.status == 'None' and self.urls[key]['title'] == 'IOS_PAYMENT_TRY':
                 self.changeStatus(key, 'Trying')
+                return None
+            if self.status == 'Trying' and self.signalTimers[self.status].isEndWatch():
+                self.changeStatus(key, 'Fail')
                 return None
             if self.status == 'Trying' and self.urls[key]['title'] == 'IOS_PAYMENT_SUCCESS':
                 self.changeStatus(key, 'Success')
@@ -203,12 +221,15 @@ paymentchecker.pipe({'host_server_name': 'p30-buy.itunes.apple.com'})
 time.sleep(0.5)
 paymentchecker.pipe({'host_server_name': 'p30-buy.itunes.apple.com'})
 
-time.sleep(3)
-paymentchecker.pipe({'host_server_name': 'pd.itunes.apple.com'})
-time.sleep(3)
-paymentchecker.pipe({'host_server_name': 'pd.itunes.apple.com'})
-time.sleep(3)
-paymentchecker.pipe({'host_server_name': 'pd.itunes.apple.com'})
-
+# time.sleep(3)
+# paymentchecker.pipe({'host_server_name': 'pd.itunes.apple.com'})
+# time.sleep(3)
+# paymentchecker.pipe({'host_server_name': 'pd.itunes.apple.com'})
+# time.sleep(3)
+# paymentchecker.pipe({'host_server_name': 'pd.itunes.apple.com'})
+paymentchecker.pipe({'host_server_name': 'asdasd'})
+time.sleep(5)
+print(paymentchecker.status)
+paymentchecker.pipe({'host_server_name': 'asdasd'})
 time.sleep(5)
 print(paymentchecker.status)

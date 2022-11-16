@@ -4,17 +4,21 @@ import datetime
 import os
 import subprocess
 import json
-from shellpaser import ServerInfo, GameDB, FlowLog, FlowPurgeLog, PacketWatchDog
+from shellpaser import ServerInfo, GameDB, FlowLog, FlowPurgeLog, PacketWatchDog, PaymentChecker
 import traceback
-
+from collections import defaultdict
+def default_factory():
+    return None
 
 async def crawl(rawQueue, durationQueue):
     proc = subprocess.Popen(['./json_capture.sh'], stdout=subprocess.PIPE)
     serverInfo = ServerInfo().get_location()
     gameDB = GameDB()
+
     activeWatchDog = {}
     activeFlow = {}
-
+    paymentWatch={}
+    localIPRecentGame= defaultdict(default_factory)
     while True:
         try:
             gameDB.updateGameDB()
@@ -48,20 +52,28 @@ async def crawl(rawQueue, durationQueue):
 
                         # Packet WatchDog
                     if flow.getWatchKey() != 'NULL':
-
                         if flow.getWatchKey() not in activeWatchDog:
-                            activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(),
-                                                                                gameDB.getWatchTime(flow.getWatchKey()))
+                            activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(),gameDB.getWatchTime(flow.getWatchKey()))
 
                         activeWatchDog[flow.getWatchKey()].addPacket(*flow.getHost_server_nameAndOther_ip(),
                                                                      datetime.datetime.now().timestamp(),
                                                                      flow.getGame(), flow.getGameCompany(),
                                                                      flow.getBytes(), flow.getPackets())
+                        localIPRecentGame[flow.getLocalIP()] = flow.getGame()
+                        # print('add packet', *flow.getHost_server_nameAndOther_ip(),
+                        #       datetime.datetime.now().timestamp(),
+                        #       flow.getGame(), flow.getGameCompany(),
+                        #       flow.getBytes(), flow.getPackets())
 
-                        print('add packet', *flow.getHost_server_nameAndOther_ip(),
-                              datetime.datetime.now().timestamp(),
-                              flow.getGame(), flow.getGameCompany(),
-                              flow.getBytes(), flow.getPackets())
+
+                    if flow.getLocalIP() not in paymentWatch:
+                        paymentWatch[flow.getLocalIP()] = PaymentChecker(flow.getLocalIP())
+                    else:
+                        paymentWatch[flow.getLocalIP()].pipe(flow.getHost_server_name())
+                        print("Payment Watching...", flow.getLocalIP(), localIPRecentGame[flow.getLocalIP()], paymentWatch[flow.getLocalIP()].status , flow.getHost_server_name())
+
+
+
 
             for key, packetWatchdog in list(activeWatchDog.items()):
                 if packetWatchdog.isTimeToSave():
@@ -69,10 +81,18 @@ async def crawl(rawQueue, durationQueue):
                     data = json.dumps(packetWatchdog.getDataForSave()).encode('utf-8')
 
                     await durationQueue.put(data)
-
                     await asyncio.sleep(0.05)
                     print(f"saved {packetWatchdog.getDataForSave()}")
                     del activeWatchDog[key]
+
+            for key, paymentChecker in list(paymentWatch.items()):
+                #print("Payment Watching...", paymentChecker.local_ip, localIPRecentGame[paymentChecker.local_ip], paymentChecker.status)
+                if paymentChecker.isTimeToWatchEnd():
+                    #print("Payment Watch End", paymentChecker.local_ip, packetWatchdog.game, paymentChecker.status)
+                    del paymentWatch[key]
+                    print('del paymentWatch', key)
+
+
         except Exception as e:
             trace_back = traceback.format_exc()
             message = str(e) + "\n" + str(trace_back)
