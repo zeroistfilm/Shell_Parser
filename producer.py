@@ -39,10 +39,12 @@ async def crawl(rawQueue, durationQueue):
                     flow.insertPurgeData(purgeFlow.getFlowPurgeData())
 
                     if flow.hasLocalIP():
+                        if flow.resultData['detected_protocol_name'] == 'BitTorrent':
+                            continue
                         data = json.dumps(flow.resultData).encode('utf-8')
                         await rawQueue.put(data)
-
                         await asyncio.sleep(0.05)
+
 
                         # Packet WatchDog
                     if flow.getWatchKey() != 'NULL':
