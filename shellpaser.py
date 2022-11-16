@@ -211,7 +211,8 @@ class FlowLog:
         if 'interface' in self.data.keys():
             if self.data['interface'] == "wg0":
                 if self.data['type'] == 'flow':
-                    return True
+                    if self.data['detected_protocol_name'] != 'BitTorrent':
+                        return True
         return False
 
     def parseData(self):
