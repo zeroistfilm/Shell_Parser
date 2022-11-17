@@ -91,7 +91,7 @@ class PaymentChecker:
             return 'p**-buy.itunes-apple.com.akadns.net'
         if re.compile(r'p\d\d-buy-lb.itunes-apple.com.akadns.net').match(host_name_server):
             return 'p**-buy-lb.itunes-apple.com.akadns.net'
-        if re.compile(r'p\d\d-buy.itunes-apple.com').match(host_name_server):
+        if re.compile(r'p\d\d-buy.itunes.apple.com').match(host_name_server):
             return 'p**-buy.itunes.apple.com'
         return host_name_server
 
@@ -110,7 +110,7 @@ class PaymentChecker:
 
     def isTimeToWatchEnd(self):
         if self.getRecentSignalTimer() is not None:
-            return self.getRecentSignalTimer().checkTimeLimit()
+            return self.recentSignalTimer.checkTimeLimit()
         return False
 
     def changeStatus(self, key, status):
@@ -125,8 +125,21 @@ class PaymentChecker:
 
             return None
 
-    def pipe(self, data):
+    def save(self, time,local_ip, recentGame, host_name_server):
+        with open('payment.csv', 'a', newline='') as f_object:
+            dictwriter_object = DictWriter(f_object, fieldnames=['time','local_ip', 'recentGame', 'payment', 'host_name_server'])
+            if os.path.getsize('payment.csv') == 0:
+                dictwriter_object.writeheader()
+            dictwriter_object.writerow({
+                'time': time,
+                'local_ip': local_ip,
+                'recentGame': recentGame,
+                'payment': self.status,
+                'host_name_server': host_name_server
+            })
+            f_object.close()
 
+    def pipe(self, data):
         host_server_name = self.whildCardHostName(data)
         key = self.status + '-' + host_server_name
         if key not in self.urls:
@@ -342,6 +355,7 @@ class FlowLog:
                          'total_packets']
 
         self.resultData = {}
+        self.isForged = False
 
         # print(self.resultData)
 
