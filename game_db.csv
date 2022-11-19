@@ -349,7 +349,6 @@
 30,Kakao Games, Odin: Valhalla Rising, stat-tiara-5mka6y7y.kgslb.com, 211.249.220.83
 
 # GUNS UP! Mobile
-30,NHN, GUNS UP! Mobile, adam.gslb.toastoven.net, 23.209.45.57
 30,NHN, GUNS UP! Mobile, gslb-gamebase-lh.cloud.toast.com, 43.227.116.95
 30,NHN, GUNS UP! Mobile, gum.gslb.toastoven.net, 23.200.75.114
 30,NHN, GUNS UP! Mobile, real-gum-game01.hangame.com, 115.88.123.76
@@ -664,3 +663,15 @@
 # 트리 오브 세이비어 M
 30,IMCGAMES, 트리 오브 세이비어 M, alb-mtos-live-webgame-8020-1702609663.ap-northeast, 3.38.225.39, 15.164.253.198
 30,IMCGAMES, 트리 오브 세이비어 M, asia-northeast2-mtos-got.cloudfunctions.net, 216.239.36.54
+
+# Kingdom Hunter
+30,RedFox Games M, Kingdom Hunter, *.playredfox.com, NULL
+30,RedFox Games M, Kingdom Hunter, *.playredfox.net, NULL
+30,RedFox Games M, Kingdom Hunter, kh-world-login.playredfox.com, 34.233.154.81
+30,RedFox Games M, Kingdom Hunter, kh-world02.playredfox.com, 3.95.113.143, 54.158.175.5
+30,RedFox Games M, Kingdom Hunter, projectk.cdn.playredfox.net, 23.1.191.39, 104.88.215.218
+
+# Every Farm
+30,Wemade Connect, Every Farm, everyfarm-*, NULL
+30,Wemade Connect, Every Farm, everyfarm-index.wemade-connect.com, 15.254.17.181, 35.160.16.56
+30,Wemade Connect, Every Farm, everyfarm-user.wemade-connect.com, 35.155.4.45, 35.164.203.228, 44.239.22.93
