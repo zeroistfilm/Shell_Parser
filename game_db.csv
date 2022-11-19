@@ -265,9 +265,7 @@
 30,The Pokémon Company, Pokémon Unite, image.pokemon-unitepgame.com, 43.155.149.23, 43.155.149.28
 30,The Pokémon Company, Pokémon Unite, gcloud.pokemon-unitepgame.com, 43.155.149.23
 
-# Pokémon GO
-30,Niantic, Pokémon GO, pgorelease-*, NULL
-30,Niantic, Pokémon GO, pgorelease.nianticlabs.com, 130.211.14.80
+# Pokémon GO (retry needed)
 30,Niantic, Pokémon GO, pgorelease-assets.nianticstatic.com, 35.190.69.207
 30,Niantic, Pokémon GO, platform-account-assets.nianticlabs.com, 34.110.167.47
 30,Niantic, Pokémon GO, niantic.helpshift.com, 52.86.16.40
@@ -343,10 +341,8 @@
 30,Nexon, HIT 2, hit2m.lgucdn.com, 110.45.216.89, 114.108.156.79, 114.108.157.90, 182.162.14.43
 30,Nexon, HIT 2, hit2-p-gw.nexon.com, NULL
 
-# Odin: Valhalla Rising
+# Odin: Valhalla Rising (retry needed)
 30,Kakao Games, Odin: Valhalla Rising, accounts-ec2avpvy.kgslb.com, 211.231.99.67
-30,Kakao Games, Odin: Valhalla Rising, stat.tiara.kakao.com, 211.249.220.83
-30,Kakao Games, Odin: Valhalla Rising, stat-tiara-5mka6y7y.kgslb.com, 211.249.220.83
 
 # GUNS UP! Mobile
 30,NHN, GUNS UP! Mobile, gslb-gamebase-lh.cloud.toast.com, 43.227.116.95
