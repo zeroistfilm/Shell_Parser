@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import json
 
-DATABASES = create_engine('mysql+mysqldb://empo:dpavh1423@10.2.1.6:3306/mareel_traffic')
+DATABASES = create_engine('mysql+mysqldb://empo:dpavh1423@staging-db.crtzcfwok2ed.ap-northeast-2.rds.amazonaws.com:3306/mareel_traffic')
 
 # orm과의 매핑 선언
 Base = declarative_base()
