@@ -46,7 +46,7 @@ async def main():
     # test
 
     servers = [
-        ('Mareel_GO_Test_Raw', 'South-Korea_146.56.145.179_raw'),
+               ('Mareel_GO_Test_Raw', 'South-Korea_146.56.145.179_raw'),
                ('Mareel_GO_Test_Duration', 'South-Korea_146.56.145.179_duration'),
                ('Mareel_GO_Test_Raw', 'Japan_141.147.190.169_raw'),
                ('Mareel_GO_Test_Duration', 'Japan_141.147.190.169_duration'),

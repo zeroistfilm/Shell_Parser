@@ -14,7 +14,7 @@ Base = declarative_base()
 
 class mareelDB():
     def __init__(self):
-        self.DATABASES = create_engine('mysql+mysqldb://empo:dpavh1423@10.2.1.6:3306/mareel_traffic')
+        self.DATABASES = create_engine('mysql+mysqldb://empo:dpavh1423@staging-db.crtzcfwok2ed.ap-northeast-2.rds.amazonaws.com:3306/mareel_traffic')
         self.Base = declarative_base()
         self.Base.metadata.create_all(self.DATABASES)
         self.Session = sessionmaker()
