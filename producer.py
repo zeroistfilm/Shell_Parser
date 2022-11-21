@@ -36,7 +36,7 @@ async def crawl(rawQueue, durationQueue):
             # Wg0에 flow인 데이터만 받음
             flow = FlowLog(line, serverInfo['ip'], serverInfo['country'])
             if flow.isWg0FlowFormat():
-                #print('flow', len(activeFlow))
+                # print('flow', len(activeFlow))
                 flow.parseData()
                 flow.getGameInfo(gameDB)
                 flow.reformatTime()
@@ -60,21 +60,23 @@ async def crawl(rawQueue, durationQueue):
             # Payment 데이터 처리
             if flow.getLocalIP() not in paymentWatch:
                 paymentWatch[flow.getLocalIP()] = PaymentChecker(flow.getLocalIP())
-                #print('paymentWatch', flow.getLocalIP())
+                # print('paymentWatch', flow.getLocalIP())
 
             paymentWatch[flow.getLocalIP()].pipe(flow.getHost_server_name())
-            print("Payment Watching...", flow.getLocalIP(), localIPRecentGame[flow.getLocalIP()],  paymentWatch[flow.getLocalIP()].status, flow.getHost_server_name())
+            print("Payment Watching...", flow.getLocalIP(), localIPRecentGame[flow.getLocalIP()],
+                  paymentWatch[flow.getLocalIP()].status, flow.getHost_server_name())
 
             for key, paymentChecker in list(paymentWatch.items()):
                 # print("Payment Watching...", paymentChecker.local_ip, localIPRecentGame[paymentChecker.local_ip], paymentChecker.status)
                 if paymentChecker.status != 'None':
-                    #payment data save
-                    paymentChecker.save(flow.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()), flow.getLocalIP(), localIPRecentGame[flow.getLocalIP()], flow.getHost_server_name())
+                    # payment data save
+                    paymentChecker.save(flow.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()),
+                                        flow.getLocalIP(), localIPRecentGame[flow.getLocalIP()],
+                                        flow.getHost_server_name())
                 if paymentChecker.isTimeToWatchEnd():
                     # print("Payment Watch End", paymentChecker.local_ip, packetWatchdog.game, paymentChecker.status)
                     del paymentWatch[key]
                     print('del paymentWatch', key)
-
 
             # Duration 데이터 처리
             if flow.getWatchKey() == 'NULL': continue
@@ -92,8 +94,11 @@ async def crawl(rawQueue, durationQueue):
 
             for key, packetWatchdog in list(activeWatchDog.items()):
                 if packetWatchdog.isTimeToSave():
+                    # packetWatchdog.save()
                     data = json.dumps(packetWatchdog.getDataForSave()).encode('utf-8')
+
                     await durationQueue.put(data)
+
                     await asyncio.sleep(0.05)
                     print(f"saved {packetWatchdog.getDataForSave()}")
                     del activeWatchDog[key]
@@ -111,9 +116,9 @@ async def crawl(rawQueue, durationQueue):
 async def message_send(serverInfo, title, queue):
     while True:
         producer = aiokafka.AIOKafkaProducer(
-            bootstrap_servers=['ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29092',
-                               'ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29093',
-                               'ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29094',
+            bootstrap_servers=['146.56.42.103:29092',
+                               '146.56.42.103:29093',
+                               '146.56.42.103:29094'
                                ], acks=1)
         # producer = aiokafka.AIOKafkaProducer(bootstrap_servers='3.34.72.6:29092', acks=0)
         print(f"{title} producer start")

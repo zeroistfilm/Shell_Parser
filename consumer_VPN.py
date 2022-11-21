@@ -8,9 +8,9 @@ async def consume(service, topic):
     mareeldb = mareelDB()
 
     consumer = aiokafka.AIOKafkaConsumer(topic,
-                                         bootstrap_servers=['ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29092',
-                                                            'ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29093',
-                                                            'ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:29094'])
+                                         bootstrap_servers=['146.56.42.103:29092',
+                                                            '146.56.42.103:29093',
+                                                            '146.56.42.103:29094'])
 
     if service.split('_')[-1] == 'Raw':
         table = createRawTable(service)
@@ -31,7 +31,7 @@ async def consume(service, topic):
                     bulk.append(table(message.value))
             # print(len(bulk))
             await asyncio.sleep(0.01)
-            #print(len(bulk),'================================================================================')
+            # print(len(bulk),'================================================================================')
 
             mareeldb.session.add_all(bulk)
             mareeldb.session.commit()
@@ -47,23 +47,23 @@ async def main():
 
     servers = [
 
-               ('Mareel_VPN_Raw', 'Germany_52.29.224.219_raw'),
-               ('Mareel_VPN_Duration', 'Germany_52.29.224.219_duration'),
-               ('Mareel_VPN_Raw', 'Japan_35.79.143.27_raw'),
-               ('Mareel_VPN_Duration', 'Japan_35.79.143.27_duration'),
-               ('Mareel_VPN_Raw', 'Singapore_207.148.124.7_raw'),
-               ('Mareel_VPN_Duration', 'Singapore_207.148.124.7_duration'),
+        ('Mareel_VPN_Raw', 'Germany_52.29.224.219_raw'),
+        ('Mareel_VPN_Duration', 'Germany_52.29.224.219_duration'),
+        ('Mareel_VPN_Raw', 'Japan_35.79.143.27_raw'),
+        ('Mareel_VPN_Duration', 'Japan_35.79.143.27_duration'),
+        ('Mareel_VPN_Raw', 'Singapore_207.148.124.7_raw'),
+        ('Mareel_VPN_Duration', 'Singapore_207.148.124.7_duration'),
         ('Mareel_VPN_Raw', 'South-Korea_130.162.152.89_raw'),
         ('Mareel_VPN_Duration', 'South-Korea_130.162.152.89_duration'),
 
-               ('Mareel_VPN_Raw', 'South-Korea_172.107.194.178_raw'),
-               ('Mareel_VPN_Duration', 'South-Korea_172.107.194.178_duration'),
-               ('Mareel_VPN_Raw', 'United-Kingdom_104.238.184.85_raw'),
-               ('Mareel_VPN_Duration', 'United-Kingdom_104.238.184.85_duration'),
-               ('Mareel_VPN_Raw', 'United-States_129.159.126.80_raw'),
-               ('Mareel_VPN_Duration', 'United-States_129.159.126.80_duration'),
-               ('Mareel_VPN_Raw', 'United-States_54.200.124.241_raw'),
-               ('Mareel_VPN_Duration', 'United-States_54.200.124.241_duration')]
+        ('Mareel_VPN_Raw', 'South-Korea_172.107.194.178_raw'),
+        ('Mareel_VPN_Duration', 'South-Korea_172.107.194.178_duration'),
+        ('Mareel_VPN_Raw', 'United-Kingdom_104.238.184.85_raw'),
+        ('Mareel_VPN_Duration', 'United-Kingdom_104.238.184.85_duration'),
+        ('Mareel_VPN_Raw', 'United-States_129.159.126.80_raw'),
+        ('Mareel_VPN_Duration', 'United-States_129.159.126.80_duration'),
+        ('Mareel_VPN_Raw', 'United-States_54.200.124.241_raw'),
+        ('Mareel_VPN_Duration', 'United-States_54.200.124.241_duration')]
 
     await asyncio.gather(*[consume(service, server) for service, server in servers])
 
