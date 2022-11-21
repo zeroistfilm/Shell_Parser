@@ -5,7 +5,8 @@ version: '3.3'
 ## 명령어 사용하면된다.
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper:latest
+    #image: confluentinc/cp-zookeeper:latest #x86
+    image: confluentinc/cp-zookeeper:latest-ubi8.arm64 #arm64
     environment:
       ZOOKEEPER_SERVER_ID: 1
       ZOOKEEPER_CLIENT_PORT: 2181
@@ -16,7 +17,8 @@ services:
       - "22181:2181"
 
   kafka1:
-    image: confluentinc/cp-kafka:latest
+    #image: confluentinc/cp-kafka:latest #x86
+    image :  confluentinc/cp-kafka:latest-ubi8.arm64 #arm64
     depends_on:
       - zookeeper
     ports:
@@ -28,9 +30,11 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_NUM_PARTITIONS: 3
 
   kafka2:
-    image: confluentinc/cp-kafka:latest
+    #image: confluentinc/cp-kafka:latest #x86
+    image: confluentinc/cp-kafka:latest-ubi8.arm64 #arm64
     depends_on:
       - zookeeper
     ports:
@@ -42,9 +46,11 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_NUM_PARTITIONS: 3
 
   kafka3:
-      image: confluentinc/cp-kafka:latest
+      #image: confluentinc/cp-kafka:latest #x86
+      image: confluentinc/cp-kafka:latest-ubi8.arm64 #arm64
       depends_on:
         - zookeeper
       ports:
@@ -56,15 +62,16 @@ services:
         KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
         KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
         KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+        KAFKA_NUM_PARTITIONS: 3
 
-  kafdrop:
-    image: obsidiandynamics/kafdrop
-    container_name: kafdrop
-    ports:
-     - "9000:9000"
-    environment:
-      KAFKA_BROKERCONNECT: "kafka1:9092"
-    depends_on:
-      - kafka1
-      - kafka2
-      - kafka3
+#  kafdrop:
+#    image: obsidiandynamics/kafdrop
+#    container_name: kafdrop
+#    ports:
+#     - "9000:9000"
+#    environment:
+#      KAFKA_BROKERCONNECT: "kafka1:9092"
+#    depends_on:
+#      - kafka1
+#      - kafka2
+#      - kafka3
