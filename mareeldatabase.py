@@ -150,6 +150,8 @@ def createPaymentTable(serviceName):
         managed=True
         id = Column(Integer, primary_key=True)
         time = Column(String(50))
+        country = Column(String(50))
+        server_ip = Column(String(50))
         local_ip= Column(String(50))
         platform = Column(String(50))
         payment= Column(String(50))
@@ -165,7 +167,9 @@ def createPaymentTable(serviceName):
         def parse(self):
             jsonByte = json.loads(self.jsonByte)
             self.time = jsonByte['time']
+            self.server_ip = jsonByte['server_ip']
             self.local_ip = jsonByte['local_ip']
+            self.country = jsonByte['country']
             self.platform = jsonByte['platform']
             self.payment = jsonByte['payment']
             self.recentGame = jsonByte['recentGame']
@@ -174,8 +178,8 @@ def createPaymentTable(serviceName):
 
 
         def __repr__(self):
-            return f"<{self.__tablename__}( '%s', '%s', '%s', '%s', '%s')>" % (
-                self.time, self.local_ip, self.payment, self.recentGame, self.host_name_server)
+            return f"<{self.__tablename__}( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')>" % (
+                self.time, self.server_ip, self.local_ip, self.country, self.platform, self.payment, self.recentGame, self.host_name_server)
 
     return payment
 
@@ -187,8 +191,8 @@ if __name__ == '__main__':
 
     #raw = createRawTable('Mareel_GO_Test_Raw')
     #duration = createDurationTable('Mareel_GO_Test_Duration')
-    payment = createPaymentTable('Mareel_GO_Payment')
-    #Base.metadata.create_all(DATABASES)
+    payment = createPaymentTable('Mareel_GO_Test_Payment')
+    Base.metadata.create_all(DATABASES)
 
     while True:
         #rawdata = b'{"local_ip": "10.0.0.5", "server_ip": "146.56.145.179", "country": "South Korea", "detected_application_name": "Unknown", "detected_protocol_name": "HTTP/S", "host_server_name": "NULL", "dns_host_name": "NULL", "local_port": 58676, "other_ip": "211.114.66.12", "other_port": 443, "first_seen_at": "2022-10-22 23:30:30.224", "first_update_at": "2022-10-22 23:30:30.224", "last_seen_at": "2022-10-22 23:30:30.224", "game": "NULL", "game_company": "NULL", "digest": "79dc2320023a6c2c1ef73e148e83cfebc01480c4", "local_bytes": 52, "local_packets": 1, "other_bytes": 0, "other_packets": 0, "total_bytes": 52, "total_packets": 1}'
@@ -199,7 +203,8 @@ if __name__ == '__main__':
         #                 'duration': 268.7605, 'game': 'Genshin Impact', 'game_company': 'miHoYo', 'bytes': 34565,
         #                 'packets': 139}
         #durationdata = json.dumps(durationdata).encode('utf-8')
-        paymentdata = b'{"time": "2022-10-23 01:31:03.697491", "local_ip": "10.0.0.1", "platform":"Android","payment": "Success", "recentGame": "Genshin Impact", "host_name_server": "minor-api-os.hoyoverse.com"}'
+        paymentdata = b'{ "time": "2022-10-23 01:31:03.697491", "server_ip": "1.1.1.1","country": "South Korea", "local_ip": "10.0.0.1", "platform": "Android", "payment": "Google Play", "recentGame": "Genshin Impact", "host_name_server": "minor-api-os.hoyoverse.com"}'
+
         #data = raw(databyte)
         #data = duration(durationdata)
         data = payment(paymentdata)

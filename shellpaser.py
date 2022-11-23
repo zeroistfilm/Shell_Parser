@@ -140,10 +140,16 @@ class PaymentChecker:
             f_object.close()
     def setRecentGame(self,game):
         self.recentGame = game
+    def setCountry(self,country):
+        self.country = country
+    def setServerIp(self,serverip):
+        self.serverip = serverip
 
     def getDataForSave(self):
         return {
             'time': datetime.datetime.now(),
+            'server_ip': self.serverip,
+            'country': self.country,
             'local_ip': self.local_ip,
             'platform' : self.platform,
             'recentGame': self.recentGame,

@@ -60,6 +60,9 @@ async def crawl(rawQueue, durationQueue, paymentQueue):
             # Payment 데이터 처리
             if flow.getLocalIP() not in paymentWatch:
                 paymentWatch[flow.getLocalIP()] = PaymentChecker(flow.getLocalIP())
+                paymentWatch[flow.getLocalIP()].setServerIp(serverInfo['ip'])
+                paymentWatch[flow.getLocalIP()].setCountry(serverInfo['country'])
+
                 # print('paymentWatch', flow.getLocalIP())
 
             paymentWatch[flow.getLocalIP()].pipe(flow.getHost_server_name())
