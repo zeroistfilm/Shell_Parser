@@ -138,10 +138,21 @@ class PaymentChecker:
                 'host_name_server': host_name_server
             })
             f_object.close()
+    def setRecentGame(self,game):
+        self.recentGame = game
 
+    def getDataForSave(self):
+        return {
+            'time': datetime.datetime.now(),
+            'local_ip': self.local_ip,
+            'platform' : self.platform,
+            'recentGame': self.recentGame,
+            'payment': self.status,
+            'host_name_server': self.host_server_name
+        }
     def pipe(self, data):
-        host_server_name = self.whildCardHostName(data)
-        key = self.status + '-' + host_server_name
+        self.host_server_name = self.whildCardHostName(data)
+        key = self.status + '-' + self.host_server_name
         if key not in self.urls:
             st = self.getRecentSignalTimer()
             if st and st.checkTimeLimit():
@@ -149,6 +160,7 @@ class PaymentChecker:
             return None
 
         if self.urls[key]['type'] == 'android':
+            self.platform = 'android'
             if self.status == 'None' and self.urls[key]['title'] == 'ANDROID_PAYMENT_TRY':
                 self.changeStatus(key, 'Trying')
                 return None
@@ -166,7 +178,7 @@ class PaymentChecker:
                 return None
 
         if self.urls[key]['type'] == 'ios':
-            print('in pipe ios')
+            self.platform = 'ios'
             if self.status == 'None' and self.urls[key]['title'] == 'IOS_PAYMENT_TRY':
                 self.changeStatus(key, 'Trying')
                 return None

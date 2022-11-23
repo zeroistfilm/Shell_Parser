@@ -13,7 +13,7 @@ def default_factory():
     return None
 
 
-async def crawl(rawQueue, durationQueue):
+async def crawl(rawQueue, durationQueue, paymentQueue):
     proc = subprocess.Popen(['./json_capture.sh'], stdout=subprocess.PIPE)
     serverInfo = ServerInfo().get_location()
     gameDB = GameDB()
@@ -67,12 +67,15 @@ async def crawl(rawQueue, durationQueue):
                   paymentWatch[flow.getLocalIP()].status, flow.getHost_server_name())
 
             for key, paymentChecker in list(paymentWatch.items()):
-                # print("Payment Watching...", paymentChecker.local_ip, localIPRecentGame[paymentChecker.local_ip], paymentChecker.status)
                 if paymentChecker.status != 'None':
-                    # payment data save
-                    paymentChecker.save(flow.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()),
-                                        flow.getLocalIP(), localIPRecentGame[flow.getLocalIP()],
-                                        flow.getHost_server_name())
+                    if localIPRecentGame[flow.getLocalIP()] is not None:
+                        paymentChecker.save(flow.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()),
+                                            flow.getLocalIP(), localIPRecentGame[flow.getLocalIP()],
+                                            flow.getHost_server_name())
+                        data = json.dumps(paymentChecker.getDataForSave()).encode('utf-8')
+                        await paymentQueue.put(data)
+                        await asyncio.sleep(0.05)
+
                 if paymentChecker.isTimeToWatchEnd():
                     # print("Payment Watch End", paymentChecker.local_ip, packetWatchdog.game, paymentChecker.status)
                     del paymentWatch[key]
@@ -143,12 +146,14 @@ async def message_send(serverInfo, title, queue):
 async def main():
     raw = asyncio.Queue()
     duration = asyncio.Queue()
+    payment = asyncio.Queue()
     serverInfo = ServerInfo().get_location()
     while True:
         try:
-            await asyncio.gather(*[crawl(raw, duration),
+            await asyncio.gather(*[crawl(raw, duration, payment),
                                    message_send(serverInfo, 'raw', raw),
-                                   message_send(serverInfo, 'duration', duration)
+                                   message_send(serverInfo, 'duration', duration),
+                                   message_send(serverInfo, 'payment', payment)
                                    ])
         except Exception as e:
             trace_back = traceback.format_exc()
