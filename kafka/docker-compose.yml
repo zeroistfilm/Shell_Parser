@@ -64,14 +64,14 @@ services:
         KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
         KAFKA_NUM_PARTITIONS: 3
 
-#  kafdrop:
-#    image: obsidiandynamics/kafdrop
-#    container_name: kafdrop
-#    ports:
-#     - "9000:9000"
-#    environment:
-#      KAFKA_BROKERCONNECT: "kafka1:9092"
-#    depends_on:
-#      - kafka1
-#      - kafka2
-#      - kafka3
+  kafdrop:
+    image: linuxforhealth/kafdrop:latest
+    container_name: kafdrop
+    ports:
+     - "9000:9000"
+    environment:
+      KAFKA_BROKERCONNECT: 146.56.42.103:29092
+    depends_on:
+      - kafka1
+      - kafka2
+      - kafka3

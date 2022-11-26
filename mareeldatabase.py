@@ -5,18 +5,21 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import json
+#
 
-DATABASES = create_engine('mysql+mysqldb://empo:dpavh1423@10.2.1.6:3306/mareel_traffic')
+localDBHost = 'mysql+mysqldb://empo:dpavh1423@10.2.1.6:3306/mareel_traffic'
+remoteDBHost = 'mysql+mysqldb://empo:dpavh1423@staging-db.crtzcfwok2ed.ap-northeast-2.rds.amazonaws.com:3306/mareel_traffic'
 
+
+DATABASES = create_engine(localDBHost)
 # orm과의 매핑 선언
 Base = declarative_base()
-
 # 테이블 생성
 
 
 class mareelDB():
     def __init__(self):
-        self.DATABASES = create_engine('mysql+mysqldb://empo:dpavh1423@staging-db.crtzcfwok2ed.ap-northeast-2.rds.amazonaws.com:3306/mareel_traffic')
+        self.DATABASES = create_engine(remoteDBHost)
         self.Base = declarative_base()
         self.Base.metadata.create_all(self.DATABASES)
         self.Session = sessionmaker()

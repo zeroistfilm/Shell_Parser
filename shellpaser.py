@@ -125,19 +125,24 @@ class PaymentChecker:
 
             return None
 
-    def save(self, time,local_ip, recentGame, host_name_server):
+    def save(self, time):
+        data = {
+            'time': time.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3],
+            'server_ip': self.serverip,
+            'country': self.country,
+            'local_ip': self.local_ip,
+            'platform' : self.platform,
+            'recentGame': self.recentGame,
+            'payment': self.status,
+            'host_name_server': self.host_server_name
+        }
         with open('payment.csv', 'a', newline='') as f_object:
-            dictwriter_object = DictWriter(f_object, fieldnames=['time','local_ip', 'recentGame', 'payment', 'host_name_server'])
+            dictwriter_object = DictWriter(f_object, fieldnames=data.keys())
             if os.path.getsize('payment.csv') == 0:
                 dictwriter_object.writeheader()
-            dictwriter_object.writerow({
-                'time': time,
-                'local_ip': local_ip,
-                'recentGame': recentGame,
-                'payment': self.status,
-                'host_name_server': host_name_server
-            })
+            dictwriter_object.writerow(data)
             f_object.close()
+
     def setRecentGame(self,game):
         self.recentGame = game
     def setCountry(self,country):
@@ -145,9 +150,9 @@ class PaymentChecker:
     def setServerIp(self,serverip):
         self.serverip = serverip
 
-    def getDataForSave(self):
+    def getDataForSave(self, time):
         return {
-            'time': datetime.datetime.now(),
+            'time': time.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3],
             'server_ip': self.serverip,
             'country': self.country,
             'local_ip': self.local_ip,

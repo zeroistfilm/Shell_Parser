@@ -50,27 +50,27 @@ async def main():
     servers = [
                ('Mareel_GO_Test_Raw', 'South-Korea_146.56.145.179_raw'),
                ('Mareel_GO_Test_Duration', 'South-Korea_146.56.145.179_duration'),
-               ('Mareel_GO_Test_Payment', 'South-Korea_146.56.145.179_Payment'),
+               ('Mareel_GO_Test_Payment', 'South-Korea_146.56.145.179_payment'),
 
                ('Mareel_GO_Test_Raw', 'Japan_141.147.190.169_raw'),
                ('Mareel_GO_Test_Duration', 'Japan_141.147.190.169_duration'),
-                ('Mareel_GO_Test_Payment', 'Japan_141.147.190.169_Payment'),
+                ('Mareel_GO_Test_Payment', 'Japan_141.147.190.169_payment'),
 
                ('Mareel_GO_Raw', 'India_144.24.119.251_raw'),
                ('Mareel_GO_Duration', 'India_144.24.119.251_duration'),
-                ('Mareel_GO_Payment', 'India_144.24.119.251_Payment'),
+                ('Mareel_GO_Payment', 'India_144.24.119.251_payment'),
 
                ('Mareel_GO_Raw', 'Japan_54.250.113.35_raw'),
                ('Mareel_GO_Duration', 'Japan_54.250.113.35_duration'),
-                ('Mareel_GO_Payment', 'Japan_54.250.113.35_Payment'),
+                ('Mareel_GO_Payment', 'Japan_54.250.113.35_payment'),
 
                ('Mareel_GO_Raw', 'South-Korea_146.56.42.103_raw'),
                ('Mareel_GO_Duration', 'South-Korea_146.56.42.103_duration'),
-                ('Mareel_GO_Payment', 'South-Korea_146.56.42.103_Payment'),
+                ('Mareel_GO_Payment', 'South-Korea_146.56.42.103_payment'),
 
                ('Mareel_GO_Raw', 'United-States_129.158.221.8_raw'),
                ('Mareel_GO_Duration', 'United-States_129.158.221.8_duration'),
-                ('Mareel_GO_Payment', 'United-States_129.158.221.8_Payment'),
+                ('Mareel_GO_Payment', 'United-States_129.158.221.8_payment'),
                ]
 
     await asyncio.gather(*[consume(service, server) for service, server in servers])
