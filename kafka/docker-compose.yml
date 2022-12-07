@@ -1,8 +1,5 @@
 version: '3.3'
 
-## zookeeper에서 볼륨 생성 권한 오류가 난다.
-## sudo chown -R 1001:1001 ./bitnami
-## 명령어 사용하면된다.
 services:
   zookeeper:
     #image: confluentinc/cp-zookeeper:latest #x86
