@@ -47,7 +47,7 @@ async def consume(service, topic):
 
         finally:
             await consumer.stop()
-
+            mareeldb.session.close()
 
 async def main():
     # test
