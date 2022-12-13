@@ -4,13 +4,13 @@ import traceback
 
 import aiokafka
 
-with open('go.txt', 'r') as f:
+with open('vpn.txt', 'r') as f:
     lines = f.readlines()
 
 dataList=[]
 for line in lines:
     try:
-        topic = 'South-Korea_146.56.145.179_duration' #line.split(" b'")[0]
+        topic = line.split(" b'")[0].split('send ')[1]
         message = bytes(line.split(" b'")[1][:-2], 'utf-8')
         dataList.append((topic, message))
     except:
@@ -26,7 +26,7 @@ async def message_send():
         # Japan_141.147.190.169_{raw or duration}
         # topic = "_".join(['-'.join(serverInfo['country'].split(' ')), serverInfo['ip'], title])
         await producer.start()
-        for data in dataList[:5]:
+        for data in dataList:
             await producer.send(data[0], data[1])
             print(f'send', data[0], data[1])
 
