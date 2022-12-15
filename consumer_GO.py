@@ -49,7 +49,6 @@ async def saver(queue):
         mareeldb = mareelDB()
         try:
             bulk = await queue.get()
-            print('saver', len(queue))
             mareeldb.session.add_all(bulk)
             mareeldb.session.commit()
         except Exception as e:
