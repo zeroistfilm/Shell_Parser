@@ -671,3 +671,18 @@
 30,Wemade Connect, Every Farm, everyfarm-*, NULL
 30,Wemade Connect, Every Farm, everyfarm-index.wemade-connect.com, 15.254.17.181, 35.160.16.56
 30,Wemade Connect, Every Farm, everyfarm-user.wemade-connect.com, 35.155.4.45, 35.164.203.228, 44.239.22.93
+
+# DragonFlight
+30,LINE Games, DragonFlight, *.df.line.games, NULL
+30,LINE Games, DragonFlight, chat-elbv1-df-1644369140.ap-northeast-2.elb.amazon, 3.36.18.206
+30,LINE Games, DragonFlight, patch.df.line.games, 13.225.114.99, 13.225.131.21
+30,LINE Games, DragonFlight, real.df.line.games, 13.225.114.99, 18.64.8.40, 18.64.8.97, 54.192.175.114
+30,LINE Games, DragonFlight, chat.df.line.games, NULL
+
+# Animal Crossing: Pocket Camp
+30,Nintendo, Animal Crossing: Pocket Camp, *.ac-pocketcamp.com, NULL
+30,Nintendo, Animal Crossing: Pocket Camp, announcement-resource-cdn.ac-pocketcamp.com, 104.74.202.106
+30,Nintendo, Animal Crossing: Pocket Camp, api.ac-pocketcamp.com, 13.225.131.58, 13.225.131.108, 18.64.8.122, 18.64.8.111, 18.64.8.60, 18.65.116.85, 18.173.5.27, 54.230.167.96
+30,Nintendo, Animal Crossing: Pocket Camp, download-cdn-ac-pocketcamp.akamaized.net, 23.50.121.9, 23.50.121.32
+30,Nintendo, Animal Crossing: Pocket Camp, support.ac-pocketcamp.com, 44.207.243.245
+30,Nintendo, Animal Crossing: Pocket Camp, support-cdn.ac-pocketcamp.com, 104.74.202.106
