@@ -72,8 +72,8 @@ async def main():
                 ('Mareel_VPN_Duration', 'Japan_35.79.143.27_duration'),
                 ('Mareel_VPN_Raw', 'Singapore_207.148.124.7_raw'),
                 ('Mareel_VPN_Duration', 'Singapore_207.148.124.7_duration'),
-                ('Mareel_VPN_Raw', 'South-Korea_130.162.152.89_raw'),
-                ('Mareel_VPN_Duration', 'South-Korea_130.162.152.89_duration'),
+                ('Mareel_VPN_Raw', 'South-Korea_152.67.209.146_raw'),
+                ('Mareel_VPN_Duration', 'South-Korea_152.67.209.146_duration'),
 
                 ('Mareel_VPN_Raw', 'South-Korea_172.107.194.178_raw'),
                 ('Mareel_VPN_Duration', 'South-Korea_172.107.194.178_duration'),
