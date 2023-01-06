@@ -27,11 +27,11 @@
 30,Maxis(EA), SimCity BuildIt, cdn.simcitybuildit.com, 23.32.241.19, 23.32.241.24, 23.195.119.91
 
 # Sonic Forces
-30,Sega, Sonic Forces, social.sega.com, 52.31.11.118
-30,Sega, Sonic Forces, gatekeeper.hardlightgames.com, 52.73.48.218
-30,Sega, Sonic Forces, s17-a.hardlightgames.com, 34.238.221.93, 54.243.44.114
-30,Sega, Sonic Forces, analytics.hardlightgames.com, 3.83.28.231, 3.93.210.158, 54.208.11.242
-30,Sega, Sonic Forces, sfsb.hardlightcdn.com, 18.65.168.46, 18.65.168.64
+30,SEGA, Sonic Forces, social.sega.com, 52.31.11.118
+30,SEGA, Sonic Forces, gatekeeper.hardlightgames.com, 52.73.48.218
+30,SEGA, Sonic Forces, s17-a.hardlightgames.com, 34.238.221.93, 54.243.44.114
+30,SEGA, Sonic Forces, analytics.hardlightgames.com, 3.83.28.231, 3.93.210.158, 54.208.11.242
+30,SEGA, Sonic Forces, sfsb.hardlightcdn.com, 18.65.168.46, 18.65.168.64
 
 # Modern Warships
 30,Cube Software, Modern Warships, f7659.playfabapi.com, 34.215.62.206, 44.231.46.80, 54.148.64.184
@@ -644,6 +644,8 @@
 30,Smilegate Megaport, Epic Seven, live-j-epic7-gate-1353672209.ap-northeast-1.elb.am, NULL
 30,Smilegate Megaport, Epic Seven, live-j-gate-epic.game.playstove.com, 54.65.127.123
 30,Smilegate Megaport, Epic Seven, live-j-star-epic.game.playstove.com, NULL
+30,Smilegate Megaport, Epic Seven, live-k-gate-epic.game.playstove.com, 13.125.132.200
+30,Smilegate Megaport, Epic Seven, live-star-epic.game.playstove.com, NULL
 
 # Path to Nowhere
 30,AISNO Games, Path to Nowhere, static.aisnogames.com, 13.33.174.113
@@ -689,3 +691,88 @@
 
 # FreezeTag Online
 30,EOAG Games, FreezeTag Online, iceonline.azurewebsites.net, 52.231.32.120
+
+# Dragon Village
+30,highbrow, Dragon Village, api.dragonvillage.net, 13.124.143.199
+
+# TRAHA Global
+30,MOAI GAMES Corperation, TRAHA Global, tcdn.moaigames.co.kr, 211.152.132.56, 101.33.17.154
+
+# Destiny Child
+30,SHIFT UP Corporation, Destiny Child, *.dckr.shiftupcorp.com, NULL
+30,SHIFT UP Corporation, Destiny Child, gs.real.dckr.shiftupcorp.com, 13.32.50.25, 13.32.50.26, 13.32.50.46, 13.32.50.102, 13.227.62.6, 13.227.62.52, 13.227.62.65, 13.227.62.67, 13.225.165.104, 13.225.165.110, 13.225.165.122, 13.225.165.129, 18.65.168.24, 18.65.168.111
+30,SHIFT UP Corporation, Destiny Child, patch.cdn.dckr.shiftupcorp.com, 13.227.62.28, 13.227.62.53, 13.227.62.87, 13.227.62.97, 13.249.146.61, 13.249.146.78, 13.249.146.112, 13.249.146.113, 54.239.168.40, 54.239.168.49, 54.239.168.63, 54.239.168.128
+
+# HATSUNE MIKU: COLORFUL STAGE!
+30,SEGA, HATSUNE MIKU: COLORFUL STAGE!, gpm-mon-sg.bytegsdk.com, 23.199.54.19, 23.199.54.32, 23.199.54.35, 184.29.140.213
+30,SEGA, HATSUNE MIKU: COLORFUL STAGE!, gpsdk-sg.bytegsdk.com, 23.195.88.241
+30,SEGA, HATSUNE MIKU: COLORFUL STAGE!, mkkorea-obt-prod01-cdn.bytedgame.com, 23.195.88.160, 23.195.88.202
+30,SEGA, HATSUNE MIKU: COLORFUL STAGE!, lf16-mkkr.bytedgame.com, 23.220.68.12, 23.220.68.13
+30,SEGA, HATSUNE MIKU: COLORFUL STAGE!, sf16-dl-sg.bytedgame.com, 23.220.68.40
+
+# Noah's Heart
+30,Archosaur Games, Noah's Heart, autopatch-ref-ak-kr.zloong.com, 23.61.252.98, 23.61.252.160
+30,Archosaur Games, Noah's Heart, autopatch-ref-gcp-kr.zloong.com, 34.102.198.158
+
+# Guitar Girl
+30,NEOWIZ, Guitar Girl, *.gtgl.pmang.cloud, NULL
+30,NEOWIZ, Guitar Girl, game.gtgl.pmang.cloud, 52.198.193.130, 54.95.235.7
+30,NEOWIZ, Guitar Girl, dl.gtgl.pmang.cloud, 18.67.51.42, 54.230.167.65
+
+# Brave Nine - Tactical RPG
+30,NEOWIZ, Brave Nine - Tactical RPG, *.mbrown.pmang.cloud, NULL
+30,NEOWIZ, Brave Nine - Tactical RPG, api.mbrown.pmang.cloud, 52.198.88.103, 54.178.97.27
+30,NEOWIZ, Brave Nine - Tactical RPG, mt.mbrown.pmang.cloud, 54.178.97.27
+30,NEOWIZ, Brave Nine - Tactical RPG, mbrown-mdl.akamaized.net, 23.200.75.107, 23.200.75.115
+
+# WePlay - Party Game & Chat
+30,WEJOY Pte. Ltd., WePlay - Party Game & Chat, *.weplayapp.com, NULL
+30,WEJOY Pte. Ltd., WePlay - Party Game & Chat, api-sel.weplayapp.com, 8.213.128.148
+30,WEJOY Pte. Ltd., WePlay - Party Game & Chat, api-sel-proxy.weplayapp.com, 104.18.6.230
+30,WEJOY Pte. Ltd., WePlay - Party Game & Chat, fe-center.weplayapp.com, 54.192.175.78
+30,WEJOY Pte. Ltd., WePlay - Party Game & Chat, global.weplayapp.com, 8.219.71.164
+30,WEJOY Pte. Ltd., WePlay - Party Game & Chat, pic.weplayapp.com, 18.64.8.4, 18.64.8.24, 54.230.167.32
+30,WEJOY Pte. Ltd., WePlay - Party Game & Chat, picuser-sel.weplayapp.com, 23.59.151.248, 96.16.99.32
+30,WEJOY Pte. Ltd., WePlay - Party Game & Chat, picuser-sgp.weplayapp.com, 96.16.99.58
+30,WEJOY Pte. Ltd., WePlay - Party Game & Chat, think-client.weplayapp.com, 8.214.17.13
+30,WEJOY Pte. Ltd., WePlay - Party Game & Chat, res.weplayapp.com, 18.67.51.20, 54.230.167.7, 54.230.167.65, 54.230.167.93
+30,WEJOY Pte. Ltd., WePlay - Party Game & Chat, weplayapp.com, 54.192.175.122
+30,WEJOY Pte. Ltd., WePlay - Party Game & Chat, weplay-sel.ap-northeast-2.log.aliyuncs.com, 8.213.138.0, 8.213.138.3, 8.213.138.8
+30,WEJOY Pte. Ltd., WePlay - Party Game & Chat, weplay-sgp-client.oss-ap-southeast-1.aliyuncs.com, 47.74.196.223
+
+# Ninja Must Die
+30,Pandada Games, Ninja Must Die, *.pandadagames.com, NULL
+30,Pandada Games, Ninja Must Die, account.pandadagames.com, 23.67.53.10
+30,Pandada Games, Ninja Must Die, announcement.pandadagames.com, 23.67.53.10
+30,Pandada Games, Ninja Must Die, customer.pandadagames.com, 23.59.72.40
+30,Pandada Games, Ninja Must Die, gate.pandadagames.com, 23.59.72.65
+30,Pandada Games, Ninja Must Die, logstash.pandadagames.com, 23.67.53.27
+30,Pandada Games, Ninja Must Die, l1-ninja3-prod-patch.pandadagames.com, 54.230.167.26
+30,Pandada Games, Ninja Must Die, sensitivewords.pandadagames.com, 23.67.53.19
+30,Pandada Games, Ninja Must Die, utils.pandadagames.com, 23.67.53.16
+
+# Exos Heroes
+30,LINE Games, Exos Heroes, *.eh.line.games, NULL
+30,LINE Games, Exos Heroes, eh.cdn.line.games, 54.230.61.2, 54.230.61.111
+30,LINE Games, Exos Heroes, eh-gs.cdn.line.games, 117.52.145.85
+30,LINE Games, Exos Heroes, real-kr.eh.line.games, 18.67.51.120, 54.230.61.9, 54.230.61.92
+
+# Undecember
+30,LINE Games, Undecember, *.ud.line.games, NULL
+30,LINE Games, Undecember, sentry.ud.line.games, 13.225.114.110, 18.67.51.87
+30,LINE Games, Undecember, ud.cdn.line.games, 18.67.51.39, 99.86.207.87
+30,LINE Games, Undecember, ud-gs.cdn.line.games, 117.52.145.84, 211.47.29.72
+
+# Tower of Fantasy
+30,Perfect World Games, Tower of Fantasy, htkrserverlist1.wmupd.com, 34.98.113.252
+30,Perfect World Games, Tower of Fantasy, htkrserverlist2.wmupd.com, 18.67.51.34
+30,Perfect World Games, Tower of Fantasy, htkrydpatch1.wmupd.com, 34.111.188.193
+30,Perfect World Games, Tower of Fantasy, htkrydpatch2.wmupd.com, 18.67.51.42
+
+# Guardian Tales
+30,Kakao Games, Guardian Tales, *.gdts.kakaogames.com, NULL
+30,Kakao Games, Guardian Tales, patch-w.gdts.kakaogames.com, 13.225.114.104, 18.67.51.64, 54.192.175.13
+
+# Zombie High School
+30,AWESOMEPIECE, Zombie High School, zh-kr-g-web.awesomepiece.com, 34.64.93.225, 34.64.188.104
+30,AWESOMEPIECE, Zombie High School, zh-cdn.awesomepiece.com, 23.200.75.116, 23.200.75.123
