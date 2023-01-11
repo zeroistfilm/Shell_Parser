@@ -776,3 +776,10 @@
 # Zombie High School
 30,AWESOMEPIECE, Zombie High School, zh-kr-g-web.awesomepiece.com, 34.64.93.225, 34.64.188.104
 30,AWESOMEPIECE, Zombie High School, zh-cdn.awesomepiece.com, 23.200.75.116, 23.200.75.123
+
+# Random Dice: Wars
+30,111%, Random Dice: Wars, asia-northeast3-randomdice-wars-*, NULL
+30,111%, Random Dice: Wars, randomwars-*, NULL
+30,111%, Random Dice: Wars, asia-northeast3-randomdice-wars-316209.cloudfuncti, 216.239.36.54
+30,111%, Random Dice: Wars, randomwars-bucket.s3.ap-northeast-2.amazonaws.com, 52.219.58.59, 52.219.144.86
+30,111%, Random Dice: Wars, randomwars-gamebase.111percent.net, 3.39.198.40, 13.209.223.128
