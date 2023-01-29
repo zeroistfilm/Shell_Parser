@@ -45,10 +45,10 @@ async def consume(service, topic, queue):
 
 
 async def saver(queue):
+    global mareeldb
+    mareeldb = mareelDB()
     while True:
-        global mareeldb
         try:
-            mareeldb = mareelDB()
             bulk = await queue.get()
             mareeldb.session.add_all(bulk)
             mareeldb.session.commit()
@@ -59,9 +59,9 @@ async def saver(queue):
             await asyncio.sleep(2)
         finally:
 
-            if mareeldb:
-                mareeldb.session.close()
-                mareeldb.DATABASES.dispose()
+            mareeldb.session.close()
+            mareeldb.DATABASES.dispose()
+
 
 async def main():
     # test

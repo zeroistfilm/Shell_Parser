@@ -7,6 +7,7 @@ from mareeldatabase import createRawTable, createDurationTable,createPaymentTabl
 
 # http://ec2-3-34-72-6.ap-northeast-2.compute.amazonaws.com:9000
 async def consume(service, topic, queue):
+    await asyncio.sleep(2)
     while True:
         consumer = aiokafka.AIOKafkaConsumer(topic,
                                              bootstrap_servers=['127.0.0.1:29092',
@@ -47,9 +48,9 @@ async def consume(service, topic, queue):
 
 async def saver(queue):
     global mareeldb
+    mareeldb = mareelDB()
     while True:
         try:
-            mareeldb = mareelDB()
             bulk = await queue.get()
             mareeldb.session.add_all(bulk)
             mareeldb.session.commit()
@@ -59,14 +60,15 @@ async def saver(queue):
             print("saver Error : ", message)
             await asyncio.sleep(2)
         finally:
-            if mareeldb:
-                mareeldb.session.close()
-                mareeldb.DATABASES.dispose()
+
+            mareeldb.session.close()
+            mareeldb.DATABASES.dispose()
 
 async def main():
     # test
     messageQueue = asyncio.Queue()
     while True:
+        await asyncio.sleep(2)
         try:
             servers = [
                        ('Mareel_GO_Test_Raw', 'South-Korea_146.56.145.179_raw'),
@@ -94,7 +96,8 @@ async def main():
                         ('Mareel_GO_Payment', 'United-States_129.158.221.8_payment'),
                        ]
 
-            await asyncio.gather(*[saver(messageQueue), *[consume(service, server, messageQueue) for service, server in servers]])
+            print(*[saver(messageQueue), *[consume(service, server, messageQueue) for service, server in servers]])
+            # await asyncio.gather(*[saver(messageQueue), *[consume(service, server, messageQueue) for service, server in servers]])
         except Exception as e:
             await asyncio.sleep(2)
             trace_back = traceback.format_exc()

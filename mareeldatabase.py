@@ -19,6 +19,7 @@ Base = declarative_base()
 
 class mareelDB():
     def __init__(self):
+
         self.DATABASES = create_engine(remoteDBHost)
         self.Base = declarative_base()
         self.Base.metadata.create_all(self.DATABASES)
