@@ -58,8 +58,9 @@ async def saver(queue):
             print("saver Error : ", message)
             await asyncio.sleep(2)
         finally:
-            mareeldb.session.close()
-            mareeldb.DATABASES.dispose()
+            if mareeldb:
+                mareeldb.session.close()
+                mareeldb.DATABASES.dispose()
 async def main():
     # test
     messageQueue = asyncio.Queue()

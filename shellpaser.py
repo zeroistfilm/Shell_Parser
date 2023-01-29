@@ -223,6 +223,7 @@ class ServerInfo:
         146.56.145.179: South Korea
         '''
         self.location_dict = {  # 마릴 GO
+
             '146.56.42.103': {'ip': '146.56.42.103', 'country': 'South Korea'},
             '140.238.43.61': {'ip': '140.238.43.61', 'country': 'Japan'},
             '144.24.119.251': {'ip': '144.24.119.251', 'country': 'India'},
@@ -241,10 +242,6 @@ class ServerInfo:
             # 마릴 GO 테스트 서버
             '141.147.190.169': {'ip': '141.147.190.169', 'country': 'Japan'},
             '146.56.145.179': {'ip': '146.56.145.179', 'country': 'South Korea'},
-
-
-
-
         }
 
 
