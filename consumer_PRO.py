@@ -28,7 +28,7 @@ async def consume(service, topic, queue):
                 msg = await consumer.getmany()
                 for topic, messages in msg.items():
                     for message in messages:
-                        print(len(bulk),message)
+                        #print(len(bulk),message)
 
                         bulk.append(table(message.value))
 
