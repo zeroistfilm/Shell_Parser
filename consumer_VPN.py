@@ -39,7 +39,7 @@ async def consume(service, topic, queue):
             trace_back = traceback.format_exc()
             message = str(e) + "\n" + str(trace_back)
             print("kafka consumer Error : ", message)
-
+            await asyncio.sleep(0.5)
         finally:
             await consumer.stop()
 
@@ -55,6 +55,7 @@ async def saver(queue):
             trace_back = traceback.format_exc()
             message = str(e) + "\n" + str(trace_back)
             print("saver Error : ", message)
+            await asyncio.sleep(0.5)
         finally:
             mareeldb.session.close()
             mareeldb.DATABASES.dispose()
@@ -90,6 +91,6 @@ async def main():
             trace_back = traceback.format_exc()
             message = str(e) + "\n" + str(trace_back)
             print("asyncio producer Error : ", message)
-
+            await asyncio.sleep(0.5)
 if __name__ == "__main__":
     asyncio.run(main())
