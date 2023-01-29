@@ -96,8 +96,8 @@ async def main():
                         ('Mareel_GO_Payment', 'United-States_129.158.221.8_payment'),
                        ]
 
-            print(*[saver(messageQueue), *[consume(service, server, messageQueue) for service, server in servers]])
-            # await asyncio.gather(*[saver(messageQueue), *[consume(service, server, messageQueue) for service, server in servers]])
+            # print(*[saver(messageQueue), *[consume(service, server, messageQueue) for service, server in servers]])
+            await asyncio.gather(*[saver(messageQueue), *[consume(service, server, messageQueue) for service, server in servers]])
         except Exception as e:
             await asyncio.sleep(2)
             trace_back = traceback.format_exc()
