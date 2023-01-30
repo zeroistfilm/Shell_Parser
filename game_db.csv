@@ -791,3 +791,24 @@
 30,Nexon, KartRider: Drift, mkartdrift.*, NULL
 30,Nexon, KartRider: Drift, kdacc.nexon.com, 54.80.111.13
 30,Nexon, KartRider: Drift, mkartdrift.dn.nexoncdn.co.kr, 18.67.51.80
+
+# Homerun Clash
+30,HAEGIN Co., Ltd., Homerun Clash, *.homerunclash.haegin.co.kr, NULL
+30,HAEGIN Co., Ltd., Homerun Clash, homerunclashmaintenance1-4482f4eb1639d2b3.elb.us-w, 52.33.19.91
+30,HAEGIN Co., Ltd., Homerun Clash, game.homerunclash.haegin.co.kr, 35.163.225.125
+
+# OVERDOX
+30,HAEGIN Co., Ltd., OVERDOX, *.overdox.haegin.co.kr, NULL
+30,HAEGIN Co., Ltd., OVERDOX, game.overdox.haegin.co.kr, 34.211.193.194, 34.212.129.149
+30,HAEGIN Co., Ltd., OVERDOX, overdox-maintenance-oregon1.haegin.kr, 13.248.155.123
+
+# Extreme Golf
+30,HAEGIN Co., Ltd., Extreme Golf, *.extremegolf.haegin.co.kr, NULL
+30,HAEGIN Co., Ltd., Extreme Golf, common.extremegolf.haegin.co.kr, 34.209.59.45
+30,HAEGIN Co., Ltd., Extreme Golf, golf-live-game-lb-957366937.us-west-2.elb.amazonaw, 54.245.238.2
+30,HAEGIN Co., Ltd., Extreme Golf, golf-live-maintenance-lb-1996952278.us-west-2.elb., 44.228.115.194
+
+# Super Baseball League
+30,HAEGIN Co., Ltd., Super Baseball League, *.superbaseballleague.haegin.co.kr, NULL
+30,HAEGIN Co., Ltd., Super Baseball League, game.superbaseballleague.haegin.co.kr, 44.236.129.142
+30,HAEGIN Co., Ltd., Super Baseball League, maintenance.superbaseballleague.haegin.co.kr, 34.217.248.163
