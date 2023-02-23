@@ -8,25 +8,20 @@ import copy
 import json
 
 mareeldb = mareelDB()
-
 table = createDurationTable('Mareel_GO_Duration')
 db = mareeldb.session
 
-# print(db.query(table).order_by(table.start_time.desc()).first())
 start_date = datetime(2022, 10, 25)
 end_date = start_date + timedelta(days=7)
 country = 'South Korea'
 directory = "./analyzer/"+country.replace(' ','_')
+
 #국가별필터링
 rows = db.query(table).filter(table.country == country).all()
 #전체
 # rows = db.query(table).all()
-# <Mareel_GO_Duration('146.56.42.103','10.0.0.81','South Korea','2022-10-25','23:11:08.705284','23:37:42.859412','www.pubgmobile.com','1.1.1.1','1594.1541','PUBG Mobile','Tencent Games','1276081','1388')>
 
-# local_ip, date, game, duration
-
-
-# 일주일 간격으로 담기
+# ======================================================일주일 간격으로 담기
 start_date = datetime.strptime('2022-10-23', "%Y-%m-%d")
 end_date = start_date + timedelta(7)
 weeks = defaultdict(list)
@@ -91,11 +86,7 @@ for weekCount in weeks:
         json.dump(gameDict, f)
 
 
-
-
-
-
-
+#=============================== 아래는 전체 데이터 구하는 코드
 playedGame = set([x.game for x in rows])
 
 # 게임별 기본 탬플릿
