@@ -69,7 +69,7 @@ def createDurationTable(serviceName):
             self.packets = self.data['packets']
 
         def __repr__(self):
-            return  f"<{self.__tablename__}('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')>" % (
+            return  f"<{self.__tablename__}('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')>" % (
                 self.server_ip, self.local_ip, self.country, self.date, self.start_time, self.end_time,
                 self.host_server_name,
                 self.other_ip, self.duration, self.game, self.game_company, self.bytes, self.packets)
