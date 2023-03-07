@@ -83,8 +83,11 @@
 
 # Brawl Stars
 30,Supercell, Brawl Stars, *.brawlstars.com, NULL
+30,Supercell, Brawl Stars, *.brawlstarsgame.com, NULL
 30,Supercell, Brawl Stars, inbox.brawlstars.com, 18.65.185.59, 18.65.185.72, 18.65.185.114, 99.84.140.2
 30,Supercell, Brawl Stars, game-assets.brawlstarsgame.com, 18.65.216.80
+30,Supercell, Brawl Stars, game.brawlstarsgame.com, 44.241.61.155
+30,Supercell, Brawl Stars, brawlstars.inbox.supercell.com, 13.224.250.2, 18.64.8.47, 18.64.8.66, 18.172.89.93, 99.86.207.17, 99.86.207.54, 99.86.207.61
 
 # Diablo Immortal
 30,Blizzard, Diablo Immortal, g67ena-*, NULL
