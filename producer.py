@@ -79,7 +79,7 @@ async def crawl(rawQueue, durationQueue, paymentQueue):
             # Raw 데이터 처리
             if not flow.hasLocalIP(): continue
             if flow.resultData['detected_protocol_name'] in ['BitTorrent']: continue
-            if flow.resultData['host_server_name'] in ['NULL', 'gateway.icloud.com', 'one.one.one.one']:
+            if flow.resultData['host_server_name'] in ['NULL', 'gateway.icloud.com', 'one.one.one.one', 'dns.quad9.net', 'app-measurement.com', 'analytics.query.yahoo.com', 'ocsp2.apple.com', 'www.googletagmanager.com', 'www.google-analytics.com']:
                 continue
             data = json.dumps(flow.resultData).encode('utf-8')
             await rawQueue.put(data)
