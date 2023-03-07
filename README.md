@@ -3,9 +3,6 @@
 chmod 777 json_capture.sh
 ```
 
-```bash
-python3 main.py
-```
 
 ### background running  
 ```bash

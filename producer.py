@@ -50,6 +50,32 @@ async def crawl(rawQueue, durationQueue, paymentQueue):
             flow = activeFlow.pop(purgeFlow.getDigest())
             flow.insertPurgeData(purgeFlow.getFlowPurgeData())
 
+
+            for key, paymentChecker in list(paymentWatch.items()):
+                if paymentChecker.status != 'None':
+                    if localIPRecentGame[flow.getLocalIP()] is not None:
+                        paymentChecker.save(flow.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()))
+                        data = json.dumps(paymentChecker.getDataForSave(
+                            flow.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()))).encode('utf-8')
+                        print('payment in queue', data)
+
+                        await paymentQueue.put(data)
+                        await asyncio.sleep(0.05)
+
+                if paymentChecker.isTimeToWatchEnd():
+                    del paymentWatch[key]
+                    print('del paymentWatch', key)
+
+            for key, packetWatchdog in list(activeWatchDog.items()):
+                if packetWatchdog.isTimeToSave():
+                    # packetWatchdog.save()
+                    data = json.dumps(packetWatchdog.getDataForSave()).encode('utf-8')
+                    await durationQueue.put(data)
+                    await asyncio.sleep(0.05)
+                    print(f"saved {packetWatchdog.getDataForSave()}")
+                    del activeWatchDog[key]
+
+
             # Raw 데이터 처리
             if not flow.hasLocalIP(): continue
             if flow.resultData['detected_protocol_name'] in ['BitTorrent']: continue
@@ -80,30 +106,6 @@ async def crawl(rawQueue, durationQueue, paymentQueue):
                                                          flow.getGame(), flow.getGameCompany(),
                                                          flow.getBytes(), flow.getPackets())
             localIPRecentGame[flow.getLocalIP()] = flow.getGame()
-
-            for key, paymentChecker in list(paymentWatch.items()):
-                if paymentChecker.status != 'None':
-                    if localIPRecentGame[flow.getLocalIP()] is not None:
-                        paymentChecker.save(flow.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()))
-                        data = json.dumps(paymentChecker.getDataForSave(
-                            flow.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()))).encode('utf-8')
-                        print('payment in queue', data)
-
-                        await paymentQueue.put(data)
-                        await asyncio.sleep(0.05)
-
-                if paymentChecker.isTimeToWatchEnd():
-                    del paymentWatch[key]
-                    print('del paymentWatch', key)
-
-            for key, packetWatchdog in list(activeWatchDog.items()):
-                if packetWatchdog.isTimeToSave():
-                    # packetWatchdog.save()
-                    data = json.dumps(packetWatchdog.getDataForSave()).encode('utf-8')
-                    await durationQueue.put(data)
-                    await asyncio.sleep(0.05)
-                    print(f"saved {packetWatchdog.getDataForSave()}")
-                    del activeWatchDog[key]
 
 
 
