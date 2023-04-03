@@ -81,7 +81,8 @@ async def crawl(rawQueue, durationQueue, paymentQueue):
             if flow.resultData['host_server_name'] in ['NULL', 'gateway.icloud.com', 'one.one.one.one', 'dns.quad9.net', 'app-measurement.com', 'analytics.query.yahoo.com', 'ocsp2.apple.com', 'www.googletagmanager.com', 'www.google-analytics.com']:
                 continue
             data = json.dumps(flow.resultData).encode('utf-8')
-            await rawQueue.put(data)
+            # Raw 데이터 DB에 안 들어가고 싶다면 아래 주석 처리
+            # await rawQueue.put(data)
             # await paymentQueue.put(
             #     b'{"time": "2022-11-24 07:28:32.346", "server_ip": "146.56.145.179", "country": "South Korea", "local_ip": "10.0.0.5", "platform": "ios", "recentGame": "Roblox", "payment": "Trying", "host_name_server": "apis.roblox.com"}'
             # )
