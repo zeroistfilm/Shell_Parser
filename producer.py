@@ -14,7 +14,7 @@ def default_factory():
 
 
 async def crawl(rawQueue, durationQueue, paymentQueue):
-    # proc = subprocess.Popen(['./json_capture.sh'], stdout=subprocess.PIPE)
+    proc = subprocess.Popen(['./json_capture.sh'], stdout=subprocess.PIPE)
     # # 프로세스 실행 및 출력과 오류 캡처
     # proc = subprocess.Popen(
     #     ['./json_capture.sh'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
