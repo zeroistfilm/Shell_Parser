@@ -28,14 +28,6 @@ async def crawl(rawQueue, durationQueue, paymentQueue):
     else:
         print("프로세스 에러 발생 (종료 코드: {})".format(return_code))
         print("프로세스 오류:\n", stderr.decode('utf-8'))
-    # 에러 로그 기록
-    with open('error.log', 'w') as f:
-    try:
-        subprocess.check_call(['./json_capture.sh'], stderr=f)
-    except subprocess.CalledProcessError as e:
-        # handle subprocess error
-        print(e)
-        exit(1)
 
     serverInfo = ServerInfo().get_location()
     gameDB = GameDB()
