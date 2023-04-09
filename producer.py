@@ -14,7 +14,29 @@ def default_factory():
 
 
 async def crawl(rawQueue, durationQueue, paymentQueue):
-    proc = subprocess.Popen(['./json_capture.sh'], stdout=subprocess.PIPE)
+    # proc = subprocess.Popen(['./json_capture.sh'], stdout=subprocess.PIPE)
+    # 프로세스 실행 및 출력과 오류 캡처
+    proc = subprocess.Popen(
+        ['./json_capture.sh'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    # 프로세스의 출력 및 오류 얻기
+    stdout, stderr = proc.communicate()
+    # 프로세스의 종료 코드 얻기
+    return_code = proc.returncode
+    if return_code == 0:
+        print("프로세스 정상 종료")
+        print("프로세스 출력:\n", stdout.decode('utf-8'))
+    else:
+        print("프로세스 에러 발생 (종료 코드: {})".format(return_code))
+        print("프로세스 오류:\n", stderr.decode('utf-8'))
+    # 에러 로그 기록
+    with open('error.log', 'w') as f:
+    try:
+        subprocess.check_call(['./json_capture.sh'], stderr=f)
+    except subprocess.CalledProcessError as e:
+        # handle subprocess error
+        print(e)
+        exit(1)
+
     serverInfo = ServerInfo().get_location()
     gameDB = GameDB()
 
