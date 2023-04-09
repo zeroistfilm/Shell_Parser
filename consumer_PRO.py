@@ -67,9 +67,7 @@ async def main():
     messageQueue = asyncio.Queue()
     while True:
         try:
-            servers = [('Mareel_PRO_Raw', 'South-Korea_141.164.39.103_raw'),
-                       ('Mareel_PRO_Duration', 'South-Korea_141.164.39.103_duration'),
-                       ('Mareel_PRO_Raw', 'South-Korea_141.164.38.209_raw'),
+            servers = [('Mareel_PRO_Raw', 'South-Korea_141.164.38.209_raw'),
                        ('Mareel_PRO_Duration', 'South-Korea_141.164.38.209_duration')]
 
             await asyncio.gather(
