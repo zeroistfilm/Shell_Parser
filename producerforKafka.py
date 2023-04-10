@@ -7,12 +7,27 @@ import json
 from shellpaser import ServerInfo, GameDB, FlowLog, FlowPurgeLog, PacketWatchDog, PaymentChecker
 import traceback
 from collections import defaultdict
+import time
 
 
 def default_factory():
     return None
 
+class KillChecker:
+    def __init__(self):
+        self.lastInput = None
+        self.lastInputTime = None
 
+    def isKillCondition(self, data):
+        current_time = time.time()
+        print(self.lastInput, data, self.lastInputTime, current_time)
+        if self.lastInputTime is None:
+            self.lastInputTime = current_time
+        elif self.lastInput == data and current_time - self.lastInputTime >= 10:
+            return True
+        elif self.lastInput != data:
+            self.lastInput = data
+            self.lastInputTime = current_time
 async def crawl(rawQueue, durationQueue, paymentQueue):
     proc = subprocess.Popen(['./json_capture.sh'], stdout=subprocess.PIPE)
     # # 프로세스 실행 및 출력과 오류 캡처
@@ -36,104 +51,100 @@ async def crawl(rawQueue, durationQueue, paymentQueue):
     activeFlow = {}
     paymentWatch = {}
     localIPRecentGame = defaultdict(default_factory)
+    killchecker = KillChecker()
     while True:
+        # try:
+        print('crawl while live')
+        gameDB.updateGameDB()
+        line = proc.stdout.readline().decode('utf-8').strip()
+        if killchecker.isKillCondition(line):
+            print('kill condition')
+            raise Exception('Error NC')
+
+
         try:
-            gameDB.updateGameDB()
-            line = proc.stdout.readline().decode('utf-8').strip()
-
-            # 파싱되는 데이터 처리
-            try:
-                line = dict(json.loads(line))
-            except Exception as e:
-                continue
-
-            # Wg0에 flow인 데이터만 받음
-            flow = FlowLog(line, serverInfo['ip'], serverInfo['country'])
-            if flow.isWg0FlowFormat():
-                # print('flow', len(activeFlow))
-                flow.parseData()
-                flow.getGameInfo(gameDB)
-                flow.reformatTime()
-                activeFlow[flow.getDigest()] = flow
-
-            # 후속 데이터 병합 처리
-            purgeFlow = FlowPurgeLog(line)
-            if not purgeFlow.isWg0FlowPurgeFormat(): continue
-            purgeFlow.parseData()
-            if not purgeFlow.getDigest() in activeFlow: continue
-            flow = activeFlow.pop(purgeFlow.getDigest())
-            flow.insertPurgeData(purgeFlow.getFlowPurgeData())
-
-            for key, paymentChecker in list(paymentWatch.items()):
-                if paymentChecker.status != 'None':
-                    if localIPRecentGame[flow.getLocalIP()] is not None:
-                        paymentChecker.save(flow.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()))
-                        data = json.dumps(paymentChecker.getDataForSave(
-                            flow.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()))).encode('utf-8')
-                        print('payment in queue', data)
-
-                        await paymentQueue.put(data)
-                        await asyncio.sleep(0.05)
-
-                if paymentChecker.isTimeToWatchEnd():
-                    del paymentWatch[key]
-                    print('del paymentWatch', key)
-
-            for key, packetWatchdog in list(activeWatchDog.items()):
-                if packetWatchdog.isTimeToSave():
-                    # packetWatchdog.save()
-                    data = json.dumps(packetWatchdog.getDataForSave()).encode('utf-8')
-                    await durationQueue.put(data)
-                    await asyncio.sleep(0.05)
-                    print(f"saved {packetWatchdog.getDataForSave()}")
-                    del activeWatchDog[key]
-
-
-            # Raw 데이터 처리
-            if not flow.hasLocalIP(): continue
-            if flow.resultData['detected_protocol_name'] in ['BitTorrent']: continue
-            if flow.resultData['host_server_name'] in ['NULL', 'gateway.icloud.com', 'one.one.one.one', 'dns.quad9.net', 'app-measurement.com', 'analytics.query.yahoo.com', 'ocsp2.apple.com', 'www.googletagmanager.com', 'www.google-analytics.com']:
-                continue
-            data = json.dumps(flow.resultData).encode('utf-8')
-            # Raw 데이터 DB에 안 들어가고 싶다면 아래 주석 처리
-            # await rawQueue.put(data)
-            # await paymentQueue.put(
-            #     b'{"time": "2022-11-24 07:28:32.346", "server_ip": "146.56.145.179", "country": "South Korea", "local_ip": "10.0.0.5", "platform": "ios", "recentGame": "Roblox", "payment": "Trying", "host_name_server": "apis.roblox.com"}'
-            # )
-            await asyncio.sleep(0.05)
-
-            # Payment 데이터 처리
-            if flow.getLocalIP() not in paymentWatch:
-                paymentWatch[flow.getLocalIP()] = PaymentChecker(flow.getLocalIP())
-                paymentWatch[flow.getLocalIP()].setServerIp(serverInfo['ip'])
-                paymentWatch[flow.getLocalIP()].setCountry(serverInfo['country'])
-
-            paymentWatch[flow.getLocalIP()].pipe(flow.getHost_server_name())
-            paymentWatch[flow.getLocalIP()].setRecentGame(localIPRecentGame[flow.getLocalIP()])
-            print("Payment Watching...", flow.getLocalIP(), localIPRecentGame[flow.getLocalIP()],
-                  paymentWatch[flow.getLocalIP()].status, flow.getHost_server_name())
-
-
-            # Duration 데이터 처리
-            if flow.getWatchKey() == 'NULL': continue
-            if flow.getWatchKey() not in activeWatchDog:
-                activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(),
-                                                                    gameDB.getWatchTime(flow.getWatchKey()))
-
-            activeWatchDog[flow.getWatchKey()].addPacket(*flow.getHost_server_nameAndOther_ip(),
-                                                         datetime.datetime.now().timestamp(),
-                                                         flow.getGame(), flow.getGameCompany(),
-                                                         flow.getBytes(), flow.getPackets())
-            localIPRecentGame[flow.getLocalIP()] = flow.getGame()
-
-
-
-
-
+            line = dict(json.loads(line))
         except Exception as e:
-            trace_back = traceback.format_exc()
-            message = str(e) + "\n" + str(trace_back)
-            print("Crawl Error : ", message)
+            continue
+
+        # Wg0에 flow인 데이터만 받음
+        flow = FlowLog(line, serverInfo['ip'], serverInfo['country'])
+        if flow.isWg0FlowFormat():
+            # print('flow', len(activeFlow))
+            flow.parseData()
+            flow.getGameInfo(gameDB)
+            flow.reformatTime()
+            activeFlow[flow.getDigest()] = flow
+
+        # 후속 데이터 병합 처리
+        purgeFlow = FlowPurgeLog(line)
+        if not purgeFlow.isWg0FlowPurgeFormat(): continue
+        purgeFlow.parseData()
+        if not purgeFlow.getDigest() in activeFlow: continue
+        flow = activeFlow.pop(purgeFlow.getDigest())
+        flow.insertPurgeData(purgeFlow.getFlowPurgeData())
+
+        for key, paymentChecker in list(paymentWatch.items()):
+            if paymentChecker.status != 'None':
+                if localIPRecentGame[flow.getLocalIP()] is not None:
+                    paymentChecker.save(flow.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()))
+                    data = json.dumps(paymentChecker.getDataForSave(
+                        flow.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()))).encode('utf-8')
+                    print('payment in queue', data)
+
+                    await paymentQueue.put(data)
+                    await asyncio.sleep(0.05)
+
+            if paymentChecker.isTimeToWatchEnd():
+                del paymentWatch[key]
+                print('del paymentWatch', key)
+
+        for key, packetWatchdog in list(activeWatchDog.items()):
+            if packetWatchdog.isTimeToSave():
+                # packetWatchdog.save()
+                data = json.dumps(packetWatchdog.getDataForSave()).encode('utf-8')
+                await durationQueue.put(data)
+                await asyncio.sleep(0.05)
+                print(f"saved {packetWatchdog.getDataForSave()}")
+                del activeWatchDog[key]
+
+
+        # Raw 데이터 처리
+        if not flow.hasLocalIP(): continue
+        if flow.resultData['detected_protocol_name'] in ['BitTorrent']: continue
+        if flow.resultData['host_server_name'] in ['NULL', 'gateway.icloud.com', 'one.one.one.one', 'dns.quad9.net', 'app-measurement.com', 'analytics.query.yahoo.com', 'ocsp2.apple.com', 'www.googletagmanager.com', 'www.google-analytics.com']:
+            continue
+        data = json.dumps(flow.resultData).encode('utf-8')
+        # Raw 데이터 DB에 안 들어가고 싶다면 아래 주석 처리
+        # await rawQueue.put(data)
+        # await paymentQueue.put(
+        #     b'{"time": "2022-11-24 07:28:32.346", "server_ip": "146.56.145.179", "country": "South Korea", "local_ip": "10.0.0.5", "platform": "ios", "recentGame": "Roblox", "payment": "Trying", "host_name_server": "apis.roblox.com"}'
+        # )
+        await asyncio.sleep(0.05)
+
+        # Payment 데이터 처리
+        if flow.getLocalIP() not in paymentWatch:
+            paymentWatch[flow.getLocalIP()] = PaymentChecker(flow.getLocalIP())
+            paymentWatch[flow.getLocalIP()].setServerIp(serverInfo['ip'])
+            paymentWatch[flow.getLocalIP()].setCountry(serverInfo['country'])
+
+        paymentWatch[flow.getLocalIP()].pipe(flow.getHost_server_name())
+        paymentWatch[flow.getLocalIP()].setRecentGame(localIPRecentGame[flow.getLocalIP()])
+        print("Payment Watching...", flow.getLocalIP(), localIPRecentGame[flow.getLocalIP()],
+              paymentWatch[flow.getLocalIP()].status, flow.getHost_server_name())
+
+
+        # Duration 데이터 처리
+        if flow.getWatchKey() == 'NULL': continue
+        if flow.getWatchKey() not in activeWatchDog:
+            activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(),
+                                                                gameDB.getWatchTime(flow.getWatchKey()))
+
+        activeWatchDog[flow.getWatchKey()].addPacket(*flow.getHost_server_nameAndOther_ip(),
+                                                     datetime.datetime.now().timestamp(),
+                                                     flow.getGame(), flow.getGameCompany(),
+                                                     flow.getBytes(), flow.getPackets())
+        localIPRecentGame[flow.getLocalIP()] = flow.getGame()
 
 
 async def message_send(serverInfo, title, queue):
