@@ -97,6 +97,7 @@ async def crawl(rawQueue, durationQueue, paymentQueue):
                 continue
             data = json.dumps(flow.resultData).encode('utf-8')
             # Raw 데이터 DB에 안 들어가고 싶다면 아래 주석 처리
+            # print(data)
             # await rawQueue.put(data)
             await asyncio.sleep(0.05)
 
@@ -166,11 +167,15 @@ async def main():
     serverInfo = ServerInfo().get_location()
     while True:
         try:
-            await asyncio.gather(*[crawl(raw, duration, payment),
-                                   message_send(serverInfo, 'raw', raw),
-                                   message_send(serverInfo, 'duration', duration),
-                                   message_send(serverInfo, 'payment', payment)
-                                   ])
+            tasks =[crawl(raw, duration, payment),
+                   message_send(serverInfo, 'raw', raw),
+                   message_send(serverInfo, 'duration', duration),
+                   message_send(serverInfo, 'payment', payment)
+                   ]
+
+            done, pending = await asyncio.wait(tasks, return_when=asyncio.FIRST_EXCEPTION)
+
+
         except Exception as e:
             trace_back = traceback.format_exc()
             message = str(e) + "\n" + str(trace_back)

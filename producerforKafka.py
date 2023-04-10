@@ -170,11 +170,14 @@ async def main():
     serverInfo = ServerInfo().get_location()
     while True:
         try:
-            await asyncio.gather(*[crawl(raw, duration, payment),
-                                   message_send(serverInfo, 'raw', raw),
-                                   message_send(serverInfo, 'duration', duration),
-                                   message_send(serverInfo, 'payment', payment)
-                                   ])
+            tasks =[crawl(raw, duration, payment),
+                   message_send(serverInfo, 'raw', raw),
+                   message_send(serverInfo, 'duration', duration),
+                   message_send(serverInfo, 'payment', payment)
+                   ]
+
+            done, pending = await asyncio.wait(tasks, return_when=asyncio.FIRST_EXCEPTION)
+
         except Exception as e:
             trace_back = traceback.format_exc()
             message = str(e) + "\n" + str(trace_back)
