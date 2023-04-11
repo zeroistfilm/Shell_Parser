@@ -242,8 +242,12 @@ class ServerInfo:
 
 
     def get_ip(self):
-        response = requests.get('https://api.ipify.org?format=json').json()
-        return response["ip"]
+        #response = requests.get('https://api.ipify.org?format=json').json()
+        command = "dig +short txt ch whoami.cloudflare @1.0.0.1"
+        result = os.popen(command).read()
+        return result.strip().replace('"','')
+
+        #return response["ip"]
 
     def get_location(self):
         # while True:

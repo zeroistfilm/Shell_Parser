@@ -1,15 +1,16 @@
 import asyncio
 import random
-
 import aiokafka
 import datetime
 import os
 import subprocess
-import json
 from shellpaser import ServerInfo, GameDB, FlowLog, FlowPurgeLog, PacketWatchDog, PaymentChecker
 import traceback
 from collections import defaultdict
 import time
+
+import socket
+import json
 
 def default_factory():
     return None
@@ -21,10 +22,11 @@ class KillChecker:
 
     def isKillCondition(self, data):
         current_time = time.time()
-        print(self.lastInput, data, self.lastInputTime, current_time)
+        # print(self.lastInput, data, self.lastInputTime, current_time)
         if self.lastInputTime is None:
             self.lastInputTime = current_time
         elif self.lastInput == data and current_time - self.lastInputTime >= 10:
+            print('no data with 10sec')
             try:
                 process_name = 'sudo nc -U /var/run/netifyd/netifyd.sock'
                 # ps -ef 명령어 실행
@@ -32,7 +34,9 @@ class KillChecker:
                 # 결과 파싱하여 특정 프로세스(process_name)가 있는지 확인
                 for line in result.stdout.splitlines():
                     if process_name in line:
+                        print('nc found')
                         return False
+                print('nc not found')
                 return True
             except Exception as e:
                 print(f"Error: {e}")
@@ -44,109 +48,116 @@ class KillChecker:
             self.lastInputTime = current_time
 
 
-
+async def async_socket_reader(sock_file_path):
+    reader, writer = await asyncio.open_unix_connection(sock_file_path)
+    return reader
 
 async def crawl(rawQueue, durationQueue, paymentQueue):
-    proc = subprocess.Popen(['./json_capture.sh'], stdout=subprocess.PIPE)
+    # proc = subprocess.Popen(['./json_capture.sh'], stdout=subprocess.PIPE)
+    print('start crawl')
     serverInfo = ServerInfo().get_location()
     gameDB = GameDB()
-
     activeWatchDog = {}
     activeFlow = {}
     paymentWatch = {}
     localIPRecentGame = defaultdict(default_factory)
     killchecker = KillChecker()
+
+    sock_file_path = '/var/run/netifyd/netifyd.sock'
+
+    reader = await async_socket_reader(sock_file_path)
+
     while True:
-        # try:
-        print('crawl while live')
         gameDB.updateGameDB()
-        line = proc.stdout.readline().decode('utf-8').strip()
-        if killchecker.isKillCondition(line):
-            print('kill condition')
-            raise Exception('Error NC')
-        try:
-            line = dict(json.loads(line))
+        data = await reader.read(10000000)
+        if not data:
+            break
+        decoded_string = data.decode('utf-8')
+        split_strings = decoded_string.split('\n')
 
-        except Exception as e:
-            print(e)
-            continue
+        for string in split_strings:
+            try:
+                line = dict(json.loads(string))
+            except Exception as e:
+                continue
 
-        # Wg0에 flow인 데이터만 받음
-        flow = FlowLog(line, serverInfo['ip'], serverInfo['country'])
-        if flow.isWg0FlowFormat():
-            # print('flow', len(activeFlow))
-            flow.parseData()
-            flow.getGameInfo(gameDB)
-            flow.reformatTime()
-            activeFlow[flow.getDigest()] = flow
+            #print(line)
+            # Wg0에 flow인 데이터만 받음
+            flow = FlowLog(line, serverInfo['ip'], serverInfo['country'])
+            if flow.isWg0FlowFormat():
+                # print('flow', len(activeFlow))
+                flow.parseData()
+                flow.getGameInfo(gameDB)
+                flow.reformatTime()
+                activeFlow[flow.getDigest()] = flow
 
-        # 후속 데이터 병합 처리
-        purgeFlow = FlowPurgeLog(line)
-        if not purgeFlow.isWg0FlowPurgeFormat(): continue
-        purgeFlow.parseData()
-        if not purgeFlow.getDigest() in activeFlow: continue
-        flow = activeFlow.pop(purgeFlow.getDigest())
-        flow.insertPurgeData(purgeFlow.getFlowPurgeData())
+            # 후속 데이터 병합 처리
+            purgeFlow = FlowPurgeLog(line)
+            if not purgeFlow.isWg0FlowPurgeFormat(): continue
+            purgeFlow.parseData()
+            if not purgeFlow.getDigest() in activeFlow: continue
+            flow = activeFlow.pop(purgeFlow.getDigest())
+            flow.insertPurgeData(purgeFlow.getFlowPurgeData())
 
 
-        for key, paymentChecker in list(paymentWatch.items()):
-            if paymentChecker.status != 'None':
-                if localIPRecentGame[flow.getLocalIP()] is not None:
-                    paymentChecker.save(flow.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()))
-                    data = json.dumps(paymentChecker.getDataForSave(
-                        flow.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()))).encode('utf-8')
-                    print('payment in queue', data)
+            for key, paymentChecker in list(paymentWatch.items()):
+                if paymentChecker.status != 'None':
+                    if localIPRecentGame[flow.getLocalIP()] is not None:
+                        paymentChecker.save(flow.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()))
+                        data = json.dumps(paymentChecker.getDataForSave(
+                            flow.getTimeKSTFromTimeStamp(datetime.datetime.now().timestamp()))).encode('utf-8')
+                        print('payment in queue', data)
 
-                    await paymentQueue.put(data)
+                        await paymentQueue.put(data)
+                        await asyncio.sleep(0.05)
+
+                if paymentChecker.isTimeToWatchEnd():
+                    del paymentWatch[key]
+                    print('del paymentWatch', key)
+
+            for key, packetWatchdog in list(activeWatchDog.items()):
+                if packetWatchdog.isTimeToSave():
+                    # packetWatchdog.save()
+                    data = json.dumps(packetWatchdog.getDataForSave()).encode('utf-8')
+                    await durationQueue.put(data)
                     await asyncio.sleep(0.05)
-
-            if paymentChecker.isTimeToWatchEnd():
-                del paymentWatch[key]
-                print('del paymentWatch', key)
-
-        for key, packetWatchdog in list(activeWatchDog.items()):
-            if packetWatchdog.isTimeToSave():
-                # packetWatchdog.save()
-                data = json.dumps(packetWatchdog.getDataForSave()).encode('utf-8')
-                await durationQueue.put(data)
-                await asyncio.sleep(0.05)
-                print(f"saved {packetWatchdog.getDataForSave()}")
-                del activeWatchDog[key]
+                    print(f"saved {packetWatchdog.getDataForSave()}")
+                    del activeWatchDog[key]
 
 
-        # Raw 데이터 처리
-        if not flow.hasLocalIP(): continue
-        if flow.resultData['detected_protocol_name'] in ['BitTorrent']: continue
-        if flow.resultData['host_server_name'] in ['NULL', 'gateway.icloud.com', 'one.one.one.one', 'dns.quad9.net', 'app-measurement.com', 'analytics.query.yahoo.com', 'ocsp2.apple.com', 'www.googletagmanager.com', 'www.google-analytics.com']:
-            continue
-        data = json.dumps(flow.resultData).encode('utf-8')
-        # Raw 데이터 DB에 안 들어가고 싶다면 아래 주석 처리
-        # print(data)
-        # await rawQueue.put(data)
-        await asyncio.sleep(0.05)
+            # Raw 데이터 처리
+            if not flow.hasLocalIP(): continue
+            if flow.resultData['detected_protocol_name'] in ['BitTorrent']: continue
+            if flow.resultData['host_server_name'] in ['NULL', 'gateway.icloud.com', 'one.one.one.one', 'dns.quad9.net', 'app-measurement.com', 'analytics.query.yahoo.com', 'ocsp2.apple.com', 'www.googletagmanager.com', 'www.google-analytics.com']:
+                continue
+            data = json.dumps(flow.resultData).encode('utf-8')
+            # Raw 데이터 DB에 안 들어가고 싶다면 아래 주석 처리
+            # print(data)
+            # await rawQueue.put(data)
+            # await asyncio.sleep(0.05)
 
-        # Payment 데이터 처리
-        if flow.getLocalIP() not in paymentWatch:
-            paymentWatch[flow.getLocalIP()] = PaymentChecker(flow.getLocalIP())
-            paymentWatch[flow.getLocalIP()].setServerIp(serverInfo['ip'])
-            paymentWatch[flow.getLocalIP()].setCountry(serverInfo['country'])
+            # Payment 데이터 처리
+            if flow.getLocalIP() not in paymentWatch:
+                paymentWatch[flow.getLocalIP()] = PaymentChecker(flow.getLocalIP())
+                paymentWatch[flow.getLocalIP()].setServerIp(serverInfo['ip'])
+                paymentWatch[flow.getLocalIP()].setCountry(serverInfo['country'])
 
-        paymentWatch[flow.getLocalIP()].pipe(flow.getHost_server_name())
-        paymentWatch[flow.getLocalIP()].setRecentGame(localIPRecentGame[flow.getLocalIP()])
-        print("Payment Watching...", flow.getLocalIP(), localIPRecentGame[flow.getLocalIP()],
-              paymentWatch[flow.getLocalIP()].status, flow.getHost_server_name())
+            paymentWatch[flow.getLocalIP()].pipe(flow.getHost_server_name())
+            paymentWatch[flow.getLocalIP()].setRecentGame(localIPRecentGame[flow.getLocalIP()])
+            print("Payment Watching...", flow.getLocalIP(), localIPRecentGame[flow.getLocalIP()],
+                  paymentWatch[flow.getLocalIP()].status, flow.getHost_server_name())
 
-        # Duration 데이터 처리
-        if flow.getWatchKey() == 'NULL': continue
-        if flow.getWatchKey() not in activeWatchDog:
-            activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(),
-                                                                gameDB.getWatchTime(flow.getWatchKey()))
+            # Duration 데이터 처리
+            if flow.getWatchKey() == 'NULL': continue
+            if flow.getWatchKey() not in activeWatchDog:
+                activeWatchDog[flow.getWatchKey()] = PacketWatchDog(flow.getLocalIP(),
+                                                                    gameDB.getWatchTime(flow.getWatchKey()))
 
-        activeWatchDog[flow.getWatchKey()].addPacket(*flow.getHost_server_nameAndOther_ip(),
-                                                     datetime.datetime.now().timestamp(),
-                                                     flow.getGame(), flow.getGameCompany(),
-                                                     flow.getBytes(), flow.getPackets())
-        localIPRecentGame[flow.getLocalIP()] = flow.getGame()
+            activeWatchDog[flow.getWatchKey()].addPacket(*flow.getHost_server_nameAndOther_ip(),
+                                                         datetime.datetime.now().timestamp(),
+                                                         flow.getGame(), flow.getGameCompany(),
+                                                         flow.getBytes(), flow.getPackets())
+            localIPRecentGame[flow.getLocalIP()] = flow.getGame()
 
 
 
@@ -159,11 +170,16 @@ async def crawl(rawQueue, durationQueue, paymentQueue):
 
 
 async def message_send(serverInfo, title, queue):
+    if serverInfo['ip'] == '146.56.42.103':
+        kafkaIp = '127.0.0.1'
+    else:
+        kafkaIp = '146.56.42.103'
+    print(kafkaIp)
     while True:
         producer = aiokafka.AIOKafkaProducer(
-            bootstrap_servers=['146.56.42.103:29092',
-                               '146.56.42.103:29093',
-                               '146.56.42.103:29094'
+            bootstrap_servers=[f'{kafkaIp}:29092',
+                               f'{kafkaIp}:29093',
+                               f'{kafkaIp}:29094'
                                ], acks=1)
         # producer = aiokafka.AIOKafkaProducer(bootstrap_servers='3.34.72.6:29092', acks=0)
         print(f"{title} producer start")
@@ -190,6 +206,7 @@ async def main():
     duration = asyncio.Queue()
     payment = asyncio.Queue()
     serverInfo = ServerInfo().get_location()
+
     while True:
         try:
             tasks =[crawl(raw, duration, payment),
