@@ -242,6 +242,7 @@ class ServerInfo:
 
     def get_ip(self):
         response = requests.get('https://1.1.1.1/cdn-cgi/trace').text.split('\n')
+        print(response)
         for i in response:
             if 'ip=' in i:
                 return i.split('=')[1]
