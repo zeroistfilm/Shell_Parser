@@ -24,10 +24,24 @@ class KillChecker:
         if self.lastInputTime is None:
             self.lastInputTime = current_time
         elif self.lastInput == data and current_time - self.lastInputTime >= 10:
-            return True
+            try:
+                process_name = 'sudo nc -U /var/run/netifyd/netifyd.sock'
+                # ps -ef 명령어 실행
+                result = subprocess.run(['ps', '-ef'], stdout=subprocess.PIPE, text=True)
+                # 결과 파싱하여 특정 프로세스(process_name)가 있는지 확인
+                for line in result.stdout.splitlines():
+                    if process_name in line:
+                        return False
+                return True
+            except Exception as e:
+                print(f"Error: {e}")
+                return True
+
+
         elif self.lastInput != data:
             self.lastInput = data
             self.lastInputTime = current_time
+
 async def crawl(rawQueue, durationQueue, paymentQueue):
     proc = subprocess.Popen(['./json_capture.sh'], stdout=subprocess.PIPE)
     # # 프로세스 실행 및 출력과 오류 캡처
