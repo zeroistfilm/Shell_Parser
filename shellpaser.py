@@ -229,7 +229,7 @@ class ServerInfo:
             '129.158.221.8': {'ip': '129.158.221.8', 'country': 'United States'},
 
             # 마릴 VPN
-            '52.29.224.219': {'ip': '52.29.224.219', 'country': 'Germany'},
+            '3.76.232.159': {'ip': '3.76.232.159', 'country': 'Germany'},
             '140.238.35.212': {'ip': '140.238.35.212', 'country': 'Japan'},
             '152.67.209.146': {'ip': '152.67.209.146', 'country': 'South Korea'},
             '129.159.126.80': {'ip': '129.159.126.80', 'country': 'United States'},
