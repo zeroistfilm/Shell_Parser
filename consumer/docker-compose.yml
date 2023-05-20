@@ -1,0 +1,7 @@
+version: '3.3'
+
+services:
+  cunsumer:
+    image:
+      zeroistfilm/gambit-consumer:0.1
+

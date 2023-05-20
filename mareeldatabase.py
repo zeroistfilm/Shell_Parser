@@ -18,9 +18,13 @@ Base = declarative_base()
 
 
 class mareelDB():
-    def __init__(self):
+    def __init__(self, useLocalDB=False):
 
-        self.DATABASES = create_engine(remoteDBHost)
+        if useLocalDB:
+            self.DATABASES = create_engine(localDBHost)
+        else:
+            self.DATABASES = create_engine(remoteDBHost)
+
         self.Base = declarative_base()
         self.Base.metadata.create_all(self.DATABASES)
         self.Session = sessionmaker()
