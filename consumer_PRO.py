@@ -9,9 +9,9 @@ from mareeldatabase import createRawTable, createDurationTable, mareelDB, create
 async def consume(service, topic, queue):
     while True:
         consumer = aiokafka.AIOKafkaConsumer(topic,
-                                             bootstrap_servers=['127.0.0.1:29092',
-                                                                '127.0.0.1:29093',
-                                                                '127.0.0.1:29094'])
+                                             bootstrap_servers=['146.56.42.103:29092',
+                                                                '146.56.42.103:29093',
+                                                                '146.56.42.103:29094'])
 
         if service.split('_')[-1] == 'Raw':
             table = createRawTable(service)
