@@ -3,5 +3,5 @@ version: '3.3'
 services:
   consumer:
     image:
-      zeroistfilm/gambit-consumer:0.1
+      zeroistfilm/gambit-consumer:latest
 
