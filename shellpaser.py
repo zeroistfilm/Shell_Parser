@@ -208,6 +208,7 @@ class ServerInfo:
         140.238.43.61: Japan
         144.24.119.251: India
         129.158.221.8: United States
+        158.180.67.36: South Korea
 
         마릴 VPN
         45.77.65.232: Germany
@@ -215,6 +216,7 @@ class ServerInfo:
         152.67.209.146: South Korea
         129.159.126.80: United States (East)
         54.200.124.241: United States (West)
+        193.122.121.185: South Korea
 
 
         마릴 GO 테스트 서버
@@ -227,6 +229,7 @@ class ServerInfo:
             '140.238.43.61': {'ip': '140.238.43.61', 'country': 'Japan'},
             '144.24.119.251': {'ip': '144.24.119.251', 'country': 'India'},
             '129.158.221.8': {'ip': '129.158.221.8', 'country': 'United States'},
+            '158.180.67.36': {'ip': '158.180.67.36', 'country': 'South Korea'},
 
             # 마릴 VPN
             '129.154.233.34': {'ip': '129.154.233.34', 'country': 'India'},
@@ -235,6 +238,7 @@ class ServerInfo:
             '152.67.209.146': {'ip': '152.67.209.146', 'country': 'South Korea'},
             '129.159.126.80': {'ip': '129.159.126.80', 'country': 'United States'},
             '54.200.124.241': {'ip': '54.200.124.241', 'country': 'United States'},
+            '193.122.121.185': {'ip': '193.122.121.185', 'country': 'South Korea'},
 
             # 마릴 GO 테스트 서버
             '141.147.190.169': {'ip': '141.147.190.169', 'country': 'Japan'},
