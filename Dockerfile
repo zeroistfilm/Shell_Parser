@@ -6,4 +6,4 @@ RUN pip3 install aiokafka sqlalchemy mysqlclient
 
 COPY . .
 
-CMD ["python3", "consumer_GO.py"]
+CMD ["python3", "consumer.py"]
