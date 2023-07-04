@@ -132,9 +132,9 @@ async def crawl(rawQueue, durationQueue, paymentQueue):
                     continue
                 data = json.dumps(flow.resultData).encode('utf-8')
                 # Raw 데이터 DB에 안 들어가고 싶다면 아래 주석 처리
-                # print(data)
-                # await rawQueue.put(data)
-                # await asyncio.sleep(0.05)
+                print(data)
+                await rawQueue.put(data)
+                await asyncio.sleep(0.05)
 
                 # Payment 데이터 처리
                 if flow.getLocalIP() not in paymentWatch:
