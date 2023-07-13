@@ -236,11 +236,10 @@
 30,Riot games, League of Legends: Wild Rift, *.wr.pvp.net, NULL
 30,Riot games, League of Legends: Wild Rift, astat.bugly.cros.wr.pvp.net, 170.106.135.32
 30,Riot games, League of Legends: Wild Rift, cloudctrl.cros.wr.pvp.net, 49.51.177.11
-30,Riot games, League of Legends: Wild Rift, msdk.cros.wr.pvp.net, 150.109.27.46
 30,Riot games, League of Legends: Wild Rift, geoconfig.wr.pvp.net, 104.18.40.5
+30,Riot games, League of Legends: Wild Rift, kr.vg.ac.pvp.net, 104.18.10.21
 30,Riot games, League of Legends: Wild Rift, lgame-alpha-1300955520.file.myqcloud.com, 211.152.132.56, 211.152.132.85, 211.152.132.26, 211.152.132.109
-30,Riot games, League of Legends: Wild Rift, lolstatic-a.akamaihd.net, 23.216.159.98
-30,Riot games, League of Legends: Wild Rift, lol.secure.dyn.riotcdn.net, 8.255.193.252
+30,Riot games, League of Legends: Wild Rift, msdk.cros.wr.pvp.net, 150.109.27.46
 30,Riot games, League of Legends: Wild Rift, tdm.prod01.row.cros.wr.pvp.net, 49.51.65.64, 49.51.185.200
 30,Riot games, League of Legends: Wild Rift, tgpa.prod1.row.cros.wr.pvp.net, 101.32.106.191
 30,Riot games, League of Legends: Wild Rift, wildrift.secure.dyn.riotcdn.net, 8.255.192.124
@@ -330,7 +329,10 @@
 30,Nexon, FIFA ONLINE 4 M, fo4news.dn.nexoncdn.co.kr, 183.110.66.34
 30,Nexon, FIFA ONLINE 4 M, fo4news.nexon.com, 183.110.1.209
 30,Nexon, FIFA ONLINE 4 M, fo4-log.nexon.com, 183.110.1.199
+30,Nexon, FIFA ONLINE 4 M, fo4-push.nexon.com, 183.110.1.195
 30,Nexon, FIFA ONLINE 4 M, fo4-staticdata.nexon.com, 183.110.1.200
+30,Nexon, FIFA ONLINE 4 M, mcd-fo4-yourfield.s3.ap-northeast-2.amazonaws.com, 52.219.58.79
+30,Nexon, FIFA ONLINE 4 M, yourfield.nexon.com, 3.37.85.151
 
 # FIFA Mobile
 30,Nexon, FIFA Mobile, fmk-*, NULL
@@ -820,11 +822,38 @@
 30,HAEGIN Co., Ltd., Super Baseball League, maintenance.superbaseballleague.haegin.co.kr, 34.217.248.163
 
 # Free Fire
-30, Garena, Free Fire, *.garena.com, NULL
-30, Garena, Free Fire, *.garenanow.com, NULL
-30, Garena, Free Fire, *.freefiremobile.com, NULL
-30, Garena, Free Fire, 100067.connect.garena.com, NULL
-30, Garena, Free Fire, connect.garenanow.com, NULL
-30, Garena, Free Fire, dl.dir.freefiremobile.com, 23.216.159.136
-30, Garena, Free Fire, freefiremobile-a.akamaihd.net, 23.216.159.122
-30, Garena, Free Fire, tw.event.freefiremobile.com, 124.108.140.177
+30,Garena, Free Fire, *.garena.com, NULL
+30,Garena, Free Fire, *.garenanow.com, NULL
+30,Garena, Free Fire, *.freefiremobile.com, NULL
+30,Garena, Free Fire, 100067.connect.garena.com, NULL
+30,Garena, Free Fire, connect.garenanow.com, NULL
+30,Garena, Free Fire, dl.dir.freefiremobile.com, 23.216.159.136
+30,Garena, Free Fire, freefiremobile-a.akamaihd.net, 23.216.159.122
+30,Garena, Free Fire, tw.event.freefiremobile.com, 124.108.140.177
+
+# Harry Potter: Magic Awakened
+30,NetEase Games, Harry Potter: Magic Awakened, *.harrypottermagicawakened.com, NULL
+30,NetEase Games, Harry Potter: Magic Awakened, intl.harrypottermagicawakened.com, 18.67.51.81
+
+# Cookie Run: OvenBreak
+30,Devsisters, Cookie Run: OvenBreak, cookierun-v10.devsgb.com, 99.83.194.194
+
+# Roll Roll: Dice Heroes
+30,111%, Roll Roll: Dice Heroes, gb-rd-rr.111percent.net, 34.120.223.143
+30,111%, Roll Roll: Dice Heroes, rd-chess-bucket.s3.ap-northeast-2.amazonaws.com, 52.219.148.90, 52.219.204.2
+
+# Train Station 2: Railroad Game
+30,Pixel Federation Games, Train Station 2: Railroad Game, *.trainstation2.com, NULL
+30,Pixel Federation Games, Train Station 2: Railroad Game, cdn.trainstation2.com, 104.18.141.82, 104.18.227.49
+30,Pixel Federation Games, Train Station 2: Railroad Game, game.trainstation2.com, 104.18.227.49
+
+# TFT: Teamfight Tactics
+30,Riot games, TFT: Teamfight Tactics, kr-red.lol.sgp.pvp.net, 104.18.31.103
+
+# Nova: Space Armada
+30,STONE3 PTE. LTD., Nova: Space Armada, *.novaempiregame.xyz, NULL
+30,STONE3 PTE. LTD., Nova: Space Armada, v2cdn.novaempiregame.xyz, 104.18.15.151
+
+# NBA 2K Mobile Basketball Game
+30,2K, Inc., NBA 2K Mobile Basketball Game, bobcatsplashproduction.cdgsrv.com, 51.143.60.118
+30,2K, Inc., NBA 2K Mobile Basketball Game, catdaddydlc.blob.core.windows.net, 52.239.228.100
