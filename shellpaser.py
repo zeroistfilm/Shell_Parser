@@ -212,7 +212,7 @@ class ServerInfo:
 
         마릴 VPN
         45.77.65.232: Germany
-        140.238.35.212: Japan
+        132.145.127.21: Japan
         152.67.209.146: South Korea
         129.159.126.80: United States (East)
         54.200.124.241: United States (West)
@@ -234,7 +234,7 @@ class ServerInfo:
             # 마릴 VPN
             '129.154.233.34': {'ip': '129.154.233.34', 'country': 'India'},
             '45.77.65.232': {'ip': '45.77.65.232', 'country': 'Germany'},
-            '140.238.35.212': {'ip': '140.238.35.212', 'country': 'Japan'},
+            '132.145.127.21': {'ip': '132.145.127.21', 'country': 'Japan'},
             '152.67.209.146': {'ip': '152.67.209.146', 'country': 'South Korea'},
             '129.159.126.80': {'ip': '129.159.126.80', 'country': 'United States'},
             '54.200.124.241': {'ip': '54.200.124.241', 'country': 'United States'},
