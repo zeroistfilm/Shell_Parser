@@ -277,22 +277,10 @@
 
 # Genshin Impact
 30,miHoYo, Genshin Impact, *.yuanshen.com, NULL
-30,miHoYo, Genshin Impact, *.hoyoverse.com, NULL
 30,miHoYo, Genshin Impact, autopatchhk.yuanshen.com, 34.149.5.86
 30,miHoYo, Genshin Impact, dispatchosglobal.yuanshen.com, 172.65.240.113
-30,miHoYo, Genshin Impact, hk4e-sdk-os.hoyoverse.com, 54.230.167.26, 54.230.167.116
-30,miHoYo, Genshin Impact, hk4e-sdk-os-static.hoyoverse.com, 163.181.22.225
-30,miHoYo, Genshin Impact, hk4e-sdk-os-static.hoyoverse.com.w.kunlunsl.com, 163.181.22.225
-30,miHoYo, Genshin Impact, log-upload-os.hoyoverse.com, 54.230.167.27, 13.225.121.53, 54.230.167.11, 54.230.167.125, 54.230.167.2, 8.217.23.31
-30,miHoYo, Genshin Impact, minor-api-os.hoyoverse.com, 47.242.34.135
 30,miHoYo, Genshin Impact, osusadispatch.yuanshen.com, 104.18.11.16, 104.18.10.16
 30,miHoYo, Genshin Impact, overseauspider.yuanshen.com, 8.210.121.40, 8.210.157.236, 8.217.23.31, 8.210.108.147
-30,miHoYo, Genshin Impact, sdk.hoyoverse.com, 13.225.112.79, 13.225.112.18
-30,miHoYo, Genshin Impact, sdk-os-static.hoyoverse.com, 47.246.29.180
-30,miHoYo, Genshin Impact, sdk-os-static.hoyoverse.com.a.lahuashanbx.com, 47.246.29.180
-30,miHoYo, Genshin Impact, sg-hk4e-api.hoyoverse.com, 54.192.175.75, 54.192.175.24, 54.230.61.13
-30,miHoYo, Genshin Impact, sg-hk4e-api-static.hoyoverse.com, 54.192.175.118, 54.192.175.60
-30,miHoYo, Genshin Impact, webstatic.hoyoverse.com, 54.230.61.56, 54.230.61.66
 
 # Cover Fire
 30,VIVA STUDIOS, Cover Fire, coverfire.s3.dualstack.us-east-1.amazonaws.com, 52.217.92.216, 52.217.229.146, 52.216.146.198, 52.217.106.192, 52.217.193.194
@@ -869,3 +857,31 @@
 30,Pearl Abyss, Black Desert Mobile, forum.blackdesertm.com, 45.223.22.30
 30,Pearl Abyss, Black Desert Mobile, game.blackdesertm.com, 45.223.22.30
 30,Pearl Abyss, Black Desert Mobile, s1.blackdesertm.com, 18.64.8.50, 18.64.8.69
+
+# Candy Crush Saga
+30,King, Candy Crush Saga, king-candycrush-prod.secure2.footprint.net, 8.255.33.12, 8.255.34.140, 8.255.55.140
+30,King, Candy Crush Saga, mobilecrush.king.com, 185.48.81.27
+
+# Honkai: Star Rail
+30,miHoYo, Honkai: Star Rail, *.starrails.com, NULL
+30,miHoYo, Honkai: Star Rail, autopatchos.starrails.com, 14.0.112.19
+30,miHoYo, Honkai: Star Rail, globaldp-prod-os01.starrails.com, 104.18.5.231
+30,miHoYo, Honkai: Star Rail, globaldp-prod-os02.starrails.com, NULL
+30,miHoYo, Honkai: Star Rail, prod-official-asia-dp01.starrails.com, NULL
+
+# My Healing Town: Happy Together
+30,Entrepreneur Game, My Healing Town: Happy Together, *.homeland.acngames.com, NULL
+30,Entrepreneur Game, My Healing Town: Happy Together, cdn-kr.homeland.acngames.com, 163.181.22.214
+30,Entrepreneur Game, My Healing Town: Happy Together, open-kr.homeland.acngames.com, 8.213.129.186
+30,Entrepreneur Game, My Healing Town: Happy Together, kr.homeland.acngames.com, 8.213.131.235
+30,Entrepreneur Game, My Healing Town: Happy Together, s1002-kr.homeland.acngames.com, 8.213.134.99
+30,Entrepreneur Game, My Healing Town: Happy Together, www.homeland.com, 198.185.159.144, 198.185.159.145
+
+# Ace Fishing Crew
+30,Com2uS, Ace Fishing Crew, crew-fn.qpyou.cn, 23.59.72.24
+30,Com2uS, Ace Fishing Crew, fcrewgb.qpyou.cn, 34.149.19.75
+
+# Uma Musume Pretty Derby
+30,Kakao Games, Uma Musume Pretty Derby, *.umms.kakaogames.com, NULL
+30,Kakao Games, Uma Musume Pretty Derby, patch.umms.kakaogames.com, 101.79.243.130, 211.47.28.26
+30,Kakao Games, Uma Musume Pretty Derby, api.umms.kakaogames.com, 13.209.243.115, 15.165.57.118
