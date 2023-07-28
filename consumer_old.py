@@ -50,8 +50,8 @@ async def main():
 
                ('Mareel_GO_Raw', 'India_144.24.119.251_raw'),
                ('Mareel_GO_Duration', 'India_144.24.119.251_duration'),
-               ('Mareel_GO_Raw', 'Japan_140.238.43.61_raw'),
-               ('Mareel_GO_Duration', 'Japan_140.238.43.61_duration'),
+               ('Mareel_GO_Raw', 'Japan_54.95.222.100_raw'),
+               ('Mareel_GO_Duration', 'Japan_54.95.222.100_duration'),
                ('Mareel_GO_Raw', 'South-Korea_146.56.42.103_raw'),
                ('Mareel_GO_Duration', 'South-Korea_146.56.42.103_duration'),
                ('Mareel_GO_Raw', 'United-States_129.158.221.8_raw'),

@@ -87,9 +87,9 @@ async def main():
                 ('Mareel_GO_Duration', 'India_144.24.119.251_duration'),
                 ('Mareel_GO_Payment', 'India_144.24.119.251_payment'),
 
-                ('Mareel_GO_Raw', 'Japan_140.238.43.61_raw'),
-                ('Mareel_GO_Duration', 'Japan_140.238.43.61_duration'),
-                ('Mareel_GO_Payment', 'Japan_140.238.43.61_payment'),
+                ('Mareel_GO_Raw', 'Japan_54.95.222.100_raw'),
+                ('Mareel_GO_Duration', 'Japan_54.95.222.100_duration'),
+                ('Mareel_GO_Payment', 'Japan_54.95.222.100_payment'),
 
                 ('Mareel_GO_Raw', 'South-Korea_146.56.42.103_raw'),
                 ('Mareel_GO_Duration', 'South-Korea_146.56.42.103_duration'),
@@ -112,8 +112,8 @@ async def main():
                 ('Mareel_VPN_Duration', 'India_129.154.233.34_duration'),
                 ('Mareel_VPN_Raw', 'Germany_45.77.65.232_raw'),
                 ('Mareel_VPN_Duration', 'Germany_45.77.65.232_duration'),
-                ('Mareel_VPN_Raw', 'Japan_132.145.127.21_raw'),
-                ('Mareel_VPN_Duration', 'Japan_132.145.127.21_duration'),
+                ('Mareel_VPN_Raw', 'Japan_108.61.182.243_raw'),
+                ('Mareel_VPN_Duration', 'Japan_108.61.182.243_duration'),
                 ('Mareel_VPN_Raw', 'South-Korea_152.67.209.146_raw'),
                 ('Mareel_VPN_Duration', 'South-Korea_152.67.209.146_duration'),
 

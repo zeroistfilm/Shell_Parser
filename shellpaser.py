@@ -205,14 +205,14 @@ class ServerInfo:
     def __init__(self):
         '''
         146.56.42.103: South Korea
-        140.238.43.61: Japan
+        54.95.222.100: Japan
         144.24.119.251: India
         129.158.221.8: United States
         158.180.67.36: South Korea
 
         마릴 VPN
         45.77.65.232: Germany
-        132.145.127.21: Japan
+        108.61.182.243: Japan
         152.67.209.146: South Korea
         129.159.126.80: United States (East)
         54.200.124.241: United States (West)
@@ -226,7 +226,7 @@ class ServerInfo:
         self.location_dict = {  # 마릴 GO
 
             '146.56.42.103': {'ip': '146.56.42.103', 'country': 'South Korea'},
-            '140.238.43.61': {'ip': '140.238.43.61', 'country': 'Japan'},
+            '54.95.222.100': {'ip': '54.95.222.100', 'country': 'Japan'},
             '144.24.119.251': {'ip': '144.24.119.251', 'country': 'India'},
             '129.158.221.8': {'ip': '129.158.221.8', 'country': 'United States'},
             '158.180.67.36': {'ip': '158.180.67.36', 'country': 'South Korea'},
@@ -234,7 +234,7 @@ class ServerInfo:
             # 마릴 VPN
             '129.154.233.34': {'ip': '129.154.233.34', 'country': 'India'},
             '45.77.65.232': {'ip': '45.77.65.232', 'country': 'Germany'},
-            '132.145.127.21': {'ip': '132.145.127.21', 'country': 'Japan'},
+            '108.61.182.243': {'ip': '108.61.182.243', 'country': 'Japan'},
             '152.67.209.146': {'ip': '152.67.209.146', 'country': 'South Korea'},
             '129.159.126.80': {'ip': '129.159.126.80', 'country': 'United States'},
             '54.200.124.241': {'ip': '54.200.124.241', 'country': 'United States'},
