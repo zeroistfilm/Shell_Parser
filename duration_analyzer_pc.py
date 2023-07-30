@@ -13,13 +13,13 @@ db = mareeldb.session
 
 start_date = datetime(2022, 10, 25)
 end_date = start_date + timedelta(days=7)
-country = 'United States'
+country = 'total'
 directory = "./analyzer/pc/"+country.replace(' ','_')
 
 #국가별필터링
-rows = db.query(table).filter(table.country == country).all()
+# rows = db.query(table).filter(table.country == country).all()
 #전체
-# rows = db.query(table).all()
+rows = db.query(table).all()
 
 # ======================================================일주일 간격으로 담기
 start_date = datetime.strptime('2022-10-23', "%Y-%m-%d")
