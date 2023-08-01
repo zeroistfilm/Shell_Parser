@@ -434,11 +434,6 @@
 30,Topwar Studio, Top War: Battle Game, knight-va-gcp.topwargame.com, 34.149.41.68
 30,Topwar Studio, Top War: Battle Game, platformapi.topwarapp.com, 104.17.177.30
 
-# Valor Legends: Dog Rescue
-30,Century Games, Valor Legends: Dog Rescue, devops-ts.centurygame.com, 52.27.234.13
-30,Century Games, Valor Legends: Dog Rescue, logagent-wf.centurygame.com, 35.163.70.244, 44.224.227.180, 44.238.142.84, 50.112.224.123, 52.11.139.99
-30,Century Games, Valor Legends: Dog Rescue, ta-collector.centurygame.com, 52.26.238.196
-
 # F1 Mobile Racing
 30,Electronic Arts, F1 Mobile Racing, f1mrs.codemasters.com, 205.185.216.10, 205.185.216.42
 
@@ -885,3 +880,21 @@
 30,Kakao Games, Uma Musume Pretty Derby, *.umms.kakaogames.com, NULL
 30,Kakao Games, Uma Musume Pretty Derby, patch.umms.kakaogames.com, 101.79.243.130, 211.47.28.26
 30,Kakao Games, Uma Musume Pretty Derby, api.umms.kakaogames.com, 13.209.243.115, 15.165.57.118
+
+# Ares: Rise of Guardians
+30,Kakao Games, Ares: Rise of Guardians, *.ares.kakaogames.com, NULL
+30,Kakao Games, Ares: Rise of Guardians, patch.ares.kakaogames.com, 110.45.216.199, 114.108.157.198, 116.120.4.218
+
+# Tower of God: NEW WORLD
+30,Netmarble, Tower of God: NEW WORLD, gs-tog-game.netmarble.com, 183.110.90.155
+30,Netmarble, Tower of God: NEW WORLD, gs-tog-info.netmarble.com, 183.110.90.156
+30,Netmarble, Tower of God: NEW WORLD, tog.gcdn.netmarble.com, 13.225.131.35
+30,Netmarble, Tower of God: NEW WORLD, tog-replay-sg.s3-accelerate.amazonaws.com, 99.86.150.15
+
+# Pixel Hero
+30,Ujoy Games, Pixel Hero, pixelhero-gate.ujoygames.co.kr, 172.65.172.26
+30,Ujoy Games, Pixel Hero, pixelhero-login.ujoygames.co.kr, 172.65.220.126
+30,Ujoy Games, Pixel Hero, pixelhero-update.ujoygames.co.kr, 104.18.31.85
+
+# Pokémon Sleep
+30,The Pokémon Company, api.sleep.pokemon.co.jp, 44.229.251.67, 54.244.212.169
