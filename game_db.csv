@@ -353,6 +353,7 @@
 
 # Blue Archive
 30,Nexon, Blue Archive, ba.dn.nexoncdn.co.kr, 23.43.165.19, 23.43.165.26, 23.43.165.57
+30,Nexon, Blue Archive, ba.dn.nexoncdn.co.kr.cpd.nexon.com, NULL
 30,Nexon, Blue Archive, nxm-kr-bagl.nexon.com, 3.38.59.102
 30,Nexon, Blue Archive, bagl-prd-kr-pub-lb-1372170582.ap-northeast-2.elb.a, 3.38.59.102
 
@@ -898,3 +899,10 @@
 
 # Pokémon Sleep
 30,The Pokémon Company, api.sleep.pokemon.co.jp, 44.229.251.67, 54.244.212.169
+
+# Mafia42: Mafia Party Game
+30,TEAM42, Mafia42: Mafia Party Game, mafia42.com, 52.79.127.157
+
+# Overwatch 2
+30,Blizzard, Overwatch 2, overwatch.ingest.gdp.blizzard.com, 35.201.91.89
+30,Blizzard, Overwatch 2, overwatch-hotfix.cdn.blizzard.com, 99.86.207.123
