@@ -11,6 +11,12 @@ sudo pip3 install aiokafka pytz
 chmod +x json_capture.sh
 chmod +x restart_producer.sh
 ./restart_producer.sh
+
+# for cronjob
+chmod +x run_producer.sh
+crontab -e
+3 0 * * * /home/ubuntu/Shell_Parser/run_producer.sh
+3 12 * * * /home/ubuntu/Shell_Parser/run_producer.sh
 ```
 
 ### How to run the Kafka server
