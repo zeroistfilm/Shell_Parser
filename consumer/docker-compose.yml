@@ -3,5 +3,5 @@ version: '3.3'
 services:
   consumer:
     image:
-      zeroistfilm/gambit-consumer:latest
+      henrychoi7/gambit-consumer:latest
 
