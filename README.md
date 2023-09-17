@@ -27,15 +27,15 @@ sudo docker-compose up -d
 
 ---
 ### How to run the consumer
-build and push to DockerHub (need sign-in to zeroistfilm docker hub account)
+build and push to DockerHub (need sign-in to henrychoi7 docker hub account)
 ```bash
-docker build -t zeroistfilm/gambit-consumer:latest . --no-cache
-docker push zeroistfilm/gambit-consumer:latest
+docker build -t henrychoi7/gambit-consumer:latest . --no-cache
+docker push henrychoi7/gambit-consumer:latest
 ```
 
 run
 ```bash
-sudo docker run -it zeroistfilm/gambit-consumer:latest
+sudo docker run -it henrychoi7/gambit-consumer:latest
 #OR
 cd consumer/
 sudo docker-compose down
