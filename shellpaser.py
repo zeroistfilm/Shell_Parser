@@ -216,7 +216,7 @@ class ServerInfo:
         141.164.53.7: South Korea
         129.159.126.80: United States (East)
         54.200.124.241: United States (West)
-        193.122.121.185: South Korea
+        152.70.236.45: South Korea
 
 
         마릴 GO 테스트 서버
@@ -238,7 +238,7 @@ class ServerInfo:
             '141.164.53.7': {'ip': '141.164.53.7', 'country': 'South Korea'},
             '129.159.126.80': {'ip': '129.159.126.80', 'country': 'United States'},
             '54.200.124.241': {'ip': '54.200.124.241', 'country': 'United States'},
-            '193.122.121.185': {'ip': '193.122.121.185', 'country': 'South Korea'},
+            '152.70.236.45': {'ip': '152.70.236.45', 'country': 'South Korea'},
 
             # 마릴 GO 테스트 서버
             '141.147.190.169': {'ip': '141.147.190.169', 'country': 'Japan'},
