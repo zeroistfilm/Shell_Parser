@@ -99,9 +99,9 @@ async def main():
                 ('Mareel_GO_Duration', 'United-States_129.158.221.8_duration'),
                 ('Mareel_GO_Payment', 'United-States_129.158.221.8_payment'),
 
-                ('Mareel_GO_Raw', 'South-Korea_146.56.116.205_raw'),
-                ('Mareel_GO_Duration', 'South-Korea_146.56.116.205_duration'),
-                ('Mareel_GO_Payment', 'South-Korea_146.56.116.205_payment'),
+                ('Mareel_GO_Raw', 'South-Korea_152.70.249.8_raw'),
+                ('Mareel_GO_Duration', 'South-Korea_152.70.249.8_duration'),
+                ('Mareel_GO_Payment', 'South-Korea_152.70.249.8_payment'),
 
                 # Pro
                 #('Mareel_PRO_Raw', 'South-Korea_141.164.38.209_raw'),
