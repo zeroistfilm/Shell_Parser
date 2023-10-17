@@ -19,8 +19,7 @@ unsetup() {
     easy_curl "$1" interface/wg0 -X "DELETE"
 }
 
-# 서버 IP
-# setup 95.179.140.199
+# $1에 서버 IP 넣기
 # setup_enterprise $1
 unsetup $1
 setup_personal $1
