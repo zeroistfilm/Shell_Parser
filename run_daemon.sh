@@ -15,7 +15,12 @@ setup_enterprise() {
     easy_curl "$1" interface/wg0/status -X "PUT" --data '{"status": "start"}'
 }
 
+unsetup() {
+    easy_curl "$1" interface/wg0 -X "DELETE"
+}
 
-# setup $1
+# 서버 IP
+# setup 95.179.140.199
 # setup_enterprise $1
+unsetup $1
 setup_personal $1
