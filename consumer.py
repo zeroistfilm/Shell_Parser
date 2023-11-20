@@ -79,9 +79,9 @@ async def main():
                 ('Mareel_GO_Test_Duration', 'South-Korea_146.56.145.179_duration'),
                 ('Mareel_GO_Test_Payment', 'South-Korea_146.56.145.179_payment'),
 
-                ('Mareel_GO_Test_Raw', 'India_150.230.233.171_raw'),
-                ('Mareel_GO_Test_Duration', 'India_150.230.233.171_duration'),
-                ('Mareel_GO_Test_Payment', 'India_150.230.233.171_payment'),
+                ('Mareel_GO_Test_Raw', 'India_146.56.49.155_raw'),
+                ('Mareel_GO_Test_Duration', 'India_146.56.49.155_duration'),
+                ('Mareel_GO_Test_Payment', 'India_146.56.49.155_payment'),
 
                 ('Mareel_GO_Raw', 'India_144.24.119.251_raw'),
                 ('Mareel_GO_Duration', 'India_144.24.119.251_duration'),
