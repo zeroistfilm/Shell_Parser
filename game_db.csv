@@ -254,6 +254,19 @@
 30,Tencent Games, PUBG Mobile, pubgmobile.helpshift.com, 34.226.145.22
 30,Tencent Games, PUBG Mobile, pubgmpdrcdn.intlgame.com, 96.16.99.42
 30,Tencent Games, PUBG Mobile, www.pubgmobile.com, 96.16.99.204
+# BGMI
+30,Tencent Games, PUBG Mobile, *.globh.com, NULL
+30,Tencent Games, PUBG Mobile, tdm.globh.com, NULL
+30,Tencent Games, PUBG Mobile, 3001-shadow.globh.com, 20.204.13.24
+30,Tencent Games, PUBG Mobile, 3003-shadow.globh.com, 20.41.230.28
+30,Tencent Games, PUBG Mobile, bgmi.helpshift.com, 34.193.59.149
+30,Tencent Games, PUBG Mobile, h5.battlegroundsmobileindia.com, 23.64.59.32
+30,Tencent Games, PUBG Mobile, in-cloudctrl.globh.com, 20.193.133.152
+30,Tencent Games, PUBG Mobile, in-f.globh.com, 23.64.59.42, 23.213.0.219
+30,Tencent Games, PUBG Mobile, in-notice.globh.com, 20.44.249.227
+30,Tencent Games, PUBG Mobile, in-safe.globh.com, 23.64.59.18
+30,Tencent Games, PUBG Mobile, in-sdkapi.globh.com, 20.195.100.112
+
 
 # Call of Duty: Mobile
 30,Activision, Call of Duty: Mobile, codm-*, NULL
