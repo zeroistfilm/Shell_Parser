@@ -170,10 +170,10 @@ async def crawl(rawQueue, durationQueue, paymentQueue):
 
 
 async def message_send(serverInfo, title, queue):
-    if serverInfo['ip'] == '146.56.42.103':
+    if serverInfo['ip'] == '146.56.116.205':
         kafkaIp = '127.0.0.1'
     else:
-        kafkaIp = '146.56.42.103'
+        kafkaIp = '146.56.116.205'
     print(kafkaIp)
     while True:
         producer = aiokafka.AIOKafkaProducer(
