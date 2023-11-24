@@ -1,53 +1,46 @@
-### how to run the project  
+### Download
 ```bash
-chmod 777 json_capture.sh
+git clone https://github.com/zeroistfilm/Shell_Parser
 ```
 
-
-### background running  
+### How to run the producer
 ```bash
-nohup python3 main.py &
-```
+sudo apt install python3-pip -y
+sudo pip3 install aiokafka pytz
 
----
-### log를 생성하는 서버에 producer 실행
-init
-```bash
-apt install python3-pip -y
-pip3 install aiokafka
-pip3 install pytz
-```
-
-run
-```bash
-nohup python3 producer.py &
-```
-
-
-
-### log를 수집하는 서버에서 consumer 실행
-init
-```bash 
-apt install python3-pip -y
-pip3 install aiokafka
-pip3 install mysql-python
-
-```
-run
-```bash
-nohup python3 consumer.py &
-```
-
-
----
-### restart
-```bash
-chmod 777 restart_producer.sh
+chmod +x json_capture.sh
+chmod +x restart_producer.sh
 ./restart_producer.sh
+
+# for cronjob
+chmod +x run_producer.sh
+crontab -e
+3 0 * * * /home/ubuntu/Shell_Parser/run_producer.sh
+3 12 * * * /home/ubuntu/Shell_Parser/run_producer.sh
 ```
 
+### How to run the Kafka server
 ```bash
-chmod 777 restart_consumer.sh
-./restart_consumer.sh
+cd kafka
+sudo docker-compose up -d
 ```
 
+---
+### How to run the consumer
+build and push to DockerHub (need sign-in to henrychoi7 docker hub account)
+```bash
+docker build -t henrychoi7/gambit-consumer:latest . --no-cache
+docker push henrychoi7/gambit-consumer:latest
+```
+
+run
+```bash
+sudo docker run -it henrychoi7/gambit-consumer:latest
+#OR
+cd consumer/
+sudo docker-compose down
+sudo docker-compose up -d
+
+sudo docker ps -a
+sudo docker stats
+```

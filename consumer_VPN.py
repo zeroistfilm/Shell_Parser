@@ -9,9 +9,9 @@ from mareeldatabase import createRawTable, createDurationTable, mareelDB, create
 async def consume(service, topic, queue):
     while True:
         consumer = aiokafka.AIOKafkaConsumer(topic,
-                                             bootstrap_servers=['127.0.0.1:29092',
-                                                                '127.0.0.1:29093',
-                                                                '127.0.0.1:29094'])
+                                             bootstrap_servers=['146.56.42.103:29092',
+                                                                '146.56.42.103:29093',
+                                                                '146.56.42.103:29094'])
 
         if service.split('_')[-1] == 'Raw':
             table = createRawTable(service)
@@ -70,12 +70,14 @@ async def main():
         try:
             servers = [
 
-                ('Mareel_VPN_Raw', 'Germany_52.29.224.219_raw'),
-                ('Mareel_VPN_Duration', 'Germany_52.29.224.219_duration'),
+                ('Mareel_VPN_Raw', 'India_129.154.233.34_raw'),
+                ('Mareel_VPN_Duration', 'India_129.154.233.34_duration'),
+                ('Mareel_VPN_Raw', 'Germany_45.77.65.232_raw'),
+                ('Mareel_VPN_Duration', 'Germany_45.77.65.232_duration'),
                 ('Mareel_VPN_Raw', 'Japan_140.238.35.212_raw'),
                 ('Mareel_VPN_Duration', 'Japan_140.238.35.212_duration'),
-                ('Mareel_VPN_Raw', 'South-Korea_152.67.209.146_raw'),
-                ('Mareel_VPN_Duration', 'South-Korea_152.67.209.146_duration'),
+                ('Mareel_VPN_Raw', 'South-Korea_141.164.53.7_raw'),
+                ('Mareel_VPN_Duration', 'South-Korea_141.164.53.7_duration'),
 
                 ('Mareel_VPN_Raw', 'United-States_129.159.126.80_raw'),
                 ('Mareel_VPN_Duration', 'United-States_129.159.126.80_duration'),
