@@ -91,9 +91,9 @@ async def main():
                        ('Mareel_GO_Duration', 'South-Korea_146.56.42.103_duration'),
                         ('Mareel_GO_Payment', 'South-Korea_146.56.42.103_payment'),
 
-                       ('Mareel_GO_Raw', 'United-States_129.158.221.8_raw'),
-                       ('Mareel_GO_Duration', 'United-States_129.158.221.8_duration'),
-                        ('Mareel_GO_Payment', 'United-States_129.158.221.8_payment'),
+                       ('Mareel_GO_Raw', 'United-States_45.76.22.227_raw'),
+                       ('Mareel_GO_Duration', 'United-States_45.76.22.227_duration'),
+                        ('Mareel_GO_Payment', 'United-States_45.76.22.227_payment'),
                        ]
 
             # print(*[saver(messageQueue), *[consume(service, server, messageQueue) for service, server in servers]])

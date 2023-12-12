@@ -207,7 +207,7 @@ class ServerInfo:
         146.56.42.103: South Korea
         54.95.222.100: Japan
         144.24.119.251: India
-        129.158.221.8: United States
+        45.76.22.227: United States
         152.70.249.8: South Korea
 
         마릴 VPN
@@ -228,7 +228,7 @@ class ServerInfo:
             '146.56.42.103': {'ip': '146.56.42.103', 'country': 'South Korea'},
             '54.95.222.100': {'ip': '54.95.222.100', 'country': 'Japan'},
             '144.24.119.251': {'ip': '144.24.119.251', 'country': 'India'},
-            '129.158.221.8': {'ip': '129.158.221.8', 'country': 'United States'},
+            '45.76.22.227': {'ip': '45.76.22.227', 'country': 'United States'},
             '152.70.249.8': {'ip': '152.70.249.8', 'country': 'South Korea'},
 
             # 마릴 VPN
