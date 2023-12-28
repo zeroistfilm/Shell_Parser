@@ -214,7 +214,7 @@ class ServerInfo:
         45.77.65.232: Germany
         108.61.182.243: Japan
         141.164.53.7: South Korea
-        129.159.126.80: United States (East)
+        45.76.21.208: United States (East)
         54.200.124.241: United States (West)
         146.56.116.205: South Korea
 
@@ -236,7 +236,7 @@ class ServerInfo:
             '45.77.65.232': {'ip': '45.77.65.232', 'country': 'Germany'},
             '108.61.182.243': {'ip': '108.61.182.243', 'country': 'Japan'},
             '141.164.53.7': {'ip': '141.164.53.7', 'country': 'South Korea'},
-            '129.159.126.80': {'ip': '129.159.126.80', 'country': 'United States'},
+            '45.76.21.208': {'ip': '45.76.21.208', 'country': 'United States'},
             '54.200.124.241': {'ip': '54.200.124.241', 'country': 'United States'},
             '146.56.116.205': {'ip': '146.56.116.205', 'country': 'South Korea'},
 
