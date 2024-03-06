@@ -35,7 +35,7 @@ docker push henrychoi7/gambit-consumer:latest
 
 run
 ```bash
-sudo docker run -it henrychoi7/gambit-consumer:latest
+sudo docker run -d henrychoi7/gambit-consumer:latest
 #OR
 cd consumer/
 sudo docker-compose down

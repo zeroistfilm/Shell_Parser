@@ -2,8 +2,8 @@ version: '3.3'
 
 services:
   zookeeper:
-    #image: confluentinc/cp-zookeeper:latest #x86
-    image: confluentinc/cp-zookeeper:latest-ubi8.arm64 #arm64
+    image: confluentinc/cp-zookeeper:latest #x86
+    # image: confluentinc/cp-zookeeper:latest-ubi8.arm64 #arm64
     environment:
       ZOOKEEPER_SERVER_ID: 1
       ZOOKEEPER_CLIENT_PORT: 2181
@@ -14,8 +14,8 @@ services:
       - "22181:2181"
 
   kafka1:
-    #image: confluentinc/cp-kafka:latest #x86
-    image :  confluentinc/cp-kafka:latest-ubi8.arm64 #arm64
+    image: confluentinc/cp-kafka:latest #x86
+    # image :  confluentinc/cp-kafka:latest-ubi8.arm64 #arm64
     depends_on:
       - zookeeper
     ports:
@@ -30,8 +30,8 @@ services:
       KAFKA_NUM_PARTITIONS: 3
 
   kafka2:
-    #image: confluentinc/cp-kafka:latest #x86
-    image: confluentinc/cp-kafka:latest-ubi8.arm64 #arm64
+    image: confluentinc/cp-kafka:latest #x86
+    # image: confluentinc/cp-kafka:latest-ubi8.arm64 #arm64
     depends_on:
       - zookeeper
     ports:
@@ -46,8 +46,8 @@ services:
       KAFKA_NUM_PARTITIONS: 3
 
   kafka3:
-      #image: confluentinc/cp-kafka:latest #x86
-      image: confluentinc/cp-kafka:latest-ubi8.arm64 #arm64
+      image: confluentinc/cp-kafka:latest #x86
+      # image: confluentinc/cp-kafka:latest-ubi8.arm64 #arm64
       depends_on:
         - zookeeper
       ports:
