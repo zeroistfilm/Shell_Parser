@@ -18,9 +18,9 @@ async def consume(service, topic, queue):
         consumer = aiokafka.AIOKafkaConsumer(
             topic,
             bootstrap_servers=[
-                "146.56.116.205:29092",
-                "146.56.116.205:29093",
-                "146.56.116.205:29094",
+                "141.164.53.7:29092",
+                "141.164.53.7:29093",
+                "141.164.53.7:29094",
             ],
         )
 
