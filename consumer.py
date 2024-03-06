@@ -120,8 +120,8 @@ async def main():
                 ("Mareel_VPN_Duration", "United-States_45.76.21.208_duration"),
                 ("Mareel_VPN_Raw", "United-States_54.200.124.241_raw"),
                 ("Mareel_VPN_Duration", "United-States_54.200.124.241_duration"),
-                ("Mareel_VPN_Raw", "South-Korea_146.56.116.205_raw"),
-                ("Mareel_VPN_Duration", "South-Korea_146.56.116.205_duration"),
+                ("Mareel_VPN_Raw", "South-Korea_158.247.209.108_raw"),
+                ("Mareel_VPN_Duration", "South-Korea_158.247.209.108_duration"),
             ]
 
             # print(*[saver(messageQueue), *[consume(service, server, messageQueue) for service, server in servers]])
