@@ -44,3 +44,12 @@ sudo docker-compose up -d
 sudo docker ps -a
 sudo docker stats
 ```
+
+monitor
+```bash
+chmod +x consumer/docker_event_monitor.sh
+# if needed
+vi consumer/docker_event_monitor.sh
+cd consumer/
+nohup ./docker_event_monitor.sh > docker_event.log 2>&1 &
+```
