@@ -53,3 +53,12 @@ vi consumer/docker_event_monitor.sh
 cd consumer/
 nohup ./docker_event_monitor.sh > docker_event.log 2>&1 &
 ```
+
+restart
+```bash
+chmod +x consumer/docker_restart.sh
+# if needed
+vi consumer/docker_restart.sh
+crontab -e
+* * * * * /bin/bash /root/Shell_Parser/consumer/docker_restart.sh >> /root/Shell_Parser/consumer/docker_restart.log 2>&1
+```
