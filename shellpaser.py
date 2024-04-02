@@ -205,19 +205,12 @@ class ServerInfo:
     def __init__(self):
         """
         146.56.42.103: South Korea
-        54.95.222.100: Japan
+        108.61.182.243: Japan
         144.24.119.251: India
         45.76.22.227: United States
-        152.70.249.8: South Korea
+        141.164.53.7: South Korea
 
         마릴 VPN
-        45.77.65.232: Germany
-        108.61.182.243: Japan
-        141.164.53.7: South Korea
-        45.76.21.208: United States (East)
-        54.200.124.241: United States (West)
-        158.247.209.108: South Korea
-
 
         마릴 GO 테스트 서버
         146.56.49.155: India
@@ -226,18 +219,16 @@ class ServerInfo:
         self.location_dict = {
             # 마릴 GO
             "146.56.42.103": {"ip": "146.56.42.103", "country": "South Korea"},
-            "54.95.222.100": {"ip": "54.95.222.100", "country": "Japan"},
+            "108.61.182.243": {"ip": "108.61.182.243", "country": "Japan"},
             "144.24.119.251": {"ip": "144.24.119.251", "country": "India"},
             "45.76.22.227": {"ip": "45.76.22.227", "country": "United States"},
-            "152.70.249.8": {"ip": "152.70.249.8", "country": "South Korea"},
-            # 마릴 VPN
-            "129.154.233.34": {"ip": "129.154.233.34", "country": "India"},
-            "45.77.65.232": {"ip": "45.77.65.232", "country": "Germany"},
-            "108.61.182.243": {"ip": "108.61.182.243", "country": "Japan"},
             "141.164.53.7": {"ip": "141.164.53.7", "country": "South Korea"},
-            "45.76.21.208": {"ip": "45.76.21.208", "country": "United States"},
-            "54.200.124.241": {"ip": "54.200.124.241", "country": "United States"},
-            "158.247.209.108": {"ip": "158.247.209.108", "country": "South Korea"},
+            # 마릴 VPN
+            # "129.154.233.34": {"ip": "129.154.233.34", "country": "India"},
+            # "45.77.65.232": {"ip": "45.77.65.232", "country": "Germany"},
+            # "45.76.21.208": {"ip": "45.76.21.208", "country": "United States"},
+            # "54.200.124.241": {"ip": "54.200.124.241", "country": "United States"},
+            # "158.247.209.108": {"ip": "158.247.209.108", "country": "South Korea"},
             # 마릴 GO 테스트 서버
             "146.56.49.155": {"ip": "146.56.49.155", "country": "India"},
             "146.56.145.179": {"ip": "146.56.145.179", "country": "South Korea"},
