@@ -59,6 +59,5 @@ restart
 chmod +x consumer/docker_restart.sh
 # if needed
 vi consumer/docker_restart.sh
-crontab -e
-* * * * * /bin/bash /root/Shell_Parser/consumer/docker_restart.sh >> /root/Shell_Parser/consumer/docker_restart.log 2>&1
+nohup consumer/docker_restart.sh > consumer/docker_restart.log 2>&1 &
 ```
