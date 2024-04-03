@@ -30,7 +30,7 @@ do
         echo "컨테이너가 종료되어 재시작되었습니다." | mail -s "컨테이너 재시작 알림" handong@mareel.io
 
         # 스크립트 실행 종료
-        exit
+        # exit
     fi
 
     # 10초마다 반복하여 상태 확인
