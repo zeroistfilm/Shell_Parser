@@ -24,7 +24,7 @@ do
         sudo docker system prune -a -f
 
         # Docker Compose를 사용하여 컨테이너 재시작
-        sudo docker-compose -f /root/Shell_Parser/consumer/docker-compose.yml up -d
+        sudo docker compose -f /root/Shell_Parser/consumer/docker-compose.yml up -d
 
         # 이메일 보내기
         echo "컨테이너가 종료되어 재시작되었습니다." | mail -s "컨테이너 재시작 알림" handong@mareel.io
