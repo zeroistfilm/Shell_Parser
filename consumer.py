@@ -18,9 +18,9 @@ async def consume(service, topic, queue):
         consumer = aiokafka.AIOKafkaConsumer(
             topic,
             bootstrap_servers=[
-                "141.164.53.7:29092",
-                "141.164.53.7:29093",
-                "141.164.53.7:29094",
+                "152.70.249.8:29092",
+                "152.70.249.8:29093",
+                "152.70.249.8:29094",
             ],
         )
 
@@ -104,6 +104,12 @@ async def main():
                 ("Mareel_GO_Raw", "South-Korea_141.164.53.7_raw"),
                 ("Mareel_GO_Duration", "South-Korea_141.164.53.7_duration"),
                 ("Mareel_GO_Payment", "South-Korea_141.164.53.7_payment"),
+                ("Mareel_GO_Raw", "India_139.84.133.176_raw"),
+                ("Mareel_GO_Duration", "India_139.84.133.176_duration"),
+                ("Mareel_GO_Payment", "India_139.84.133.176_payment"),
+                ("Mareel_GO_Raw", "India_139.84.166.165_raw"),
+                ("Mareel_GO_Duration", "India_139.84.166.165_duration"),
+                ("Mareel_GO_Payment", "India_139.84.166.165_payment"),
                 # Pro
                 # ('Mareel_PRO_Raw', 'South-Korea_141.164.38.209_raw'),
                 # ('Mareel_PRO_Duration', 'South-Korea_141.164.38.209_duration')

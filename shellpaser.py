@@ -209,6 +209,8 @@ class ServerInfo:
         144.24.119.251: India
         45.76.22.227: United States
         141.164.53.7: South Korea
+        139.84.133.176: India
+        139.84.166.165: India
 
         마릴 VPN
 
@@ -223,6 +225,8 @@ class ServerInfo:
             "144.24.119.251": {"ip": "144.24.119.251", "country": "India"},
             "45.76.22.227": {"ip": "45.76.22.227", "country": "United States"},
             "141.164.53.7": {"ip": "141.164.53.7", "country": "South Korea"},
+            "139.84.133.176": {"ip": "139.84.133.176", "country": "India"},
+            "139.84.166.165": {"ip": "139.84.166.165", "country": "India"},
             # 마릴 VPN
             # "129.154.233.34": {"ip": "129.154.233.34", "country": "India"},
             # "45.77.65.232": {"ip": "45.77.65.232", "country": "Germany"},

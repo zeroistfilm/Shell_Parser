@@ -20,6 +20,7 @@ crontab -e
 ```
 
 ### How to run the Kafka server
+open TCP 29092-29094, 9000 port for Kafka (both network and ufw)
 ```bash
 cd kafka
 sudo docker-compose up -d
