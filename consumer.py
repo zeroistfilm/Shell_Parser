@@ -59,8 +59,8 @@ async def consume(service, topic, queue):
 async def saver(queue):
     print("start saver")
     global mareeldb
-    mareeldb = mareelDB(useLocalDB=False)
-    while False:
+    mareeldb = mareelDB(useLocalDB=True)
+    while True:
         try:
             bulk = await queue.get()
             mareeldb.session.add_all(bulk)
